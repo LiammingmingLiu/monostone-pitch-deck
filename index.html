@@ -431,6 +431,35 @@ table tr:last-child td { border-bottom: none; }
   font-weight: 700;
 }
 
+/* ===== REDACTED NAME ===== */
+.redacted {
+  display: inline-block;
+  position: relative;
+  color: transparent;
+  user-select: none;
+}
+.redacted::after {
+  content: '';
+  position: absolute;
+  inset: 2px 0;
+  background: linear-gradient(90deg, 
+    rgba(0,212,255,0.4) 0%, 
+    rgba(0,212,255,0.7) 20%, 
+    rgba(0,212,255,0.3) 40%, 
+    rgba(0,212,255,0.8) 60%, 
+    rgba(0,212,255,0.4) 80%, 
+    rgba(0,212,255,0.6) 100%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: mosaic-shift 2s ease-in-out infinite;
+  filter: blur(1px);
+}
+@keyframes mosaic-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 /* ===== TEAM ===== */
 .team-grid {
   display: grid;
@@ -948,7 +977,7 @@ table tr:last-child td { border-bottom: none; }
           </div>
           <div class="anim card" style="margin-bottom:20px;">
             <div style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:12px;">🚀 行动层 — Agent Commander</div>
-            <p style="font-size:16px;color:var(--text-muted);">开完会说"把重点发给 X 和 Marshal"→ 直接发邮件。说"帮我打车去 XX"→ 直接叫车。Day 1 即开放——Skills 插件、MCP 协议、CLI、任何第三方 Agent，能力随生态无限扩展。</p>
+            <p style="font-size:16px;color:var(--text-muted);">开完会说"把重点发给同事 A 和 Marshal"→ 直接发邮件。说"帮我打车去 XX"→ 直接叫车。Day 1 即开放——Skills 插件、MCP 协议、CLI、任何第三方 Agent，能力随生态无限扩展。</p>
           </div>
           <div class="anim punch" style="font-size:18px;">
             三层闭合 = 第一个真正<span class="accent">"认识你且能替你做事"</span>的个人 AI 平台。
@@ -1364,7 +1393,7 @@ table tr:last-child td { border-bottom: none; }
         </div>
         <div class="team-card">
           <div class="team-role">联合创始人 / 软件</div>
-          <div class="team-name">X</div>
+          <div class="team-name"><span class="redacted">██████</span></div>
           <div class="team-bio">98 年，连续创业者（3D 打印机 / 数据公司），全栈工程师。高密度工程直觉，端到端交付。</div>
         </div>
         <div class="team-card">
