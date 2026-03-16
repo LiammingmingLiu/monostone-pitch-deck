@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLI 场景页 — 预览</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-dark: #0A0A0A;
+  --bg-light: #1A1A1A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E0E0E0;
+  --text-muted: #999999;
+  --accent: #00D4FF;
+  --accent-dim: rgba(0,212,255,0.15);
+  --border: rgba(255,255,255,0.08);
+  --green: #34D399;
+  --purple: #A78BFA;
+  --orange: #FB923C;
+  --pink: #F472B6;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.slide {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 80px;
+  overflow-y: auto;
+}
+
+.slide-inner { max-width: 1200px; width: 100%; }
+
+h2 { font-size: 42px; font-weight: 700; line-height: 1.2; letter-spacing: -1px; margin-bottom: 8px; }
+.accent { color: var(--accent); }
+.bold { font-weight: 700; color: var(--text-primary); }
+
+/* ===== Section Labels ===== */
+.section-row {
+  display: flex;
+  gap: 40px;
+  margin-top: 28px;
+}
+
+.section-col {
+  flex: 1;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid;
+}
+
+.section-label.work { color: var(--accent); border-color: var(--accent); }
+.section-label.life { color: var(--purple); border-color: var(--purple); }
+
+/* ===== Case Cards ===== */
+.case-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.case-card:hover {
+  border-color: rgba(0,212,255,0.3);
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.case-card.future {
+  border-left: 3px solid var(--orange);
+}
+
+.case-card.future::after {
+  content: '未来';
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--bg-dark);
+  background: var(--orange);
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.case-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.case-ring {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(0,212,255,0.05));
+  border: 1.5px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.case-voice {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+.case-actions {
+  padding-left: 38px;
+}
+
+.case-action {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  position: relative;
+  padding-left: 16px;
+}
+
+.case-action::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.case-action .tool {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(0,212,255,0.1);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+.case-action .tool.future-tool {
+  color: var(--orange);
+  background: rgba(251,146,60,0.1);
+}
+
+/* ===== Bottom punch ===== */
+.punch-row {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+}
+
+.punch-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.punch-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.punch-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* ===== Stagger animation ===== */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.case-card {
+  opacity: 0;
+  animation: slideIn 0.4s ease forwards;
+}
+
+.section-col:first-child .case-card:nth-child(2) { animation-delay: 0.05s; }
+.section-col:first-child .case-card:nth-child(3) { animation-delay: 0.1s; }
+.section-col:first-child .case-card:nth-child(4) { animation-delay: 0.15s; }
+.section-col:first-child .case-card:nth-child(5) { animation-delay: 0.2s; }
+
+.section-col:last-child .case-card:nth-child(2) { animation-delay: 0.25s; }
+.section-col:last-child .case-card:nth-child(3) { animation-delay: 0.3s; }
+.section-col:last-child .case-card:nth-child(4) { animation-delay: 0.35s; }
+.section-col:last-child .case-card:nth-child(5) { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <div class="slide-inner">
+
+    <h3 style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">一句话，全部搞定</h3>
+    <h2>双击戒指。剩下的交给 <span class="accent">Agent</span>。</h2>
+    <p style="font-size:16px;color:var(--text-muted);margin-bottom:0;">🔶 = 今天还没有 CLI，但未来一定会有</p>
+
+    <div class="section-row">
+      <!-- LEFT: WORK -->
+      <div class="section-col">
+        <div class="section-label work">💼 工作场景</div>
+
+        <div class="case-card">
+          <div class="case-trigger">
+            <div class="case-ring">🎙</div>
+            <div class="case-voice">"会开完了"</div>
+          </div>
+          <div class="case-actions">
+            <div class="case-action">会议纪要写入 Notion <span class="tool">Notion MCP</span></div>
+            <div class="case-action">Action items 变成 Linear issues <span class="tool">Linear API</span></div>
+            <div class="case-action">跟进邮件自动发出 <span class="tool">Gmail MCP</span></div>
+            <div class="case-action">日程自动更新 <span class="tool">Calendar MCP</span></div>
+          </div>
+        </div>
+
+        <div class="case-card future">
+          <div class="case-trigger">
+            <div class="case-ring">🎙</div>
+            <div class="case-voice">"把今天聊的竞品分析发个 Twitter thread"</div>
+          </div>
+          <div class="case-actions">
+            <div class="case-action">从今天 3 段录音提取竞品观点 <span class="tool" style="background:rgba(167,139,250,0.1);color:var(--purple);">Memory</span></div>
+            <div class="case-action">按你的写作风格生成 thread <span class="tool" style="background:rgba(167,139,250,0.1);color:var(--purple);">Context</span></div>
+            <div class="case-action">发布到 X + 同步 LinkedIn <span class="tool future-tool">X/LinkedIn CLI</span></div>
+          </div>
+        </div>
+
+        <div class="case-card future">
+          <div class="case-trigger">
+            <div class="case-ring">🎙</div>
+            <div class="case-voice">"把这周 3 次用户访谈整理成需求文档"</div>
+          </div>
+          <div class="case-actions">
+            <div class="case-action">3 次录音交叉分析：高频痛点、矛盾需求、原话引用 <span class="tool" style="background:rgba(167,139,250,0.1);color:var(--purple);">Memory</span></div>
+            <div class="case-action">自动生成 PRD 并标注优先级 <span class="tool future-tool">Docs CLI</span></div>
+            <div class="case-action">拆成 User Stories 写入 Linear <span class="tool">Linear API</span></div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-trigger">
+            <div class="case-ring">🎙</div>
+            <div class="case-voice">"今天活动认识了 5 个人，备注一下"</div>
+          </div>
+          <div class="case-actions">
+            <div class="case-action">每人一句语音备注，Agent 自动建档 <span class="tool" style="background:rgba(167,139,250,0.1);color:var(--purple);">Memory</span></div>
+            <div class="case-action">当晚自动起草个性化跟进邮件 <span class="tool">Gmail MCP</span></div>
+            <div class="case-action">3 天没回复？自动提醒你 follow up <span class="tool">Calendar MCP</span></div>
+            <div class="case-action">下次再遇到，戒指告诉你上次聊了什么 <span class="tool" style="background:rgba(167,139,250,0.1);color:var(--purple);">Context</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: LIFE -->
+      <div class="section-col">
+        <div class="section-label life">🏠 生活场景</div>
+
+        <div class="case-card">
+          <div class="case-trigger">
+            <div class="case-ring">🎙</div>
+            <div class="case-voice">"我今天累了"</div>
+          </div>
+          <div class="case-actions">
+            <div class="case-action">客厅灯调暗 <span class="tool">HomeAssistant</span></div>
+            <div class="case-action">播放你的放松歌单 <span class="tool">Spotify MCP</span></div>
+            <div class="case-action">设置勿扰模式，静音所有通知 <span class="tool">系统 API</span></div>
+            <div class="case-action">因为 Agent 记得你累了就听爵士、调暗灯 <span class="tool" style="background:rgba(167,139,250,0.1);color:var(--purple);">Context</span></div>
+          </div>
+        </div>
+
+        <div class="case-card future">
+          <div class="case-trigger">
+            <div class="case-ring">🎙</div>
+            <div class="case-voice">"下个月去东京出差三天"</div>
+          </div>
+          <div class="case-actions">
+            <div class="case-action">查日历空档 <span class="tool">Calendar MCP</span></div>
+            <div class="case-action">搜航班 + 订酒店（你上次住涩谷觉得不错）<span class="tool future-tool">携程/Booking CLI</span></div>
+            <div class="case-action">行程写入日历 <span class="tool">Calendar MCP</span></div>
+          </div>
+        </div>
+
+        <div class="case-card future">
+          <div class="case-trigger">
+            <div class="case-ring">🎙</div>
+            <div class="case-voice">"帮我叫个车去机场"</div>
+          </div>
+          <div class="case-actions">
+            <div class="case-action">查航班时间，倒推出发时间 <span class="tool" style="background:rgba(167,139,250,0.1);color:var(--purple);">Context</span></div>
+            <div class="case-action">叫车到你常用的上车点 <span class="tool future-tool">滴滴/Uber CLI</span></div>
+            <div class="case-action">发消息通知接机人 <span class="tool">消息 MCP</span></div>
+          </div>
+        </div>
+
+        <div class="case-card future">
+          <div class="case-trigger">
+            <div class="case-ring">🎙</div>
+            <div class="case-voice">"老妈下周生日，帮我安排一下"</div>
+          </div>
+          <div class="case-actions">
+            <div class="case-action">记得她上次说想要个按摩仪 <span class="tool" style="background:rgba(167,139,250,0.1);color:var(--purple);">Context</span></div>
+            <div class="case-action">搜索下单，送到她家地址 <span class="tool future-tool">电商 CLI</span></div>
+            <div class="case-action">生日当天自动发祝福消息 <span class="tool">消息 MCP</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom punch -->
+    <div class="punch-row">
+      <div class="punch-divider"></div>
+      <div>
+        <div class="punch-text">同一句话，<span class="accent">有 Context</span> 和没 Context 是两个世界。</div>
+        <div class="punch-sub">"帮我叫车" → 没有 Context：去哪？几点？在哪上车？ · 有 Context：你 3 点的航班，2 点从公司出发，已叫到楼下。</div>
+      </div>
+      <div class="punch-divider"></div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

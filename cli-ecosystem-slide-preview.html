@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLI 生态页 — 预览</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-dark: #0A0A0A;
+  --bg-mid: #111111;
+  --bg-light: #1A1A1A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E0E0E0;
+  --text-muted: #999999;
+  --accent: #00D4FF;
+  --accent-dim: rgba(0,212,255,0.15);
+  --accent-glow: rgba(0,212,255,0.3);
+  --border: rgba(255,255,255,0.08);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.slide {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 100px;
+  overflow-y: auto;
+}
+
+.slide-inner { max-width: 1200px; width: 100%; }
+
+h2 { font-size: 44px; font-weight: 700; line-height: 1.2; letter-spacing: -1px; margin-bottom: 20px; }
+h3 { font-size: 28px; font-weight: 600; line-height: 1.3; color: var(--text-secondary); margin-bottom: 16px; }
+p, li { font-size: 20px; line-height: 1.7; color: var(--text-secondary); }
+.accent { color: var(--accent); }
+.bold { font-weight: 700; color: var(--text-primary); }
+
+.card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.card-accent {
+  background: var(--accent-dim);
+  border: 1px solid rgba(0,212,255,0.25);
+}
+
+/* ===== Ecosystem Grid ===== */
+.eco-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.eco-cell {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.eco-cell:hover {
+  border-color: rgba(0,212,255,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.eco-cell .eco-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.eco-cell .eco-cat {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.eco-cell .eco-examples {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ===== Flow Diagram ===== */
+.flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 36px;
+}
+
+.flow-node {
+  padding: 16px 28px;
+  border-radius: 14px;
+  text-align: center;
+  min-width: 160px;
+}
+
+.flow-node.ring {
+  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,212,255,0.05));
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 24px rgba(0,212,255,0.15);
+}
+
+.flow-node.context {
+  background: linear-gradient(135deg, rgba(0,212,255,0.3), rgba(0,212,255,0.1));
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 40px rgba(0,212,255,0.2);
+}
+
+.flow-node.cli {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+}
+
+.flow-arrow {
+  color: var(--accent);
+  font-size: 24px;
+  margin: 0 12px;
+  opacity: 0.6;
+}
+
+.flow-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.flow-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ===== Stats Bar ===== */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px;
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.stat-number {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* ===== Punchline ===== */
+.punch-bottom {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.punch-bottom p {
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.punch-bottom .punch-main {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 8px;
+}
+
+/* ===== Pulse animation on numbers ===== */
+@keyframes countPulse {
+  0% { opacity: 0; transform: scale(0.8); }
+  60% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.stat-number { animation: countPulse 0.8s ease forwards; }
+.stats-row .stat-item:nth-child(2) .stat-number { animation-delay: 0.15s; }
+.stats-row .stat-item:nth-child(3) .stat-number { animation-delay: 0.3s; }
+
+/* ===== Eco cell stagger ===== */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.eco-cell {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.4s ease forwards;
+}
+.eco-cell:nth-child(1) { animation-delay: 0.1s; }
+.eco-cell:nth-child(2) { animation-delay: 0.15s; }
+.eco-cell:nth-child(3) { animation-delay: 0.2s; }
+.eco-cell:nth-child(4) { animation-delay: 0.25s; }
+.eco-cell:nth-child(5) { animation-delay: 0.3s; }
+.eco-cell:nth-child(6) { animation-delay: 0.35s; }
+.eco-cell:nth-child(7) { animation-delay: 0.4s; }
+.eco-cell:nth-child(8) { animation-delay: 0.45s; }
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <div class="slide-inner">
+
+    <h3 style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">生态即壁垒</h3>
+    <h2>不自己写百万 App。<br>我们有 <span class="accent">App Store</span>。</h2>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-number">1,000+</div>
+        <div class="stat-label">MCP Server 已上线</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">CLI 化桌面软件</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">原生 CLI 平台</div>
+      </div>
+    </div>
+
+    <!-- Ecosystem Grid -->
+    <div class="eco-grid">
+      <div class="eco-cell">
+        <div class="eco-icon">📧</div>
+        <div class="eco-cat">通讯 · 邮件</div>
+        <div class="eco-examples">Slack · Gmail · Discord<br>Telegram · Outlook</div>
+      </div>
+      <div class="eco-cell">
+        <div class="eco-icon">📅</div>
+        <div class="eco-cat">日历 · 任务</div>
+        <div class="eco-examples">Google Calendar<br>Notion · Linear · Todoist</div>
+      </div>
+      <div class="eco-cell">
+        <div class="eco-icon">💻</div>
+        <div class="eco-cat">开发 · DevOps</div>
+        <div class="eco-examples">GitHub · Docker · K8s<br>Vercel · AWS · Jenkins</div>
+      </div>
+      <div class="eco-cell">
+        <div class="eco-icon">🎨</div>
+        <div class="eco-cat">创意 · 媒体</div>
+        <div class="eco-examples">Blender · GIMP · OBS<br>Audacity · DaVinci</div>
+      </div>
+      <div class="eco-cell">
+        <div class="eco-icon">💰</div>
+        <div class="eco-cat">支付 · 电商</div>
+        <div class="eco-examples">Stripe · Shopify<br>Invoice · CRM</div>
+      </div>
+      <div class="eco-cell">
+        <div class="eco-icon">🏠</div>
+        <div class="eco-cat">智能家居</div>
+        <div class="eco-examples">Home Assistant<br>IoT · 灯光 · 温控</div>
+      </div>
+      <div class="eco-cell">
+        <div class="eco-icon">🎵</div>
+        <div class="eco-cat">音乐 · 健康</div>
+        <div class="eco-examples">Spotify · Apple Music<br>Apple Health · 睡眠</div>
+      </div>
+      <div class="eco-cell">
+        <div class="eco-icon">✈️</div>
+        <div class="eco-cat">旅行 · 出行</div>
+        <div class="eco-examples">Amadeus · 机票<br>酒店 · 行程</div>
+      </div>
+    </div>
+
+    <!-- Flow: Ring → Context → CLI Ecosystem -->
+    <div class="flow-row">
+      <div class="flow-node ring">
+        <div class="flow-label">🔲 戒指</div>
+        <div class="flow-sub">一句话输入</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node context">
+        <div class="flow-label">🧠 Context 引擎</div>
+        <div class="flow-sub">理解你 · 知道该做什么</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node cli">
+        <div class="flow-label">⚡ 1,000+ 插件</div>
+        <div class="flow-sub">CLI / MCP / API</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node cli">
+        <div class="flow-label">✅ 执行完成</div>
+        <div class="flow-sub">邮件已发 · 日程已建 · 代码已部署</div>
+      </div>
+    </div>
+
+    <!-- Punchline -->
+    <div class="punch-bottom">
+      <p>iPhone 没有自己写百万 App —— 它做了 App Store。</p>
+      <div class="punch-main">Monostone 不需要集成所有软件。CLI 生态就是我们的 App Store。</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

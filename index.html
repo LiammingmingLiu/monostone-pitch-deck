@@ -723,6 +723,113 @@ table tr:last-child td { border-bottom: none; }
   transform: scale(1.3);
 }
 
+/* ===== ECO TILES (Slide 5) ===== */
+.eco-tile {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.eco-tile:hover {
+  border-color: rgba(0,212,255,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.eco-tile-cat {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 6px 0;
+}
+.eco-tile-ex {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ===== CLI CASE CARDS (Slide 6) ===== */
+.cli-case {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.cli-case:hover {
+  border-color: rgba(0,212,255,0.3);
+  transform: translateX(4px);
+}
+.cli-case.cli-future {
+  border-left: 3px solid #FB923C;
+}
+.cli-case.cli-future::after {
+  content: '未来';
+  position: absolute;
+  top: 8px; right: 10px;
+  font-size: 10px; font-weight: 700;
+  color: #0A0A0A;
+  background: #FB923C;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.cli-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.cli-ring {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(0,212,255,0.05));
+  border: 1.5px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.cli-actions { padding-left: 32px; }
+.cli-act {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  position: relative;
+  padding-left: 14px;
+}
+.cli-act::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.cli-tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(0,212,255,0.1);
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 3px;
+}
+.cli-tag-ctx {
+  color: #A78BFA;
+  background: rgba(167,139,250,0.1);
+}
+.cli-tag-future {
+  color: #FB923C;
+  background: rgba(251,146,60,0.1);
+}
+
 /* ===== SLIDE NUMBER ===== */
 .slide-counter {
   position: fixed;
@@ -987,8 +1094,171 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 5: PRODUCT ==================== -->
+  <!-- ==================== SLIDE 5: CLI ECOSYSTEM ==================== -->
   <div class="slide" data-slide="4">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">生态即壁垒</h3>
+      <h2 class="anim">不自己写百万 App。<br>我们有 <span class="accent">App Store</span>。</h2>
+
+      <!-- Stats -->
+      <div class="anim" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px;">
+        <div style="text-align:center;padding:20px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
+          <div style="font-size:42px;font-weight:900;color:var(--accent);line-height:1;">1,000+</div>
+          <div style="font-size:14px;color:var(--text-muted);margin-top:8px;font-weight:500;">MCP Server 已上线</div>
+        </div>
+        <div style="text-align:center;padding:20px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
+          <div style="font-size:42px;font-weight:900;color:var(--accent);line-height:1;">100+</div>
+          <div style="font-size:14px;color:var(--text-muted);margin-top:8px;font-weight:500;">CLI 化桌面软件</div>
+        </div>
+        <div style="text-align:center;padding:20px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
+          <div style="font-size:42px;font-weight:900;color:var(--accent);line-height:1;">30+</div>
+          <div style="font-size:14px;color:var(--text-muted);margin-top:8px;font-weight:500;">原生 CLI 平台</div>
+        </div>
+      </div>
+
+      <!-- Ecosystem Grid -->
+      <div class="anim" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;">
+        <div class="eco-tile"><div style="font-size:28px;">📧</div><div class="eco-tile-cat">通讯 · 邮件</div><div class="eco-tile-ex">Slack · Gmail · Discord<br>Telegram · Outlook</div></div>
+        <div class="eco-tile"><div style="font-size:28px;">📅</div><div class="eco-tile-cat">日历 · 任务</div><div class="eco-tile-ex">Google Calendar<br>Notion · Linear · Todoist</div></div>
+        <div class="eco-tile"><div style="font-size:28px;">💻</div><div class="eco-tile-cat">开发 · DevOps</div><div class="eco-tile-ex">GitHub · Docker · K8s<br>Vercel · AWS · Jenkins</div></div>
+        <div class="eco-tile"><div style="font-size:28px;">🎨</div><div class="eco-tile-cat">创意 · 媒体</div><div class="eco-tile-ex">Blender · GIMP · OBS<br>Audacity · DaVinci</div></div>
+        <div class="eco-tile"><div style="font-size:28px;">💰</div><div class="eco-tile-cat">支付 · 电商</div><div class="eco-tile-ex">Stripe · Shopify<br>Invoice · CRM</div></div>
+        <div class="eco-tile"><div style="font-size:28px;">🏠</div><div class="eco-tile-cat">智能家居</div><div class="eco-tile-ex">Home Assistant<br>IoT · 灯光 · 温控</div></div>
+        <div class="eco-tile"><div style="font-size:28px;">🎵</div><div class="eco-tile-cat">音乐 · 健康</div><div class="eco-tile-ex">Spotify · Apple Music<br>Apple Health · 睡眠</div></div>
+        <div class="eco-tile"><div style="font-size:28px;">✈️</div><div class="eco-tile-cat">旅行 · 出行</div><div class="eco-tile-ex">Amadeus · 机票<br>酒店 · 行程</div></div>
+      </div>
+
+      <!-- Flow -->
+      <div class="anim" style="display:flex;align-items:center;justify-content:center;gap:0;margin-top:32px;">
+        <div style="padding:16px 28px;border-radius:14px;text-align:center;min-width:150px;background:linear-gradient(135deg,rgba(0,212,255,0.15),rgba(0,212,255,0.05));border:2px solid var(--accent);box-shadow:0 0 24px rgba(0,212,255,0.15);">
+          <div style="font-size:15px;font-weight:700;">🔲 戒指</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">一句话输入</div>
+        </div>
+        <div style="color:var(--accent);font-size:24px;margin:0 12px;opacity:0.6;">→</div>
+        <div style="padding:16px 28px;border-radius:14px;text-align:center;min-width:150px;background:linear-gradient(135deg,rgba(0,212,255,0.3),rgba(0,212,255,0.1));border:2px solid var(--accent);box-shadow:0 0 40px rgba(0,212,255,0.2);">
+          <div style="font-size:15px;font-weight:700;">🧠 Context 引擎</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">理解你 · 知道该做什么</div>
+        </div>
+        <div style="color:var(--accent);font-size:24px;margin:0 12px;opacity:0.6;">→</div>
+        <div style="padding:16px 28px;border-radius:14px;text-align:center;min-width:150px;background:var(--bg-light);border:1px solid var(--border);">
+          <div style="font-size:15px;font-weight:700;">⚡ 1,000+ 插件</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">CLI / MCP / API</div>
+        </div>
+        <div style="color:var(--accent);font-size:24px;margin:0 12px;opacity:0.6;">→</div>
+        <div style="padding:16px 28px;border-radius:14px;text-align:center;min-width:150px;background:var(--bg-light);border:1px solid var(--border);">
+          <div style="font-size:15px;font-weight:700;">✅ 执行完成</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">邮件已发 · 日程已建</div>
+        </div>
+      </div>
+
+      <!-- Punchline -->
+      <div class="anim" style="margin-top:24px;text-align:center;">
+        <p style="font-size:18px;color:var(--text-muted);">iPhone 没有自己写百万 App —— 它做了 App Store。</p>
+        <div style="font-size:22px;font-weight:700;color:var(--text-primary);margin-top:8px;">Monostone 不需要集成所有软件。CLI 生态就是我们的 App Store。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 6: CLI USE CASES ==================== -->
+  <div class="slide" data-slide="5">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">一句话，全部搞定</h3>
+      <h2 class="anim">双击戒指。剩下的交给 <span class="accent">Agent</span>。</h2>
+      <p class="anim" style="font-size:16px;color:var(--text-muted);margin-bottom:0;">🔶 = 今天还没有 CLI，但未来一定会有</p>
+
+      <div class="anim" style="display:flex;gap:40px;margin-top:24px;">
+        <!-- WORK -->
+        <div style="flex:1;">
+          <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--accent);color:var(--accent);">💼 工作场景</div>
+
+          <div class="cli-case">
+            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"会开完了"</em></div>
+            <div class="cli-actions">
+              <div class="cli-act">会议纪要写入 Notion <span class="cli-tag">Notion MCP</span></div>
+              <div class="cli-act">Action items 变成 Linear issues <span class="cli-tag">Linear API</span></div>
+              <div class="cli-act">跟进邮件自动发出 <span class="cli-tag">Gmail MCP</span></div>
+              <div class="cli-act">日程自动更新 <span class="cli-tag">Calendar MCP</span></div>
+            </div>
+          </div>
+
+          <div class="cli-case cli-future">
+            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"把今天聊的竞品分析发个 Twitter thread"</em></div>
+            <div class="cli-actions">
+              <div class="cli-act">从今天 3 段录音提取竞品观点 <span class="cli-tag cli-tag-ctx">Memory</span></div>
+              <div class="cli-act">按你的写作风格生成 thread <span class="cli-tag cli-tag-ctx">Context</span></div>
+              <div class="cli-act">发布到 X + 同步 LinkedIn <span class="cli-tag cli-tag-future">X/LinkedIn CLI</span></div>
+            </div>
+          </div>
+
+          <div class="cli-case cli-future">
+            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"把这周 3 次用户访谈整理成需求文档"</em></div>
+            <div class="cli-actions">
+              <div class="cli-act">3 次录音交叉分析：高频痛点、原话引用 <span class="cli-tag cli-tag-ctx">Memory</span></div>
+              <div class="cli-act">自动生成 PRD 并标注优先级 <span class="cli-tag cli-tag-future">Docs CLI</span></div>
+              <div class="cli-act">拆成 User Stories 写入 Linear <span class="cli-tag">Linear API</span></div>
+            </div>
+          </div>
+
+          <div class="cli-case">
+            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"今天活动认识了 5 个人，备注一下"</em></div>
+            <div class="cli-actions">
+              <div class="cli-act">每人一句语音备注，Agent 自动建档 <span class="cli-tag cli-tag-ctx">Memory</span></div>
+              <div class="cli-act">当晚自动起草个性化跟进邮件 <span class="cli-tag">Gmail MCP</span></div>
+              <div class="cli-act">3 天没回复？自动提醒 follow up <span class="cli-tag">Calendar MCP</span></div>
+              <div class="cli-act">下次遇到，戒指告诉你上次聊了什么 <span class="cli-tag cli-tag-ctx">Context</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIFE -->
+        <div style="flex:1;">
+          <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #A78BFA;color:#A78BFA;">🏠 生活场景</div>
+
+          <div class="cli-case">
+            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"我今天累了"</em></div>
+            <div class="cli-actions">
+              <div class="cli-act">客厅灯调暗 <span class="cli-tag">HomeAssistant</span></div>
+              <div class="cli-act">播放你的放松歌单 <span class="cli-tag">Spotify MCP</span></div>
+              <div class="cli-act">设置勿扰模式，静音通知 <span class="cli-tag">系统 API</span></div>
+              <div class="cli-act">因为 Agent 记得你累了就听爵士、调暗灯 <span class="cli-tag cli-tag-ctx">Context</span></div>
+            </div>
+          </div>
+
+          <div class="cli-case cli-future">
+            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"下个月去东京出差三天"</em></div>
+            <div class="cli-actions">
+              <div class="cli-act">查日历空档 <span class="cli-tag">Calendar MCP</span></div>
+              <div class="cli-act">搜航班 + 订酒店（你上次住涩谷觉得不错）<span class="cli-tag cli-tag-future">携程/Booking CLI</span></div>
+              <div class="cli-act">行程写入日历 <span class="cli-tag">Calendar MCP</span></div>
+            </div>
+          </div>
+
+          <div class="cli-case cli-future">
+            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"帮我叫个车去机场"</em></div>
+            <div class="cli-actions">
+              <div class="cli-act">查航班时间，倒推出发时间 <span class="cli-tag cli-tag-ctx">Context</span></div>
+              <div class="cli-act">叫车到你常用的上车点 <span class="cli-tag cli-tag-future">滴滴/Uber CLI</span></div>
+              <div class="cli-act">发消息通知接机人 <span class="cli-tag">消息 MCP</span></div>
+            </div>
+          </div>
+
+          <div class="cli-case cli-future">
+            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"老妈下周生日，帮我安排一下"</em></div>
+            <div class="cli-actions">
+              <div class="cli-act">记得她上次说想要个按摩仪 <span class="cli-tag cli-tag-ctx">Context</span></div>
+              <div class="cli-act">搜索下单，送到她家地址 <span class="cli-tag cli-tag-future">电商 CLI</span></div>
+              <div class="cli-act">生日当天自动发祝福消息 <span class="cli-tag">消息 MCP</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom punch -->
+      <div class="anim" style="margin-top:20px;text-align:center;">
+        <div style="font-size:20px;font-weight:700;color:var(--text-primary);">同一句话，<span class="accent">有 Context</span> 和没 Context 是两个世界。</div>
+        <div style="font-size:15px;color:var(--text-muted);margin-top:6px;">"帮我叫车" → 没有 Context：去哪？几点？在哪上车？ · 有 Context：你 3 点的航班，2 点从公司出发，已叫到楼下。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 7: PRODUCT ==================== -->
+  <div class="slide" data-slide="6">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">产品</h3>
       <h2 class="anim">一枚戒指，持续喂养你的 AI 人格。</h2>
@@ -1059,7 +1329,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 6: USER JOURNEY — Day 1 / 7 / 30 ==================== -->
-  <div class="slide" data-slide="5">
+  <div class="slide" data-slide="7">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">用户旅程</h3>
       <h2 class="anim">Day 1 → Day 7 → Day 30 → Day 90：从工具到资产。</h2>
@@ -1145,7 +1415,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 7: FLYWHEEL ==================== -->
-  <div class="slide" data-slide="6">
+  <div class="slide" data-slide="8">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">飞轮</h3>
       <h2 class="anim">用得越久，越离不开。</h2>
@@ -1214,7 +1484,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 7: MARKET ==================== -->
-  <div class="slide" data-slide="7">
+  <div class="slide" data-slide="9">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">市场规模</h3>
       <h2 class="anim">$470B AI 生产力市场的基础设施层。</h2>
@@ -1265,7 +1535,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 9: COMPETITION ==================== -->
-  <div class="slide" data-slide="8">
+  <div class="slide" data-slide="10">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">竞争格局</h3>
       <h2 class="anim">录音类的终点，是我们的起点。</h2>
@@ -1295,7 +1565,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 10: BUSINESS MODEL ==================== -->
-  <div class="slide" data-slide="9">
+  <div class="slide" data-slide="11">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">商业模式</h3>
       <h2 class="anim">硬件获客，Context 留存，生态变现。</h2>
@@ -1376,7 +1646,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 11: TEAM ==================== -->
-  <div class="slide" data-slide="10">
+  <div class="slide" data-slide="12">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">团队</h3>
       <h2 class="anim">硬件量产 × AI 产品 × 商业判断。</h2>
@@ -1421,7 +1691,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 12: TRACTION & ROADMAP ==================== -->
-  <div class="slide" data-slide="11">
+  <div class="slide" data-slide="13">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Traction & 路线图</h3>
       <h2 class="anim">已经在跑了。</h2>
@@ -1472,7 +1742,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 13: ASK ==================== -->
-  <div class="slide" data-slide="12">
+  <div class="slide" data-slide="14">
     <div class="slide-inner center-text">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Ask</h3>
       <h2 class="anim" style="font-size:48px;">$2-4M Pre-Seed，建 AI 的灵魂层。</h2>
@@ -1541,7 +1811,7 @@ table tr:last-child td { border-bottom: none; }
 
 <script>
 (function() {
-  const TOTAL = 13;
+  const TOTAL = 15;
   let current = 0;
   let animating = false;
   const slides = document.querySelectorAll('.slide');
