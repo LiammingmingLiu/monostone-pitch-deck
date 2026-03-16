@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MONOSTONE — Pitch Deck V2.0</title>
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-dark: #0A0A0A;
+  --bg-mid: #111111;
+  --bg-light: #1A1A1A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E0E0E0;
+  --text-muted: #999999;
+  --accent: #00D4FF;
+  --accent-dim: rgba(0,212,255,0.15);
+  --accent-glow: rgba(0,212,255,0.3);
+  --border: rgba(255,255,255,0.08);
+  --slide-padding: 100px;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== SLIDE CONTAINER ===== */
+.deck {
+  width: 100%; height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--slide-padding);
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  overflow-y: auto;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.slide.prev {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+
+.slide-inner {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1 {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+p, li {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.accent { color: var(--accent); }
+.bold { font-weight: 700; color: var(--text-primary); }
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.big-quote {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--accent);
+  border-left: 3px solid var(--accent);
+  padding-left: 24px;
+  margin: 40px 0;
+  font-style: italic;
+}
+
+.punch {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 32px;
+}
+
+/* ===== STAGGER ANIMATION ===== */
+.slide.active .anim {
+  animation: fadeUp 0.5s ease forwards;
+}
+.slide.active .anim:nth-child(1) { animation-delay: 0.1s; }
+.slide.active .anim:nth-child(2) { animation-delay: 0.2s; }
+.slide.active .anim:nth-child(3) { animation-delay: 0.3s; }
+.slide.active .anim:nth-child(4) { animation-delay: 0.4s; }
+.slide.active .anim:nth-child(5) { animation-delay: 0.5s; }
+.slide.active .anim:nth-child(6) { animation-delay: 0.6s; }
+.slide.active .anim:nth-child(7) { animation-delay: 0.7s; }
+.slide.active .anim:nth-child(8) { animation-delay: 0.8s; }
+
+.anim {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== LAYOUT HELPERS ===== */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.split-60-40 {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.split-40-60 {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.center-text { text-align: center; }
+
+/* ===== CARD / TABLE STYLES ===== */
+.card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.card-accent {
+  background: var(--accent-dim);
+  border: 1px solid rgba(0,212,255,0.25);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 17px;
+}
+
+table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--accent);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+table tr:last-child td { border-bottom: none; }
+
+/* ===== ARCHITECTURE DIAGRAM ===== */
+.arch-layer {
+  border-radius: 16px;
+  padding: 28px 36px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.arch-layer.top {
+  background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.03));
+  border: 1px solid rgba(0,212,255,0.15);
+}
+
+.arch-layer.mid {
+  background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(0,212,255,0.1));
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 40px rgba(0,212,255,0.15);
+}
+
+.arch-layer.bottom {
+  background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.03));
+  border: 1px solid rgba(0,212,255,0.15);
+}
+
+.arch-label {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.arch-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.arch-desc {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.arch-arrow {
+  text-align: center;
+  font-size: 24px;
+  color: var(--accent);
+  margin: 4px 0;
+  opacity: 0.6;
+}
+
+/* ===== FLYWHEEL ===== */
+.flywheel-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.flywheel {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+}
+
+.flywheel-ring {
+  position: absolute;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flywheel-node {
+  position: absolute;
+  background: var(--bg-light);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ===== MARKET CIRCLES ===== */
+.market-circles {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.market-circle {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.market-circle.tam {
+  width: 320px; height: 320px;
+  top: 0; left: 0;
+  background: rgba(0,212,255,0.06);
+  border: 1px solid rgba(0,212,255,0.15);
+}
+
+.market-circle.sam {
+  width: 220px; height: 220px;
+  top: 50px; left: 50px;
+  background: rgba(0,212,255,0.12);
+  border: 1px solid rgba(0,212,255,0.25);
+}
+
+.market-circle.som {
+  width: 120px; height: 120px;
+  top: 100px; left: 100px;
+  background: rgba(0,212,255,0.25);
+  border: 2px solid var(--accent);
+}
+
+.market-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.market-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* ===== COMPETITOR TABLE ===== */
+.comp-table td:first-child {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.comp-us {
+  background: rgba(0,212,255,0.08) !important;
+}
+
+.comp-us td {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+
+/* ===== PRICING ===== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.pricing-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.pricing-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 30px rgba(0,212,255,0.1);
+}
+
+.pricing-plan {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.pricing-price {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.pricing-price span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.pricing-features {
+  list-style: none;
+  text-align: left;
+  font-size: 15px;
+}
+
+.pricing-features li {
+  padding: 6px 0;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.pricing-features li::before {
+  content: '✓ ';
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ===== TEAM ===== */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.team-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.team-role {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.team-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.team-bio {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  display: flex;
+  gap: 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 38px;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), rgba(0,212,255,0.2));
+}
+
+.timeline-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 0 16px;
+}
+
+.timeline-dot {
+  width: 16px; height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin: 30px auto 20px;
+  box-shadow: 0 0 16px var(--accent-glow);
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-dot.done {
+  background: var(--accent);
+}
+
+.timeline-dot.future {
+  background: var(--bg-dark);
+  border: 2px solid var(--accent);
+}
+
+.timeline-date {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.timeline-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.timeline-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ===== TRACTION CHECKS ===== */
+.traction-list {
+  list-style: none;
+}
+
+.traction-list li {
+  font-size: 18px;
+  padding: 10px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.traction-list li::before {
+  content: '✅';
+  flex-shrink: 0;
+}
+
+/* ===== PIE CHART (CSS) ===== */
+.pie-chart {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--accent) 0deg 144deg,
+    #0088aa 144deg 252deg,
+    #005577 252deg 324deg,
+    #003344 324deg 360deg
+  );
+  margin: 0 auto;
+  position: relative;
+}
+
+.pie-chart::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 80px; height: 80px;
+  background: var(--bg-dark);
+  border-radius: 50%;
+}
+
+.pie-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.pie-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.pie-dot {
+  width: 12px; height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ===== BAR CHART ===== */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bar-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bar-label {
+  width: 140px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.bar-track {
+  flex: 1;
+  height: 28px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), rgba(0,212,255,0.5));
+  border-radius: 6px;
+  transition: width 1s ease;
+}
+
+.bar-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  width: 60px;
+  flex-shrink: 0;
+}
+
+/* ===== FUNDING TABLE ===== */
+.ask-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.ask-big {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.ask-label {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+/* ===== NAV DOTS ===== */
+.nav-dots {
+  position: fixed;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+}
+
+.nav-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.nav-dot:hover {
+  background: rgba(255,255,255,0.5);
+  transform: scale(1.3);
+}
+
+.nav-dot.active {
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  transform: scale(1.3);
+}
+
+/* ===== SLIDE NUMBER ===== */
+.slide-counter {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  z-index: 100;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 100;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* ===== PRINT ===== */
+@media print {
+  html, body { overflow: visible; height: auto; }
+  .nav-dots, .slide-counter, .progress-bar { display: none !important; }
+  .slide {
+    position: relative !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    page-break-after: always;
+    page-break-inside: avoid;
+    min-height: 100vh;
+    padding: 60px;
+  }
+  .anim { opacity: 1 !important; transform: none !important; }
+  .deck { overflow: visible; height: auto; }
+  :root { --bg-dark: #fff; --bg-mid: #f5f5f5; --bg-light: #f0f0f0;
+    --text-primary: #111; --text-secondary: #333; --text-muted: #666;
+    --accent: #0088cc; --border: #ddd; }
+  .arch-layer.mid { box-shadow: none; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  :root { --slide-padding: 48px 32px; }
+  h1 { font-size: 36px; letter-spacing: -1px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 22px; }
+  p, li { font-size: 16px; }
+  .subtitle { font-size: 20px; }
+  .split, .split-60-40, .split-40-60 { grid-template-columns: 1fr; gap: 32px; }
+  .team-grid { grid-template-columns: 1fr !important; }
+  .pricing-grid { grid-template-columns: 1fr !important; }
+  .flywheel-container { grid-template-columns: 1fr; }
+  .ask-grid { grid-template-columns: 1fr; gap: 32px; }
+  .timeline { flex-direction: column; }
+  .timeline::before { display: none; }
+  .slide { overflow-y: auto; align-items: flex-start; padding-top: 60px; padding-bottom: 60px; }
+  .nav-dots { display: none; }
+  .slide-counter { bottom: 16px; right: 16px; font-size: 12px; }
+  .card { padding: 20px; }
+  .big-quote { font-size: 16px; padding-left: 16px; }
+  .punch { font-size: 17px; }
+  table { font-size: 14px; }
+  table th, table td { padding: 8px 10px; }
+  .ask-big { font-size: 48px; }
+  .bar-label { width: 100px; font-size: 12px; }
+  .pie-chart { width: 160px; height: 160px; }
+}
+
+@media (max-width: 600px) {
+  :root { --slide-padding: 24px 16px; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; }
+  h3 { font-size: 18px; }
+  p, li { font-size: 15px; }
+  .subtitle { font-size: 17px; }
+  .arch-layer { padding: 16px 20px; }
+  .arch-title { font-size: 17px; }
+  .arch-desc { font-size: 13px; }
+  .card { padding: 16px; }
+  .team-card { padding: 16px; }
+  .team-name { font-size: 20px; }
+  .team-bio { font-size: 13px; }
+  .pricing-price { font-size: 24px !important; }
+  .ask-big { font-size: 36px; }
+  .ask-grid { gap: 24px; }
+  .bar-chart { gap: 10px; }
+  .bar-label { width: 80px; font-size: 11px; }
+  .bar-track { height: 20px; }
+  .pie-chart { width: 120px; height: 120px; }
+  .pie-legend { grid-template-columns: 1fr; gap: 8px; }
+  /* User journey cards */
+  .uj-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- ==================== SLIDE 1: OPENING ==================== -->
+  <div class="slide active" data-slide="0">
+    <div class="slide-inner center-text">
+      <div class="anim" style="margin-bottom: 40px;">
+        <span style="font-size:14px;font-weight:700;letter-spacing:4px;color:var(--accent);text-transform:uppercase;">Pre-Seed · $2M · 2026</span>
+      </div>
+      <h1 class="anim" style="font-size:72px;letter-spacing:-2px;">MONOSTONE</h1>
+      <div class="anim" style="width:60px;height:3px;background:var(--accent);margin:24px auto 32px;border-radius:2px;"></div>
+      <h2 class="anim" style="font-size:48px;font-weight:300;color:var(--text-secondary);">你 AI 的灵魂层。</h2>
+      <p class="anim" style="font-size:22px;color:var(--text-muted);max-width:640px;margin:24px auto 0;">
+        AI 越来越聪明，但对你一无所知。<br>
+        Monostone 让每个人拥有自己的 AI 人格——从指尖开始。
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 2: PROBLEM ==================== -->
+  <div class="slide" data-slide="1">
+    <div class="slide-inner">
+      <div class="split">
+        <div>
+          <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">问题</h3>
+          <h2 class="anim">AI 已经会记了。<br>但它记住的，只是你 10% 的人生。</h2>
+          <div class="anim" style="margin-bottom:20px;">
+            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">① 带宽瓶颈</div>
+            <p style="font-size:17px;">ChatGPT 有 memory，Claude 有 memory。但它们的记忆来源只有一个——<span class="bold">你打字告诉它的那些</span>。你 90% 的高价值信息发生在会议、面谈、电话、走路时的灵感里，从来不会被输入给任何 AI。</p>
+          </div>
+          <div class="anim" style="margin-bottom:20px;">
+            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">② 质量问题</div>
+            <p style="font-size:17px;">就算你和 AI 聊了 1000 次，它攒下的也只是<span class="bold">聊天碎片</span>。零散的偏好、半句话的上下文。这不是记忆系统，是聊天记录的索引。</p>
+          </div>
+          <div class="anim" style="margin-bottom:20px;">
+            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">③ 锁定问题</div>
+            <p style="font-size:17px;">更糟的是，这些碎片还被<span class="bold">锁在各自的模型里</span>。ChatGPT 的记忆只能 ChatGPT 用，Claude 的只能 Claude 用。换个模型，从零开始。</p>
+          </div>
+          <p class="anim punch" style="font-size:18px;">AI 的记忆能力不是问题。<br><span class="accent">问题是：谁来采集、谁来结构化、谁来拥有。</span></p>
+        </div>
+        <div class="anim">
+          <div class="card" style="text-align:center;padding:40px 32px;">
+            <div style="font-size:64px;margin-bottom:20px;">⌨️ → 🎙️</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text-primary);margin-bottom:16px;">记忆的带宽问题</div>
+            <div style="display:flex;gap:16px;margin-bottom:24px;">
+              <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:12px;padding:16px;">
+                <div style="font-size:36px;font-weight:900;color:var(--text-muted);">10%</div>
+                <div style="font-size:13px;color:var(--text-muted);">你打字告诉 AI 的</div>
+              </div>
+              <div style="flex:1;background:var(--accent-dim);border-radius:12px;padding:16px;">
+                <div style="font-size:36px;font-weight:900;color:var(--accent);">90%</div>
+                <div style="font-size:13px;color:var(--accent);">会议 · 面谈 · 灵感 · 生活</div>
+              </div>
+            </div>
+            <div style="width:40px;height:2px;background:var(--accent);margin:0 auto 16px;"></div>
+            <p style="font-size:17px;font-weight:600;color:var(--text-secondary);">你的人生不发生在聊天框里。<br>但你的 AI 记忆全在那里。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 3: INSIGHT ==================== -->
+  <div class="slide" data-slide="2">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">洞察</h3>
+      <h2 class="anim">谁拥有用户的 Context，<br>谁拥有下一代 AI 的入口。</h2>
+      <div class="split" style="margin-top:48px;">
+        <div>
+          <div class="anim card" style="margin-bottom:20px;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-muted);margin-bottom:8px;">2023 — 2025</div>
+            <div style="font-size:22px;font-weight:700;color:var(--text-primary);">谁的模型更强</div>
+            <p style="font-size:16px;color:var(--text-muted);margin-top:4px;">参数、Benchmark、推理能力</p>
+          </div>
+          <div class="anim card card-accent">
+            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">2026+</div>
+            <div style="font-size:22px;font-weight:700;color:var(--text-primary);">谁更了解用户</div>
+            <p style="font-size:16px;color:var(--text-secondary);margin-top:4px;">个人 Context、偏好、历史</p>
+          </div>
+          <p class="anim punch" style="margin-top:28px;">模型能力趋同时，<span class="accent">记忆</span>就是唯一的差异化变量。</p>
+        </div>
+        <div>
+          <div class="anim card" style="margin-bottom:24px;">
+            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:16px;">个人 Context ≠ 聊天记录</div>
+            <div style="font-size:15px;color:var(--text-secondary);">而是结构化的个人知识图谱：</div>
+            <ul style="list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:12px;">
+              <li style="font-size:17px;color:var(--text-secondary);">📋 项目进展和优先级</li>
+              <li style="font-size:17px;color:var(--text-secondary);">👥 人脉关系和沟通历史</li>
+              <li style="font-size:17px;color:var(--text-secondary);">⚡ 决策偏好和工作节奏</li>
+              <li style="font-size:17px;color:var(--text-secondary);">✍️ 表达风格和语气习惯</li>
+            </ul>
+          </div>
+          <div class="anim big-quote" style="font-size:18px;">
+            iPhone 的壁垒不是硬件，是 iOS + App Store。<br>
+            Monostone 的壁垒不是戒指，是 Context 深度 + 开放生态。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 4: SOLUTION — ARCHITECTURE ==================== -->
+  <div class="slide" data-slide="3">
+    <div class="slide-inner">
+      <div class="split">
+        <div>
+          <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">方案</h3>
+          <h2 class="anim">感知 → 理解 → 行动<br>三层闭合。</h2>
+          <div style="margin-top:32px;">
+            <div class="anim arch-layer top">
+              <div class="arch-label">感知层</div>
+              <div class="arch-title">智能戒指</div>
+              <div class="arch-desc">零摩擦 · 融入习惯 · 无感采集 → 持续给 Context 层喂数据</div>
+            </div>
+            <div class="anim arch-arrow">↕</div>
+            <div class="anim arch-layer mid">
+              <div class="arch-label">★ 理解层 — 核心资产</div>
+              <div class="arch-title">个人 Context 中枢平台</div>
+              <div class="arch-desc">File as Memory · 知识图谱可视化 · 越用越懂你 · 不可迁移 → 你 AI 的灵魂</div>
+            </div>
+            <div class="anim arch-arrow">↕</div>
+            <div class="anim arch-layer bottom">
+              <div class="arch-label">行动层</div>
+              <div class="arch-title">开放 Agent 生态</div>
+              <div class="arch-desc">Skills 插件 · MCP 协议 · 第三方 Agent → 基于 Context 的个性化执行</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="anim card" style="margin-bottom:20px;">
+            <div style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:12px;">🎯 感知层</div>
+            <p style="font-size:16px;color:var(--text-muted);">一枚戒指，双击长录音，按压滑动短口述，把你的世界持续流入系统。解决 AI 记忆的<strong>带宽瓶颈</strong>——捕获你从不会主动输入的 90%。</p>
+          </div>
+          <div class="anim card card-accent" style="margin-bottom:20px;">
+            <div style="font-size:18px;font-weight:700;color:var(--accent);margin-bottom:12px;">⭐ 理解层 — File as Memory</div>
+            <p style="font-size:16px;color:var(--text-secondary);">碎片信息沉淀为结构化的个人记忆——项目脉络、沟通风格、决策偏好、时间节奏。Markdown 原生、用户可查看编辑、知识图谱可视化——<span class="bold">零黑箱，你的记忆你做主。Model-agnostic，不锁定任何模型。</span></p>
+          </div>
+          <div class="anim card" style="margin-bottom:20px;">
+            <div style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:12px;">🚀 行动层</div>
+            <p style="font-size:16px;color:var(--text-muted);">Day 1 即开放——Skills 插件、MCP 协议、任何第三方 Agent。内置 Cron 定时任务 + Heartbeat 自主巡检，让 AI 主动替你行动，能力随生态无限扩展。</p>
+          </div>
+          <div class="anim punch" style="font-size:18px;">
+            三层闭合 = 第一个真正<span class="accent">"认识你且能替你做事"</span>的个人 AI 平台。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 5: PRODUCT ==================== -->
+  <div class="slide" data-slide="4">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">产品</h3>
+      <h2 class="anim">一枚戒指，持续喂养你的 AI 人格。</h2>
+      <div class="split" style="margin-top:40px;">
+        <div>
+          <div class="anim card" style="margin-bottom:24px;">
+            <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:16px;">硬件规格</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+              <li style="font-size:16px;color:var(--text-secondary);">⬡ 钛合金机身，食指佩戴，全天无感</li>
+              <li style="font-size:16px;color:var(--text-secondary);">🎙 双麦克风自适应 Beamforming，自动锁定说话人方向，信噪比提升 <span style="color:var(--accent);font-weight:600;">10 dB+</span></li>
+              <li style="font-size:16px;color:var(--text-secondary);">📡 远场拾音 <span style="color:var(--accent);font-weight:600;">5 米</span>，BLE 5.0 实时传输</li>
+              <li style="font-size:16px;color:var(--text-secondary);">⚡ 连续录音 10-15h｜离线录音 <span style="color:var(--accent);font-weight:600;">4h+</span></li>
+              <li style="font-size:16px;color:var(--text-secondary);">🧭 内置三轴 IMU，支持手势识别</li>
+              <li style="font-size:16px;color:var(--text-secondary);">📳 触觉反馈确认</li>
+            </ul>
+          </div>
+          <div class="anim card">
+            <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:16px;">交互方式</div>
+            <div style="display:flex;gap:16px;">
+              <div style="flex:1;background:var(--accent-dim);border-radius:12px;padding:16px;text-align:center;">
+                <div style="font-size:28px;margin-bottom:8px;">👆👆</div>
+                <div style="font-size:15px;font-weight:700;color:var(--accent);">双击</div>
+                <div style="font-size:13px;color:var(--text-muted);">长录音</div>
+              </div>
+              <div style="flex:1;background:var(--accent-dim);border-radius:12px;padding:16px;text-align:center;">
+                <div style="font-size:28px;margin-bottom:8px;">👉</div>
+                <div style="font-size:15px;font-weight:700;color:var(--accent);">按压滑动</div>
+                <div style="font-size:13px;color:var(--text-muted);">短口述（自动转写）</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="anim">
+          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:20px;">Context 积累 — 越用越深</div>
+          <table>
+            <thead>
+              <tr><th>时间</th><th>工作场景</th><th>生活场景</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:700;color:var(--accent);">Day 1</td>
+                <td>格式化的会议记录，识别发言人</td>
+                <td>录下和医生的对话，整理诊疗要点</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:var(--accent);">Week 1</td>
+                <td>知道团队谁负责什么，自动关联人名</td>
+                <td>记住孩子兴趣班时间、家人饮食偏好</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:var(--accent);">Month 1</td>
+                <td>知道你的沟通风格，邮件草稿不用改</td>
+                <td>"带孩子去个地方"→ 推荐你聊过的农场</td>
+              </tr>
+              <tr>
+                <td style="font-weight:700;color:var(--accent);">Quarter 1</td>
+                <td>AI 比实习生更了解你的工作方式</td>
+                <td>AI 比你更清楚你读了什么、见了谁</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card" style="margin-top:20px;padding:16px 24px;">
+            <p style="font-size:15px;color:var(--text-secondary);">💡 <strong>Memory Pulse + 知识图谱</strong>：App 内实时显示记忆成长（"287 memories · +12 today"），点击进入全屏知识图谱——可截图分享，天然社交传播素材。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 6: USER JOURNEY — Day 1 / 7 / 30 ==================== -->
+  <div class="slide" data-slide="5">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">用户旅程</h3>
+      <h2 class="anim">Day 1 → Day 7 → Day 30：从工具到不可替代。</h2>
+      <div style="margin-top:48px;display:flex;flex-direction:column;gap:28px;">
+
+        <!-- DAY 1 -->
+        <div class="anim card" style="padding:32px;border-left:4px solid var(--accent);">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+            <div style="background:var(--accent);color:#000;font-weight:800;padding:8px 20px;border-radius:10px;font-size:20px;">Day 1</div>
+            <div style="font-size:22px;font-weight:700;color:var(--text-primary);">一个更好的录音笔</div>
+          </div>
+          <div class="uj-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px;">工作场景</div>
+              <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;">双击戒指录下团队会议 → AI 自动生成会议纪要 + Action Items → 一键推送 Notion。<br><span style="color:var(--text-muted);">"嗯，比录音笔好用。"</span></p>
+            </div>
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px;">生活场景</div>
+              <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;">录下和医生的对话 → AI 整理诊疗要点、用药提醒 → 家人也能看到清晰记录。<br><span style="color:var(--text-muted);">"不用自己记了。"</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 7 -->
+        <div class="anim card" style="padding:32px;border-left:4px solid var(--accent);">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+            <div style="background:var(--accent);color:#000;font-weight:800;padding:8px 20px;border-radius:10px;font-size:20px;">Day 7</div>
+            <div style="font-size:22px;font-weight:700;color:var(--text-primary);">开始认识你了</div>
+          </div>
+          <div class="uj-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px;">工作场景</div>
+              <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;">"帮我跟进上周和 Kevin 聊的事" → AI 知道 Kevin 是谁、聊了什么、你承诺了什么 → 自动起草跟进邮件。<br><span style="color:var(--text-muted);">"它居然记得比我清楚。"</span></p>
+            </div>
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px;">生活场景</div>
+              <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;">"周末带孩子去个地方" → AI 记得你聊过的农场、孩子对动物的兴趣 → 推荐精准。<br><span style="color:var(--text-muted);">"它比我老婆更了解我们家。"</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 30 -->
+        <div class="anim card card-accent" style="padding:32px;border-left:4px solid var(--accent);">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+            <div style="background:var(--accent);color:#000;font-weight:800;padding:8px 20px;border-radius:10px;font-size:20px;">Day 30</div>
+            <div style="font-size:22px;font-weight:700;color:var(--text-primary);">不可替代</div>
+          </div>
+          <div class="uj-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px;">工作场景</div>
+              <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;">投资人问市场规模 → AI 主动提醒："上次你引用 IDC 报告 Sarah 认可了，David 可能问同样问题。" → 帮你自动准备 talking points。<br><span style="color:var(--text-muted);">"它就是我的 AI 参谋。"</span></p>
+            </div>
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px;">生活场景</div>
+              <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;">AI 发现你连续三周提到"太累" → 自动建议调整日程、推荐你之前聊过感兴趣的冥想课。<br><span style="color:var(--text-muted);">"它比我更了解我自己。"</span></p>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(0,212,255,0.2);text-align:center;">
+            <p style="font-size:18px;font-weight:700;color:var(--text-primary);">30 天的 Context 积累 = <span class="accent">不可迁移的个人资产</span>。换一个 App 是一秒的事，换掉一个月的记忆？不可能。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 7: FLYWHEEL ==================== -->
+  <div class="slide" data-slide="6">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">飞轮</h3>
+      <h2 class="anim">用得越久，越离不开。</h2>
+      <style>
+        /* Flywheel cycling highlight */
+        @keyframes fw-glow {
+          0%, 100% { background: var(--accent-dim); color: var(--accent); box-shadow: none; }
+          50% { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); }
+        }
+        .fw-step { padding: 14px 20px; border-radius: 12px; background: var(--accent-dim); font-size: 16px; font-weight: 600; color: var(--accent); text-align: center; position: relative; transition: all 0.3s; }
+        .fw-arrow { text-align: center; color: var(--accent); font-size: 18px; opacity: 0.5; padding: 2px 0; }
+        .fw-arrow-loop { text-align: center; color: var(--accent); font-size: 14px; opacity: 0.7; padding: 4px 0; font-weight: 600; }
+        /* Stagger the glow animation across steps */
+        .fw-cycle .fw-step:nth-child(1) { animation: fw-glow 4.8s ease-in-out infinite 0s; }
+        .fw-cycle .fw-step:nth-child(3) { animation: fw-glow 4.8s ease-in-out infinite 0.8s; }
+        .fw-cycle .fw-step:nth-child(5) { animation: fw-glow 4.8s ease-in-out infinite 1.6s; }
+        .fw-cycle .fw-step:nth-child(7) { animation: fw-glow 4.8s ease-in-out infinite 2.4s; }
+        .fw-cycle .fw-step:nth-child(9) { animation: fw-glow 4.8s ease-in-out infinite 3.2s; }
+        .fw-cycle .fw-step:nth-child(11) { animation: fw-glow 4.8s ease-in-out infinite 4.0s; }
+      </style>
+      <div class="flywheel-container anim" style="margin-top:40px;">
+        <div>
+          <div style="font-size:18px;font-weight:700;color:var(--accent);text-align:center;margin-bottom:20px;">数据飞轮（单用户）</div>
+          <div class="card fw-cycle" style="padding:24px;">
+            <div class="fw-step">🎙️ 戒指采集</div>
+            <div class="fw-arrow">↓</div>
+            <div class="fw-step">Context 增厚</div>
+            <div class="fw-arrow">↓</div>
+            <div class="fw-step">AI 输出更精准</div>
+            <div class="fw-arrow">↓</div>
+            <div class="fw-step">Digest 更个性化</div>
+            <div class="fw-arrow">↓</div>
+            <div class="fw-step">用户每天打开</div>
+            <div class="fw-arrow">↓</div>
+            <div class="fw-step">更多录音</div>
+            <div class="fw-arrow-loop">↩ 回到顶部，循环加速</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:18px;font-weight:700;color:var(--accent);text-align:center;margin-bottom:20px;">生态飞轮（平台）</div>
+          <div class="card fw-cycle" style="padding:24px;">
+            <div class="fw-step">Context 越深</div>
+            <div class="fw-arrow">↓</div>
+            <div class="fw-step">Agent 越精准</div>
+            <div class="fw-arrow">↓</div>
+            <div class="fw-step">吸引更多开发者</div>
+            <div class="fw-arrow">↓</div>
+            <div class="fw-step">吸引更多用户</div>
+            <div class="fw-arrow">↓</div>
+            <div class="fw-step">更多能力涌现</div>
+            <div class="fw-arrow">↓</div>
+            <div class="fw-step">更深的 Context</div>
+            <div class="fw-arrow-loop">↩ 回到顶部，循环加速</div>
+          </div>
+        </div>
+      </div>
+      <div class="anim card card-accent" style="margin-top:36px;padding:28px 36px;">
+        <p style="font-size:17px;color:var(--text-secondary);margin-bottom:12px;">
+          <strong>壁垒本质：</strong>换一个 Agent 是一分钟的事。换掉三个月积累的个人 Context？不可能。这不是网络效应，而是<span class="accent bold">深度效应</span>——单个用户越用越深，迁移成本随时间指数增长。
+        </p>
+        <div class="big-quote" style="margin:16px 0 0;font-size:16px;">
+          创业者融资周，第 1 天 AI 只给标准会议记录。第 5 天，AI 主动提醒："David 可能问市场规模，Sarah 周一问过同样问题，你引用 IDC 报告她认可了。"<br><strong>第 5 天的 AI 和第 1 天是两个物种。</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 7: MARKET ==================== -->
+  <div class="slide" data-slide="7">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">市场规模</h3>
+      <h2 class="anim">$470B AI 生产力市场的基础设施层。</h2>
+      <div style="margin-top:48px;">
+        <div>
+          <div class="anim">
+            <table style="max-width:800px;">
+              <thead>
+                <tr><th>层级</th><th>规模</th><th>定义</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:700;">TAM</td>
+                  <td style="color:var(--accent);font-weight:700;">$470B</td>
+                  <td>全球 AI 生产力工具市场（IDC 2027）</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">SAM</td>
+                  <td style="color:var(--accent);font-weight:700;">~$50B</td>
+                  <td>全球高频会议知识工作者</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="anim card" style="margin-top:32px;">
+            <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:16px;">为什么用平台估值逻辑</div>
+            <div class="bar-chart">
+              <div class="bar-item">
+                <div class="bar-label">Otter.ai<br><span style="font-size:12px;color:var(--text-muted);">仅感知层</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:30%;"></div></div>
+                <div class="bar-value">$1B+</div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label">Notion<br><span style="font-size:12px;color:var(--text-muted);">仅行动层</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:80%;"></div></div>
+                <div class="bar-value">$10B</div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label" style="color:var(--accent);">Monostone<br><span style="font-size:12px;">Context 层</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,var(--accent),#00ffcc);"></div></div>
+                <div class="bar-value" style="font-size:16px;">???</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 8: BUSINESS MODEL ==================== -->
+  <div class="slide" data-slide="8">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">商业模式</h3>
+      <h2 class="anim">硬件获客，Context 留存，生态变现。</h2>
+      <div class="split" style="margin-top:40px;">
+        <div>
+          <div class="anim card" style="margin-bottom:20px;padding:20px 28px;">
+            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">① 硬件（获客入口）</div>
+            <div style="display:flex;justify-content:space-between;gap:16px;">
+              <div style="flex:1;text-align:center;">
+                <div style="font-size:14px;color:var(--text-muted);">零售价</div>
+                <div style="font-size:28px;font-weight:800;color:var(--text-primary);">$249</div>
+              </div>
+              <div style="width:1px;background:var(--border);"></div>
+              <div style="flex:1;text-align:center;">
+                <div style="font-size:14px;color:var(--text-muted);">众筹早鸟</div>
+                <div style="font-size:28px;font-weight:800;color:var(--accent);">$149-199</div>
+              </div>
+            </div>
+          </div>
+          <div class="anim pricing-grid" style="grid-template-columns:1fr 1fr 1fr;">
+            <div class="pricing-card">
+              <div class="pricing-plan">Free</div>
+              <div class="pricing-price" style="font-size:28px;">$0 <span style="font-size:13px;color:var(--text-muted);">（待定）</span></div>
+              <ul class="pricing-features">
+                <li>基础录音额度</li>
+                <li>基础总结</li>
+                <li>L1 记忆</li>
+                <li>Daily Digest</li>
+              </ul>
+            </div>
+            <div class="pricing-card featured">
+              <div class="pricing-plan">Pro</div>
+              <div class="pricing-price" style="font-size:28px;">待定 <span style="font-size:13px;">/月</span></div>
+              <ul class="pricing-features">
+                <li>无限录音</li>
+                <li>无限总结</li>
+                <li>完整记忆 L1→L3</li>
+                <li>Daily Digest</li>
+                <li>全部投递</li>
+              </ul>
+            </div>
+            <div class="pricing-card">
+              <div class="pricing-plan">Max</div>
+              <div class="pricing-price" style="font-size:28px;">待定 <span style="font-size:13px;">/月</span></div>
+              <ul class="pricing-features">
+                <li>Pro 全部功能</li>
+                <li>大量 Agent 额度</li>
+                <li>高级推理</li>
+                <li>自定义指令</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="anim card card-accent" style="margin-bottom:20px;padding:24px 28px;">
+            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">BYOK（Max 用户附加）</div>
+            <p style="font-size:16px;color:var(--text-secondary);">Max 用户自带 API Key，Agent 额度不受限，AI 推理成本用户承担，Monostone 只收 $29.9 平台费。</p>
+            <div style="font-size:36px;font-weight:900;color:var(--accent);margin-top:12px;">毛利率 >85%</div>
+          </div>
+          <div class="anim card" style="margin-bottom:20px;padding:24px 28px;">
+            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">③ 生态抽成（V1.5+）</div>
+            <p style="font-size:16px;color:var(--text-secondary);">第三方插件/Agent 市场，平台抽成 <span class="bold">30%</span>。</p>
+          </div>
+          <div class="anim card" style="padding:24px 28px;">
+            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">估值跃迁路径</div>
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+              <span style="background:var(--accent-dim);padding:6px 14px;border-radius:8px;font-size:14px;color:var(--accent);font-weight:600;">硬件收入</span>
+              <span style="color:var(--accent);">→</span>
+              <span style="background:var(--accent-dim);padding:6px 14px;border-radius:8px;font-size:14px;color:var(--accent);font-weight:600;">软件订阅</span>
+              <span style="color:var(--accent);">→</span>
+              <span style="background:var(--accent);color:#000;padding:6px 14px;border-radius:8px;font-size:14px;font-weight:700;">平台生态</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 10: TEAM ==================== -->
+  <div class="slide" data-slide="9">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">团队</h3>
+      <h2 class="anim">硬件量产 × AI 产品 × 商业判断。</h2>
+      <div class="anim team-grid" style="margin-top:40px;grid-template-columns:1fr 1fr 1fr;">
+        <div class="team-card">
+          <div class="team-role">CEO / 产品</div>
+          <div class="team-name">明明（Liam）</div>
+          <div class="team-bio">前 VC（AI/机器人投资）→ M&A → 产品全栈。投资人视角定义产品，创业者心态执行。</div>
+        </div>
+        <div class="team-card">
+          <div class="team-role">硬件</div>
+          <div class="team-name">Marshal</div>
+          <div class="team-bio">前高通（音频芯片）→ 哈曼卡顿中国研究院创始人 → OPPO 音频负责人。量产过数百万台音频设备。</div>
+        </div>
+        <div class="team-card">
+          <div class="team-role">软件</div>
+          <div class="team-name">X</div>
+          <div class="team-bio">连续创业者，全栈工程师。端到端交付，从架构到部署。</div>
+        </div>
+        <div class="team-card">
+          <div class="team-role">嵌入式</div>
+          <div class="team-name">Ken</div>
+          <div class="team-bio">前 OPPO OS → 前蔚来手机 OS。系统级开发经验。</div>
+        </div>
+        <div class="team-card">
+          <div class="team-role">结构工程</div>
+          <div class="team-name">Jim</div>
+          <div class="team-bio">前 Sony 中国首席结构工程师。精密消费电子结构设计与量产经验。</div>
+        </div>
+      </div>
+      <div class="anim card card-accent" style="margin-top:32px;padding:24px 32px;text-align:center;">
+        <p style="font-size:18px;color:var(--text-secondary);">
+          不是纯技术团队做硬件，也不是硬件团队学 AI。四个人分别覆盖<span class="accent bold">音频硬件量产、全栈软件、嵌入式系统、产品与商业</span>——同时具备"做出来"和"卖出去"的能力。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 11: TRACTION & ROADMAP ==================== -->
+  <div class="slide" data-slide="10">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Traction & 路线图</h3>
+      <h2 class="anim">已经在跑了。</h2>
+      <div class="split" style="margin-top:40px;">
+        <div>
+          <div class="anim" style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:16px;">已完成</div>
+          <ul class="anim traction-list">
+            <li>iOS App（Timeline / Library+Memory / Agent / Profile 四 Tab）</li>
+            <li>AI Pipeline（录音 → 转写 → 结构化 → 记忆沉淀）</li>
+            <li>File as Memory 记忆系统（Markdown 原生、用户可编辑、知识图谱可视化）</li>
+            <li>MCP 协议 + Skills 插件 + 第三方 Agent 接入（Day 1 开放）</li>
+            <li>5 个核心 Destination（Notion / Calendar / Email / Obsidian / Markdown）</li>
+          </ul>
+        </div>
+        <div class="anim">
+          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:16px;">路线图</div>
+          <div class="timeline" style="flex-direction:column;gap:0;">
+            <div style="display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-left:2px solid var(--accent);margin-left:8px;padding-left:28px;position:relative;">
+              <div style="position:absolute;left:-7px;top:24px;width:12px;height:12px;background:var(--accent);border-radius:50%;box-shadow:0 0 12px var(--accent-glow);"></div>
+              <div>
+                <div style="font-size:14px;font-weight:700;color:var(--accent);">Phase 1 — 现在 → 4 月</div>
+                <div style="font-size:16px;color:var(--text-secondary);margin-top:4px;">MVP 打磨 + 量产样机出炉，iOS + 云端完整闭环，可向投资人演示</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-left:2px solid rgba(0,212,255,0.3);margin-left:8px;padding-left:28px;position:relative;">
+              <div style="position:absolute;left:-7px;top:24px;width:12px;height:12px;background:var(--bg-dark);border:2px solid var(--accent);border-radius:50%;"></div>
+              <div>
+                <div style="font-size:14px;font-weight:700;color:var(--accent);">Phase 2 — Kickstarter 上线（6-7 月）</div>
+                <div style="font-size:16px;color:var(--text-secondary);margin-top:4px;">众筹上线，目标 $500K-$1M，PMF 验证，种子用户获取</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-left:2px solid rgba(0,212,255,0.15);margin-left:8px;padding-left:28px;position:relative;">
+              <div style="position:absolute;left:-7px;top:24px;width:12px;height:12px;background:var(--bg-dark);border:2px solid rgba(0,212,255,0.4);border-radius:50%;"></div>
+              <div>
+                <div style="font-size:14px;font-weight:700;color:var(--accent);">Phase 3 — KS 后</div>
+                <div style="font-size:16px;color:var(--text-secondary);margin-top:4px;">规模化运营 + 开发者市场 + 生态收入</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="anim card" style="margin-top:28px;padding:20px 28px;text-align:center;">
+        <p style="font-size:17px;color:var(--text-secondary);">
+          <strong>这笔钱让我们走到：</strong>Kickstarter $500K-$1M → 5,000-10,000 付费用户 → Context 壁垒初步建立 → 用数据证明飞轮 → <span class="accent bold">Seed 轮</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 12: ASK ==================== -->
+  <div class="slide" data-slide="11">
+    <div class="slide-inner center-text">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Ask</h3>
+      <h2 class="anim" style="font-size:48px;">$2M Pre-Seed，建 AI 的灵魂层。</h2>
+      <div class="ask-grid anim" style="margin-top:48px;text-align:left;">
+        <div style="text-align:center;">
+          <div class="ask-big">$2M</div>
+          <div class="ask-label">融资金额</div>
+          <div style="font-size:32px;font-weight:800;color:var(--text-secondary);margin-top:16px;">$20M</div>
+          <div style="font-size:16px;color:var(--text-muted);">Pre-money 估值</div>
+          <div style="margin-top:40px;">
+            <div class="pie-chart"></div>
+            <div class="pie-legend" style="max-width:280px;margin:24px auto 0;">
+              <div class="pie-legend-item"><div class="pie-dot" style="background:var(--accent);"></div>硬件量产 40%</div>
+              <div class="pie-legend-item"><div class="pie-dot" style="background:#0088aa;"></div>软件开发 30%</div>
+              <div class="pie-legend-item"><div class="pie-dot" style="background:#005577;"></div>市场众筹 20%</div>
+              <div class="pie-legend-item"><div class="pie-dot" style="background:#003344;"></div>运营预留 10%</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:18px;font-weight:700;color:var(--accent);margin-bottom:24px;">里程碑承诺</div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:12px;">
+              <span style="font-size:24px;">🏭</span>
+              <span style="font-size:16px;color:var(--text-secondary);">戒指量产并发货给 Kickstarter backers</span>
+            </div>
+            <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:12px;">
+              <span style="font-size:24px;">🔗</span>
+              <span style="font-size:16px;color:var(--text-secondary);">Context 平台跑通完整链路</span>
+            </div>
+            <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:12px;">
+              <span style="font-size:24px;">👥</span>
+              <span style="font-size:16px;color:var(--text-secondary);">获取 5,000-10,000 付费用户</span>
+            </div>
+            <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:12px;">
+              <span style="font-size:24px;">📊</span>
+              <span style="font-size:16px;color:var(--text-secondary);">用真实数据验证 Context 飞轮</span>
+            </div>
+            <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:12px;">
+              <span style="font-size:24px;">🚀</span>
+              <span style="font-size:16px;color:var(--text-secondary);">为 Seed 轮建立谈判筹码</span>
+            </div>
+          </div>
+          <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+            <p style="font-size:20px;font-weight:600;color:var(--text-secondary);line-height:1.7;">
+              下一代 AI 的竞争不在模型，在 Context。<br>
+              <span class="accent bold">我们从第一天就在建这一层。</span>
+            </p>
+            <p style="font-size:36px;font-weight:800;color:var(--accent);margin-top:24px;">Let's talk.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- NAV DOTS -->
+<div class="nav-dots" id="navDots"></div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar" style="width:0%"></div>
+
+<!-- SLIDE COUNTER -->
+<div class="slide-counter" id="slideCounter"></div>
+
+<script>
+(function() {
+  const TOTAL = 12;
+  let current = 0;
+  let animating = false;
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('navDots');
+  const progressBar = document.getElementById('progressBar');
+  const counter = document.getElementById('slideCounter');
+
+  // Build nav dots
+  for (let i = 0; i < TOTAL; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  function update() {
+    slides.forEach((s, i) => {
+      s.classList.remove('active', 'prev');
+      if (i === current) s.classList.add('active');
+      else if (i < current) s.classList.add('prev');
+    });
+    dotsContainer.querySelectorAll('.nav-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+    progressBar.style.width = ((current / (TOTAL - 1)) * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + TOTAL;
+  }
+
+  function goTo(n) {
+    if (animating || n === current || n < 0 || n >= TOTAL) return;
+    animating = true;
+    // Reset animations on target slide
+    const target = slides[n];
+    target.querySelectorAll('.anim').forEach(el => {
+      el.style.animation = 'none';
+      el.offsetHeight; // reflow
+      el.style.animation = '';
+    });
+    current = n;
+    update();
+    setTimeout(() => { animating = false; }, 650);
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  // Keyboard
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    if (e.key === 'End') { e.preventDefault(); goTo(TOTAL - 1); }
+  });
+
+  // Mouse wheel
+  let wheelTimeout = null;
+  document.addEventListener('wheel', e => {
+    if (wheelTimeout) return;
+    if (e.deltaY > 30) next();
+    else if (e.deltaY < -30) prev();
+    wheelTimeout = setTimeout(() => { wheelTimeout = null; }, 800);
+  }, { passive: true });
+
+  // Touch swipe
+  let touchStartY = 0;
+  document.addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const dy = touchStartY - e.changedTouches[0].clientY;
+    if (Math.abs(dy) > 50) { dy > 0 ? next() : prev(); }
+  }, { passive: true });
+
+  update();
+})();
+</script>
+
+</body>
+</html>
