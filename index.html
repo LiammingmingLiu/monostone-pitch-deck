@@ -1538,19 +1538,50 @@ table tr:last-child td { border-bottom: none; }
   <div class="slide" data-slide="10">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">竞争格局</h3>
-      <h2 class="anim">录音类的终点，是我们的起点。</h2>
-      <div class="anim" style="margin-top:40px;">
+      <h2 class="anim">他们的终点，是我们的起点。</h2>
+
+      <!-- Pipeline comparison -->
+      <div class="anim" style="margin-top:36px;">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:16px;padding:28px 32px;margin-bottom:24px;">
+          <div style="font-size:14px;font-weight:600;color:var(--text-muted);margin-bottom:16px;">竞品（Stream / Spark / Vocci）的链条：</div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:15px;color:var(--text-secondary);">
+            <span>🎙️ Capture</span><span style="color:var(--text-muted);">→</span>
+            <span>📝 Transcribe</span><span style="color:var(--text-muted);">→</span>
+            <span>📋 Summarize</span><span style="color:var(--text-muted);">→</span>
+            <span>📤 Deliver</span>
+          </div>
+          <div style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:10px;border-top:1px dashed var(--border);padding-top:10px;">—— 到这里就结束了 ——</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--accent);border-radius:16px;padding:28px 32px;">
+          <div style="font-size:14px;font-weight:600;color:var(--accent);margin-bottom:16px;">Monostone 的链条：</div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:15px;color:var(--text-secondary);">
+            <span>🎙️ Capture</span><span style="color:var(--text-muted);">→</span>
+            <span>📝 Transcribe</span><span style="color:var(--text-muted);">→</span>
+            <span>📋 Summarize</span><span style="color:var(--text-muted);">→</span>
+            <span>📤 Deliver</span>
+          </div>
+          <div style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:10px;border-top:1px dashed var(--border);padding-top:10px;">—— 前半段一样，但这只是入口 ——</div>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;padding-left:20px;border-left:2px solid var(--accent);">
+            <div style="font-size:15px;color:var(--text-primary);"><span style="margin-right:8px;">↓</span> 🧠 <strong>Memory / Context 中枢</strong><span style="color:var(--text-muted);font-size:13px;margin-left:8px;">三域四层，越用越懂你</span></div>
+            <div style="font-size:15px;color:var(--text-primary);"><span style="margin-right:8px;">↓</span> ⚡ <strong>Agent 执行</strong><span style="color:var(--text-muted);font-size:13px;margin-left:8px;">一句话触发多个动作</span></div>
+            <div style="font-size:15px;color:var(--text-primary);"><span style="margin-right:8px;">↓</span> 🔌 <strong>开放生态</strong><span style="color:var(--text-muted);font-size:13px;margin-left:8px;">MCP + CLI + Skills, 1000+ 插件</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="anim" style="margin-top:32px;">
         <table class="comp-table">
           <thead>
-            <tr><th></th><th>录音类<br><span style="font-weight:400;font-size:12px;text-transform:none;">Plaud / Otter / Limitless</span></th><th>大厂<br><span style="font-weight:400;font-size:12px;text-transform:none;">字节 / Apple / 模型公司</span></th><th style="color:var(--accent);">Monostone</th></tr>
+            <tr><th></th><th>录音戒指<br><span style="font-weight:400;font-size:12px;text-transform:none;">Stream / Spark / Vocci</span></th><th>大厂<br><span style="font-weight:400;font-size:12px;text-transform:none;">字节 / Apple / 模型公司</span></th><th style="color:var(--accent);">Monostone</th></tr>
           </thead>
           <tbody>
-            <tr><td style="font-weight:700;color:var(--text-primary);">定位</td><td>录音 → 转写 → 完</td><td>通用 AI 助手</td><td class="comp-us">Agent Commander</td></tr>
+            <tr><td style="font-weight:700;color:var(--text-primary);">产品链条</td><td>Capture → Deliver<br><span style="font-size:12px;color:var(--text-muted);">到这里结束</span></td><td>通用 AI 助手</td><td class="comp-us">Capture → Memory → Agent → 生态<br><span style="font-size:12px;">全栈覆盖</span></td></tr>
             <tr><td style="font-weight:700;color:var(--text-primary);">Context 深度</td><td>无记忆系统</td><td>聊天碎片</td><td class="comp-us">全量结构化记忆</td></tr>
+            <tr><td style="font-weight:700;color:var(--text-primary);">Day 90 变化</td><td>跟 Day 1 一样</td><td>略有改善</td><td class="comp-us">AI 比实习生更了解你</td></tr>
             <tr><td style="font-weight:700;color:var(--text-primary);">数据归属</td><td>平台持有</td><td>平台持有</td><td class="comp-us">用户自有 · 本地优先</td></tr>
             <tr><td style="font-weight:700;color:var(--text-primary);">生态开放度</td><td>封闭</td><td>半开放</td><td class="comp-us">完全开放（MCP / Skills / CLI）</td></tr>
             <tr><td style="font-weight:700;color:var(--text-primary);">模型绑定</td><td>单一模型</td><td>绑定自家模型</td><td class="comp-us">Model-agnostic · BYOK</td></tr>
-            <tr><td style="font-weight:700;color:var(--text-primary);">戒指续航</td><td>4-8h</td><td>N/A</td><td class="comp-us">12-15h</td></tr>
           </tbody>
         </table>
       </div>
