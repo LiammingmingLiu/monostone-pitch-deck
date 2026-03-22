@@ -942,10 +942,9 @@ table tr:last-child td { border-bottom: none; }
       </div>
       <h1 class="anim" style="font-size:72px;letter-spacing:-2px;">MONOSTONE</h1>
       <div class="anim" style="width:60px;height:3px;background:var(--accent);margin:24px auto 32px;border-radius:2px;"></div>
-      <h2 class="anim" style="font-size:48px;font-weight:300;color:var(--text-secondary);">你的 AI 指挥官。</h2>
+      <h2 class="anim" style="font-size:48px;font-weight:300;color:var(--text-secondary);">你和 AI 之间，差一枚戒指。</h2>
       <p class="anim" style="font-size:22px;color:var(--text-muted);max-width:640px;margin:24px auto 0;">
-        一枚戒指，采集你的 Context，指挥 AI 替你做事。<br>
-        从录音到记忆，从记忆到行动——Agent Commander，从指尖开始。
+        抬手说一句，AI 替你做完。而且它越来越懂你。
       </p>
     </div>
   </div>
@@ -953,101 +952,135 @@ table tr:last-child td { border-bottom: none; }
   <!-- ==================== SLIDE 2: PROBLEM ==================== -->
   <div class="slide" data-slide="1">
     <div class="slide-inner">
-      <div class="split">
-        <div>
-          <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">问题</h3>
-          <h2 class="anim">AI 已经会记了。<br>但它记住的，只是你 10% 的人生。</h2>
-          <div class="anim" style="margin-bottom:20px;">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">① 带宽瓶颈</div>
-            <p style="font-size:17px;">ChatGPT 有 memory，Claude 有 memory。但它们的记忆来源只有一个——<span class="bold">你打字告诉它的那些</span>。你 90% 的高价值信息发生在会议、面谈、电话、走路时的灵感里，从来不会被输入给任何 AI。</p>
-          </div>
-          <div class="anim" style="margin-bottom:20px;">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">② 质量问题</div>
-            <p style="font-size:17px;">就算你和 AI 聊了 1000 次，它攒下的也只是<span class="bold">聊天碎片</span>。零散的偏好、半句话的上下文。这不是记忆系统，是聊天记录的索引。</p>
-          </div>
-          <div class="anim" style="margin-bottom:20px;">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">③ 锁定问题</div>
-            <p style="font-size:17px;">更糟的是，这些碎片还被<span class="bold">锁在各自的模型里</span>。ChatGPT 的记忆只能 ChatGPT 用，Claude 的只能 Claude 用。换个模型，从零开始。</p>
-          </div>
-          <div class="anim" style="margin-bottom:20px;">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">④ 行动断层</div>
-            <p style="font-size:17px;">就算 AI 记住了你说的话，它也只能回答问题，不能帮你<span class="bold">做事</span>。你说"帮我跟进上周和 Kevin 聊的"——它不知道 Kevin 是谁，不知道你承诺了什么，更不知道该发什么邮件。</p>
-          </div>
-          <p class="anim punch" style="font-size:18px;">AI 的记忆能力不是问题。<br><span class="accent">问题是：谁来采集、谁来结构化、谁来拥有——然后谁来替你行动。</span></p>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">问题</h3>
+      <h2 class="anim">时代变了。工具没跟上。</h2>
+
+      <div class="anim card" style="margin-top:32px;padding:28px 32px;">
+        <p style="font-size:18px;color:var(--text-secondary);line-height:1.8;">
+          人和 AI 的沟通频率正在指数级增长。<br>
+          <span class="bold">2023</span>：偶尔试试 ChatGPT。<span class="bold">2024</span>：每天用几次。<span class="bold">2025</span>：离不开了。<span class="bold">2026</span>：？<br>
+          <span style="color:var(--accent);font-weight:600;">在座各位，有谁完全不和 AI 沟通？</span>
+        </p>
+      </div>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+        <div class="card" style="padding:28px 32px;">
+          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:12px;">问题一：交互路径太长</div>
+          <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;">
+            想和 AI 说句话 → 掏手机 → 解锁 → 打开 APP → 打字。<br>
+            <span class="bold">每一次交互都有 5-10 步操作摩擦。</span>
+          </p>
         </div>
-        <div class="anim">
-          <div class="card" style="text-align:center;padding:40px 32px;">
-            <div style="font-size:64px;margin-bottom:20px;">⌨️ → 🎙️</div>
-            <div style="font-size:20px;font-weight:700;color:var(--text-primary);margin-bottom:16px;">记忆的带宽问题</div>
-            <div style="display:flex;gap:16px;margin-bottom:24px;">
-              <div style="flex:1;background:rgba(255,255,255,0.04);border-radius:12px;padding:16px;">
-                <div style="font-size:36px;font-weight:900;color:var(--text-muted);">10%</div>
-                <div style="font-size:13px;color:var(--text-muted);">你打字告诉 AI 的</div>
-              </div>
-              <div style="flex:1;background:var(--accent-dim);border-radius:12px;padding:16px;">
-                <div style="font-size:36px;font-weight:900;color:var(--accent);">90%</div>
-                <div style="font-size:13px;color:var(--accent);">会议 · 面谈 · 灵感 · 生活</div>
-              </div>
-            </div>
-            <div style="width:40px;height:2px;background:var(--accent);margin:0 auto 16px;"></div>
-            <p style="font-size:17px;font-weight:600;color:var(--text-secondary);">你的人生不发生在聊天框里。<br>但你的 AI 记忆全在那里。</p>
-          </div>
+        <div class="card" style="padding:28px 32px;">
+          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:12px;">问题二：Context 成本太高</div>
+          <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;">
+            每次都要从头解释「我是谁、在做什么、要什么」。<br>
+            <span class="bold">AI 不认识你，你必须输入大量背景它才能帮上忙。</span>
+          </p>
         </div>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:24px;padding:28px 32px;">
+        <p style="font-size:18px;color:var(--text-secondary);line-height:1.8;">
+          <span class="bold" style="font-size:20px;">结果：大量「算了，等有空再说」的瞬间。</span><br>
+          走路时想问 AI — 算了。刚聊完想让 AI 跟进 — 算了。开车时有个想法 — 算了。<br>
+          <span class="accent bold">保守估计，每人每天 10-20 次。</span>
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 3: INSIGHT ==================== -->
+  <!-- ==================== SLIDE 3: SOLUTION ==================== -->
   <div class="slide" data-slide="2">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">洞察</h3>
-      <h2 class="anim">谁拥有用户的 Context，<br>谁拥有下一代 AI 的入口。</h2>
-      <div class="split" style="margin-top:48px;">
-        <div>
-          <div class="anim card" style="margin-bottom:20px;">
-            <div style="font-size:15px;font-weight:700;color:var(--text-muted);margin-bottom:8px;">2023 — 2025</div>
-            <div style="font-size:22px;font-weight:700;color:var(--text-primary);">谁的模型更强</div>
-            <p style="font-size:16px;color:var(--text-muted);margin-top:4px;">参数、Benchmark、推理能力</p>
-          </div>
-          <div class="anim card card-accent">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">2026+</div>
-            <div style="font-size:22px;font-weight:700;color:var(--text-primary);">谁更了解用户</div>
-            <p style="font-size:16px;color:var(--text-secondary);margin-top:4px;">个人 Context、偏好、历史</p>
-          </div>
-          <p class="anim punch" style="margin-top:28px;">模型能力趋同时，<span class="accent">记忆</span>就是唯一的差异化变量。</p>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">方案</h3>
+      <h2 class="anim">为这个时代做的产品。</h2>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;">
+        <div class="card" style="padding:28px 32px;">
+          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:12px;">解决路径问题</div>
+          <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;">
+            给用户一个最短的交互 interface。<br>
+            <span class="bold">戒指永远在手上，抬手说一句，3 秒触发。</span>
+          </p>
         </div>
-        <div>
-          <div class="anim card" style="margin-bottom:24px;">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:16px;">个人 Context ≠ 聊天记录</div>
-            <div style="font-size:15px;color:var(--text-secondary);">而是结构化的个人知识图谱：</div>
-            <ul style="list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:12px;">
-              <li style="font-size:17px;color:var(--text-secondary);">📋 项目进展和优先级</li>
-              <li style="font-size:17px;color:var(--text-secondary);">👥 人脉关系和沟通历史</li>
-              <li style="font-size:17px;color:var(--text-secondary);">⚡ 决策偏好和工作节奏</li>
-              <li style="font-size:17px;color:var(--text-secondary);">✍️ 表达风格和语气习惯</li>
-            </ul>
-          </div>
-          <div class="anim card card-accent" style="margin-top:20px;">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:16px;">三个 Context 市场</div>
-            <table style="font-size:15px;">
-              <thead><tr><th></th><th>企业 Context</th><th>个人 Context</th><th>家庭 Context</th></tr></thead>
-              <tbody>
-                <tr><td style="font-weight:700;color:var(--text-primary);">现状</td><td style="color:#4CAF50;">✅ SaaS 已覆盖</td><td style="color:#ff5252;">❌ 空白</td><td style="color:#ff5252;">❌ 空白</td></tr>
-                <tr><td style="font-weight:700;color:var(--text-primary);">代表</td><td>Salesforce / Notion</td><td style="color:var(--accent);font-weight:700;">Monostone</td><td>未来 V2</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="anim big-quote" style="font-size:18px;margin-top:20px;">
-            iPhone 的壁垒不是硬件，是 iOS + App Store。<br>
-            Monostone 的壁垒不是戒指，是 Context 深度 + 开放生态。
-          </div>
+        <div class="card" style="padding:28px 32px;">
+          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:12px;">解决 Context 问题</div>
+          <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;">
+            无感、持续地收集你的 Context。<br>
+            <span class="bold">会议录音、灵感口述，不断沉淀。AI 越来越懂你。</span>
+          </p>
         </div>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:24px;padding:28px 32px;">
+        <p style="font-size:18px;color:var(--text-secondary);line-height:1.8;">
+          当你想问问题、想要答案的时候——不再需要重新输入背景。你直接说你要什么就行。<br>
+          <span class="accent bold">对一个每天和 AI 交互十几次的人来说，这省了多少时间？</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 3.5: WHY RING ==================== -->
+  <div class="slide" data-slide="3">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">形态</h3>
+      <h2 class="anim">为什么是戒指，不是耳机？</h2>
+
+      <div class="anim" style="margin-top:40px;">
+        <table class="comp-table">
+          <thead>
+            <tr><th></th><th>手机</th><th>耳机</th><th>挂坠 (Plaud)</th><th>手表</th><th style="color:var(--accent);">戒指</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:700;color:var(--text-primary);">触发时间</td>
+              <td>5-10秒</td>
+              <td>不能随时戴</td>
+              <td>3秒</td>
+              <td>抬手但交互弱</td>
+              <td class="comp-us">0秒，永远在手上 ✓</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;color:var(--text-primary);">社交压力</td>
+              <td>中</td>
+              <td>低</td>
+              <td>低</td>
+              <td>低</td>
+              <td class="comp-us">最低 ✓</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;color:var(--text-primary);">单手操作</td>
+              <td>❌</td>
+              <td>⚠️</td>
+              <td>⚠️</td>
+              <td>⚠️</td>
+              <td class="comp-us">✅</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;color:var(--text-primary);">24h 佩戴</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>⚠️</td>
+              <td class="comp-us">✅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:32px;padding:28px 32px;">
+        <p style="font-size:18px;color:var(--text-secondary);line-height:1.8;">
+          耳机是很强的形态，但你不会 24 小时戴着。而且耳机供应链太浅，大厂（Apple/华为/字节）一定会做 AI 耳机。<br>
+          <span class="accent bold">戒指品类没有大厂抢占——我们有时间窗口。</span>
+        </p>
       </div>
     </div>
   </div>
 
   <!-- ==================== SLIDE 4: SOLUTION — ARCHITECTURE ==================== -->
-  <div class="slide" data-slide="3">
+  <div class="slide" data-slide="4">
     <div class="slide-inner">
       <div class="split">
         <div>
@@ -1095,7 +1128,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 5: CLI ECOSYSTEM ==================== -->
-  <div class="slide" data-slide="4">
+  <div class="slide" data-slide="5">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">生态即壁垒</h3>
       <h2 class="anim">不自己写百万 App。<br>我们有 <span class="accent">App Store</span>。</h2>
@@ -1156,7 +1189,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 6: CLI USE CASES ==================== -->
-  <div class="slide" data-slide="5">
+  <div class="slide" data-slide="6">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">一句话，全部搞定</h3>
       <h2 class="anim">双击戒指。剩下的交给 <span class="accent">Agent</span>。</h2>
@@ -1258,7 +1291,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 7: PRODUCT ==================== -->
-  <div class="slide" data-slide="6">
+  <div class="slide" data-slide="7">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">产品</h3>
       <h2 class="anim">一枚戒指，持续喂养你的 AI 人格。</h2>
@@ -1328,8 +1361,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 6: USER JOURNEY — Day 1 / 7 / 30 / 90 (compact) ==================== -->
-  <div class="slide" data-slide="7">
+  <!-- ==================== SLIDE 8: USER JOURNEY — Day 1 / 7 / 30 / 90 (compact) ==================== -->
+  <div class="slide" data-slide="8">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">用户旅程</h3>
       <h2 class="anim">Day 1 → Day 90：从工具到资产。</h2>
@@ -1369,8 +1402,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 7: FLYWHEEL ==================== -->
-  <div class="slide" data-slide="8">
+  <!-- ==================== SLIDE 9: FLYWHEEL ==================== -->
+  <div class="slide" data-slide="9">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">飞轮</h3>
       <h2 class="anim">用得越久，越离不开。</h2>
@@ -1438,8 +1471,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 7: MARKET ==================== -->
-  <div class="slide" data-slide="9">
+  <!-- ==================== SLIDE 10: MARKET ==================== -->
+  <div class="slide" data-slide="10">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">市场规模</h3>
       <h2 class="anim">$470B AI 生产力市场的基础设施层。</h2>
@@ -1489,8 +1522,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 9: COMPETITION ==================== -->
-  <div class="slide" data-slide="10">
+  <!-- ==================== SLIDE 11: COMPETITION ==================== -->
+  <div class="slide" data-slide="11">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">竞争格局</h3>
       <h2 class="anim">他们的终点，是我们的起点。</h2>
@@ -1541,8 +1574,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 10: BUSINESS MODEL ==================== -->
-  <div class="slide" data-slide="11">
+  <!-- ==================== SLIDE 12: BUSINESS MODEL ==================== -->
+  <div class="slide" data-slide="12">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">商业模式</h3>
       <h2 class="anim">硬件获客，Context 留存，生态变现。</h2>
@@ -1622,8 +1655,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 11: TEAM ==================== -->
-  <div class="slide" data-slide="12">
+  <!-- ==================== SLIDE 13: TEAM ==================== -->
+  <div class="slide" data-slide="13">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">团队</h3>
       <h2 class="anim">硬件量产 × AI 产品 × 商业判断。</h2>
@@ -1672,8 +1705,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 12: TRACTION & ROADMAP ==================== -->
-  <div class="slide" data-slide="13">
+  <!-- ==================== SLIDE 14: TRACTION & ROADMAP ==================== -->
+  <div class="slide" data-slide="14">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Traction & 路线图</h3>
       <h2 class="anim">已经在跑了。</h2>
@@ -1723,8 +1756,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 13: ASK ==================== -->
-  <div class="slide" data-slide="14">
+  <!-- ==================== SLIDE 15: ASK ==================== -->
+  <div class="slide" data-slide="15">
     <div class="slide-inner center-text">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Ask</h3>
       <h2 class="anim" style="font-size:48px;">$2-4M Pre-Seed，建 AI 的灵魂层。</h2>
@@ -1793,7 +1826,7 @@ table tr:last-child td { border-bottom: none; }
 
 <script>
 (function() {
-  const TOTAL = 15;
+  const TOTAL = 16;
   let current = 0;
   let animating = false;
   const slides = document.querySelectorAll('.slide');
