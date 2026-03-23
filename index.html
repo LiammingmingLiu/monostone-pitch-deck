@@ -1361,43 +1361,73 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 8: USER JOURNEY — Day 1 / 7 / 30 / 90 (compact) ==================== -->
+  <!-- ==================== SLIDE 8: CONTEXT COMPOUNDING — 从10分钟到3秒 ==================== -->
   <div class="slide" data-slide="8">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">用户旅程</h3>
-      <h2 class="anim">Day 1 → Day 90：从工具到资产。</h2>
-      <div style="margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <div class="anim card" style="padding:20px 24px;border-left:3px solid var(--accent);">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <div style="background:var(--accent);color:#000;font-weight:800;padding:4px 14px;border-radius:8px;font-size:15px;">Day 1</div>
-            <div style="font-size:17px;font-weight:700;color:var(--text-primary);">更好的录音笔</div>
-          </div>
-          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0;">双击戒指录会议 → AI 生成纪要 + Action Items → 推送 Notion。<br><span style="color:var(--text-muted);font-style:italic;">"嗯，比录音笔好用。"</span></p>
-        </div>
-        <div class="anim card" style="padding:20px 24px;border-left:3px solid var(--accent);">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <div style="background:var(--accent);color:#000;font-weight:800;padding:4px 14px;border-radius:8px;font-size:15px;">Day 7</div>
-            <div style="font-size:17px;font-weight:700;color:var(--text-primary);">开始认识你</div>
-          </div>
-          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0;">"帮我跟进上周和 Kevin 聊的" → AI 知道 Kevin 是谁、你承诺了什么 → 自动起草跟进邮件。<br><span style="color:var(--text-muted);font-style:italic;">"它记得比我清楚。"</span></p>
-        </div>
-        <div class="anim card card-accent" style="padding:20px 24px;border-left:3px solid var(--accent);">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <div style="background:var(--accent);color:#000;font-weight:800;padding:4px 14px;border-radius:8px;font-size:15px;">Day 30</div>
-            <div style="font-size:17px;font-weight:700;color:var(--text-primary);">不可替代</div>
-          </div>
-          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0;">邮件草稿不用改 — AI 知道你写给投资人和团队的语气不同。主动提醒"上次 IDC 报告 Sarah 认可了，David 也会问"。<br><span style="color:var(--text-muted);font-style:italic;">"它就是我的 AI 参谋。"</span></p>
-        </div>
-        <div class="anim card" style="padding:20px 24px;border-left:3px solid var(--accent);background:linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,212,255,0.02));">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-            <div style="background:var(--accent);color:#000;font-weight:800;padding:4px 14px;border-radius:8px;font-size:15px;">Day 90</div>
-            <div style="font-size:17px;font-weight:700;color:var(--text-primary);">你的 AI 分身</div>
-          </div>
-          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0;">一句话五个动作：整理会议 → 写邮件 → 建任务 → 更新 CRM → 排下次跟进。3 个月 Context = 不可迁移的个人资产。<br><span style="color:var(--text-muted);font-style:italic;">"AI 比实习生更了解我。"</span></p>
-        </div>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Context 复利</h3>
+      <h2 class="anim">从 10 分钟到 3 秒。</h2>
+
+      <div class="anim" style="margin-top:12px;margin-bottom:24px;">
+        <p style="font-size:15px;color:var(--text-muted);text-align:center;margin:0;">同一件事：「帮我写封邮件跟进投资人」</p>
       </div>
-      <div class="anim" style="margin-top:20px;text-align:center;">
-        <p style="font-size:16px;font-weight:700;color:var(--text-primary);">竞品 Day 90 和 Day 1 没区别。Monostone Day 90 = <span class="accent">不可迁移的个人资产</span>。</p>
+
+      <div class="anim" style="overflow-x:auto;">
+        <table class="comp-table" style="font-size:13px;">
+          <thead>
+            <tr>
+              <th style="width:18%;"></th>
+              <th style="width:22%;">传统方式<br><span style="font-weight:400;font-size:11px;">手机 / 电脑打字</span></th>
+              <th style="color:var(--accent);">Monostone Day 1</th>
+              <th style="color:var(--accent);">Day 7</th>
+              <th style="color:var(--accent);">Day 30</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:700;color:var(--text-primary);">你需要说/打</td>
+              <td>打字 2-3 分钟背景<br>+ 多轮对话调教</td>
+              <td class="comp-us">"帮我写封邮件给今天聊的投资人"<br><span style="font-size:11px;">30 秒</span></td>
+              <td class="comp-us">"帮我写封邮件给蔡哥"<br><span style="font-size:11px;">5 秒</span></td>
+              <td class="comp-us">"帮我跟进蔡哥"<br><span style="font-size:11px;">3 秒</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;color:var(--text-primary);">AI 知道的</td>
+              <td>什么都不知道<br>全靠你输入</td>
+              <td class="comp-us">刚才的会议录音</td>
+              <td class="comp-us">蔡哥是谁<br>上次聊了什么</td>
+              <td class="comp-us">蔡哥关心什么<br>你的邮件风格<br>历史往来 · 未尽事项</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;color:var(--text-primary);">总耗时</td>
+              <td>5-10 分钟</td>
+              <td class="comp-us">30 秒说 + 5 分钟后看</td>
+              <td class="comp-us">5 秒说 + 5 分钟后看</td>
+              <td class="comp-us">3 秒说 + 5 分钟后看</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;color:var(--text-primary);">结果质量</td>
+              <td>70-80 分<br><span style="font-size:11px;">多轮调教后</span></td>
+              <td class="comp-us">60 分</td>
+              <td class="comp-us">80 分</td>
+              <td class="comp-us">95 分<br><span style="font-size:11px;">直接能发</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;color:var(--text-primary);">实际发生概率</td>
+              <td>低<br><span style="font-size:11px;">大部分人"算了"</span></td>
+              <td class="comp-us">高</td>
+              <td class="comp-us">很高</td>
+              <td class="comp-us">≈ 100%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:20px;padding:20px 28px;">
+        <p style="font-size:15px;color:var(--text-secondary);margin:0;">
+          <strong>不是 AI 变强了，是摩擦消失后 AI 终于被用起来了。</strong><br>
+          竞品（Stream / Spark / Vocci）的 Day 30 和 Day 1 <span class="accent bold">一模一样</span>——还是录音→文字。没有记忆系统，没有 Context 积累，用户随时可以换。<br>
+          Monostone 的 30 天记忆 = <span class="accent bold">不可迁移的个人资产</span>。换 APP 是一秒的事，换掉一个月的记忆？不可能。
+        </p>
       </div>
     </div>
   </div>
