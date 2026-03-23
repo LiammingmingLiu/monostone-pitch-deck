@@ -1028,7 +1028,7 @@ table tr:last-child td { border-bottom: none; }
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Context 复利</h3>
       <h2 class="anim">从 10 分钟到 3 秒。</h2>
 
-      <div class="anim" style="margin-top:12px;margin-bottom:24px;">
+      <div class="anim" style="margin-top:12px;margin-bottom:20px;">
         <p style="font-size:15px;color:var(--text-muted);text-align:center;margin:0;">同一件事：「帮我写封邮件跟进投资人」</p>
       </div>
 
@@ -1059,7 +1059,7 @@ table tr:last-child td { border-bottom: none; }
               <td class="comp-us">蔡哥关心什么<br>你的邮件风格<br>历史往来 · 未尽事项</td>
             </tr>
             <tr>
-              <td style="font-weight:700;color:var(--text-primary);">总耗时</td>
+              <td style="font-weight:700;color:var(--text-primary);">单次耗时</td>
               <td>5-10 分钟</td>
               <td class="comp-us">30 秒</td>
               <td class="comp-us">5 秒</td>
@@ -1068,26 +1068,46 @@ table tr:last-child td { border-bottom: none; }
             <tr>
               <td style="font-weight:700;color:var(--text-primary);">结果质量</td>
               <td>70-80 分<br><span style="font-size:11px;">多轮调教后</span></td>
-              <td class="comp-us">60 分</td>
+              <td class="comp-us">70 分</td>
               <td class="comp-us">80 分</td>
               <td class="comp-us">95 分<br><span style="font-size:11px;">直接能发</span></td>
-            </tr>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);">实际发生概率</td>
-              <td>低<br><span style="font-size:11px;">大部分人"算了"</span></td>
-              <td class="comp-us">高</td>
-              <td class="comp-us">很高</td>
-              <td class="comp-us">≈ 100%</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <div class="anim card card-accent" style="margin-top:20px;padding:20px 28px;">
-        <p style="font-size:15px;color:var(--text-secondary);margin:0;">
-          <strong>不是 AI 变强了，是摩擦消失后 AI 终于被用起来了。</strong><br>
-          竞品（Stream / Spark / Vocci）的 Day 30 和 Day 1 <span class="accent bold">一模一样</span>——还是录音→文字。没有记忆系统，没有 Context 积累，用户随时可以换。<br>
-          Monostone 的 30 天记忆 = <span class="accent bold">不可迁移的个人资产</span>。换 APP 是一秒的事，换掉一个月的记忆？不可能。
+      <!-- Daily time savings -->
+      <div class="anim" style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;">
+        <div class="card" style="padding:14px 12px;text-align:center;">
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">传统方式</div>
+          <div style="font-size:11px;color:var(--text-muted);">10 次 × 7 分钟</div>
+          <div style="font-size:26px;font-weight:800;color:var(--text-primary);">70 分钟</div>
+          <div style="font-size:11px;color:var(--text-muted);">每天花在"跟 AI 沟通"上</div>
+        </div>
+        <div class="card" style="padding:14px 12px;text-align:center;border:1px solid var(--accent);">
+          <div style="font-size:11px;color:var(--accent);margin-bottom:4px;">Monostone Day 1</div>
+          <div style="font-size:11px;color:var(--text-muted);">10 次 × 30 秒</div>
+          <div style="font-size:26px;font-weight:800;color:var(--accent);">5 分钟</div>
+          <div style="font-size:11px;color:var(--text-muted);">省 <strong>93%</strong></div>
+        </div>
+        <div class="card" style="padding:14px 12px;text-align:center;border:1px solid var(--accent);">
+          <div style="font-size:11px;color:var(--accent);margin-bottom:4px;">Day 7</div>
+          <div style="font-size:11px;color:var(--text-muted);">10 次 × 5 秒</div>
+          <div style="font-size:26px;font-weight:800;color:var(--accent);">50 秒</div>
+          <div style="font-size:11px;color:var(--text-muted);">省 <strong>99%</strong></div>
+        </div>
+        <div class="card" style="padding:14px 12px;text-align:center;border:1px solid var(--accent);background:linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.02));">
+          <div style="font-size:11px;color:var(--accent);margin-bottom:4px;">Day 30</div>
+          <div style="font-size:11px;color:var(--text-muted);">10 次 × 3 秒</div>
+          <div style="font-size:26px;font-weight:800;color:var(--accent);">30 秒</div>
+          <div style="font-size:11px;color:var(--text-muted);">省 <strong>99.3%</strong></div>
+        </div>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:14px;padding:16px 24px;">
+        <p style="font-size:14px;color:var(--text-secondary);margin:0;">
+          <strong>随着摩擦指数级减少，人们真正把 AI 用起来了。</strong>
+          每天和 AI 沟通 10 次，传统方式要花 70 分钟输入背景。Monostone Day 30 只要 30 秒——<span class="accent bold">时间缩短了 99.3%</span>，结果质量反而从 70 分涨到 95 分。这就是 Context 复利。
         </p>
       </div>
     </div>
