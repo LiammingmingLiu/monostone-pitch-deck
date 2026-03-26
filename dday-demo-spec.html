@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monostone — D-Day Demo 方案</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+:root {
+  --bg: #0A0A0A;
+  --bg-mid: #111111;
+  --bg-light: #1A1A1A;
+  --bg-card: #1E1E1E;
+  --accent: #00D4FF;
+  --accent-dim: rgba(0,212,255,0.12);
+  --green: #00E676;
+  --green-dim: rgba(0,230,118,0.12);
+  --orange: #FF9100;
+  --orange-dim: rgba(255,145,0,0.12);
+  --red: #FF5252;
+  --yellow: #FFD740;
+  --yellow-dim: rgba(255,215,64,0.12);
+  --text: #FFFFFF;
+  --text2: #E0E0E0;
+  --text3: #999999;
+  --text4: #666666;
+  --border: rgba(255,255,255,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;font-size:16px;line-height:1.6;padding:40px;max-width:1200px;margin:0 auto;}
+h1{font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:6px;}
+h2{font-size:28px;font-weight:700;margin:48px 0 16px;padding-bottom:12px;border-bottom:2px solid var(--accent);display:inline-block;}
+h3{font-size:20px;font-weight:700;margin:24px 0 12px;color:var(--text2);}
+p,li{font-size:15px;line-height:1.7;color:var(--text2);}
+.subtitle{font-size:15px;color:var(--text3);margin-bottom:32px;}
+.accent{color:var(--accent);}
+.bold{font-weight:700;color:var(--text);}
+a{color:var(--accent);text-decoration:none;}
+
+.notice{background:var(--accent-dim);border:1px solid rgba(0,212,255,0.25);border-radius:12px;padding:16px 24px;margin:24px 0;font-size:14px;color:var(--accent);}
+
+.card{background:var(--bg-light);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:16px;}
+.card-accent{background:var(--accent-dim);border:1px solid rgba(0,212,255,0.25);}
+
+.phase-header{display:flex;align-items:center;gap:16px;margin:48px 0 20px;}
+.phase-num{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:6px 16px;border-radius:8px;flex-shrink:0;}
+.phase-title{font-size:26px;font-weight:800;}
+.phase-desc{font-size:14px;color:var(--text3);margin-top:2px;}
+
+.flow-steps{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap;margin:16px 0;}
+.flow-step{flex:1;min-width:140px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;}
+.flow-step.highlight{border:2px solid var(--accent);background:var(--accent-dim);}
+.flow-icon{font-size:28px;margin-bottom:6px;}
+.flow-name{font-size:14px;font-weight:700;margin-bottom:4px;}
+.flow-detail{font-size:12px;color:var(--text3);}
+.flow-arrow{display:flex;align-items:center;color:var(--accent);font-size:20px;padding:0 2px;}
+
+.standard-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;}
+.std-card{border-radius:10px;padding:14px 18px;font-size:14px;}
+.std-yes{background:var(--green-dim);border:1px solid rgba(0,230,118,0.2);}
+.std-no{background:rgba(255,255,255,0.03);border:1px solid var(--border);color:var(--text4);}
+.std-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;}
+.std-yes .std-label{color:var(--green);}
+.std-no .std-label{color:var(--text4);}
+
+.compare-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;}
+.compare-table th{text-align:left;font-weight:700;color:var(--accent);padding:12px 16px;border-bottom:2px solid var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:0.5px;}
+.compare-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top;}
+.compare-table tr:last-child td{border-bottom:none;}
+.compare-table .highlight-col{background:var(--accent-dim);}
+.compare-table .row-label{font-weight:600;color:var(--text);}
+
+.day-section{border-left:3px solid var(--accent);padding-left:24px;margin:24px 0;}
+.day-item{margin-bottom:20px;}
+.day-tag{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+
+.checklist{list-style:none;margin:12px 0;}
+.checklist li{padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text2);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'▸ ';color:var(--accent);font-weight:700;}
+
+.timeline{display:flex;flex-direction:column;gap:0;margin:20px 0;}
+.tl-item{display:flex;gap:16px;padding:14px 0;border-left:2px solid var(--accent);margin-left:8px;padding-left:20px;position:relative;}
+.tl-item::before{content:'';position:absolute;left:-7px;top:18px;width:12px;height:12px;background:var(--accent);border-radius:50%;box-shadow:0 0 10px rgba(0,212,255,0.3);}
+.tl-time{font-size:13px;font-weight:700;color:var(--accent);min-width:100px;}
+.tl-desc{font-size:14px;color:var(--text2);}
+
+.feeling{display:inline-block;padding:6px 16px;background:var(--accent-dim);border:1px solid rgba(0,212,255,0.2);border-radius:20px;font-size:14px;color:var(--accent);font-style:italic;margin-top:8px;}
+</style>
+</head>
+<body>
+
+<h1>D-Day Demo 方案 <span class="accent">— 线性资本</span></h1>
+<p class="subtitle">给林啸 & 王浩：这个文档只定义 <strong>展示什么</strong> 和 <strong>达到什么标准</strong>，具体怎么实现你们来定。</p>
+
+<!-- ===== 总体结构 ===== -->
+<div class="notice">
+  <strong>总体结构：</strong>录音处理流程 → Day 1（冷启动）→ Day 7（开始认识你）→ Day 30（不可替代）
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin:24px 0;">
+  <div class="card" style="border-top:3px solid var(--accent);text-align:center;">
+    <div style="font-size:24px;margin-bottom:6px;">⚙️</div>
+    <div style="font-size:15px;font-weight:700;">录音处理流程</div>
+    <div style="font-size:13px;color:var(--text3);margin-top:4px;">技术是怎么 work 的</div>
+  </div>
+  <div class="card" style="border-top:3px solid var(--green);text-align:center;">
+    <div style="font-size:24px;margin-bottom:6px;">🌱</div>
+    <div style="font-size:15px;font-weight:700;">Day 1 · 冷启动</div>
+    <div style="font-size:13px;color:var(--text3);margin-top:4px;">从零开始也立刻有用</div>
+  </div>
+  <div class="card" style="border-top:3px solid var(--orange);text-align:center;">
+    <div style="font-size:24px;margin-bottom:6px;">🌿</div>
+    <div style="font-size:15px;font-weight:700;">Day 7 · 积累期</div>
+    <div style="font-size:13px;color:var(--text3);margin-top:4px;">Memory 在成长</div>
+  </div>
+  <div class="card" style="border-top:3px solid var(--accent);text-align:center;">
+    <div style="font-size:24px;margin-bottom:6px;">🌳</div>
+    <div style="font-size:15px;font-weight:700;">Day 30 · 成熟期</div>
+    <div style="font-size:13px;color:var(--text3);margin-top:4px;">不可替代</div>
+  </div>
+</div>
+
+<!-- ===== 录音处理流程 ===== -->
+<div class="phase-header">
+  <div class="phase-num" style="background:var(--accent-dim);color:var(--accent);">Pipeline</div>
+  <div>
+    <div class="phase-title">录音处理流程展示</div>
+    <div class="phase-desc">让投资人看到一段录音从输入到入库的完整链路</div>
+  </div>
+</div>
+
+<p style="margin-bottom:16px;">用一段 <strong style="color:var(--accent);">包含三个不同主题</strong> 的真实录音（前面聊生活、中间聊行业、后面聊产品融资）：</p>
+
+<div class="flow-steps">
+  <div class="flow-step"><div class="flow-icon">🎙️</div><div class="flow-name">原始录音</div><div class="flow-detail">一个音频文件</div></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step"><div class="flow-icon">📝</div><div class="flow-name">转写</div><div class="flow-detail">文本 + 说话人分离</div></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step highlight"><div class="flow-icon">✂️</div><div class="flow-name">主题切分 ⭐</div><div class="flow-detail">一段录音 → 3个独立 Segment</div></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step"><div class="flow-icon">🏷️</div><div class="flow-name">结构化提取</div><div class="flow-detail">实体 / 事实 / Summary</div></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step"><div class="flow-icon">💾</div><div class="flow-name">入库</div><div class="flow-detail">双轨索引存储</div></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step"><div class="flow-icon">🔍</div><div class="flow-name">验证</div><div class="flow-detail">分别查询，不混淆</div></div>
+</div>
+
+<h3>达标标准</h3>
+<ul class="checklist">
+  <li><strong>切分准确：</strong>三个不同话题被正确分开，不遗漏不错切</li>
+  <li><strong>实体准确：</strong>人名、公司名、数字不出错</li>
+  <li><strong>查询隔离：</strong>问生活相关只出生活 Segment，问产品只出产品 Segment</li>
+</ul>
+
+<!-- ===== Day 1 ===== -->
+<div class="phase-header">
+  <div class="phase-num" style="background:var(--green-dim);color:var(--green);">Day 1</div>
+  <div>
+    <div class="phase-title">冷启动</div>
+    <div class="phase-desc">证明即使第一天用，AI 就已经比普通 ChatGPT 有用</div>
+  </div>
+</div>
+
+<div class="day-section">
+  <div class="day-item">
+    <div class="day-tag">(a) 冷启动过程</div>
+    <p>用户口述或上传基础信息（"我叫明明，在做一个 AI 硬件创业项目，目前在融 Pre-seed"），或上传几份基础资料（PRD、团队介绍）。展示这些信息怎么进入 Memory。</p>
+  </div>
+  <div class="day-item">
+    <div class="day-tag">(b) 第一段录音 + 提问</div>
+    <p>上传一段录音（比如一次投资人会议）。录音处理完后，问一个问题，看 AI 的回答。</p>
+  </div>
+  <div class="day-item">
+    <div class="day-tag">(c) 和没有 Memory 的对比</div>
+    <p>同样的问题分别在 ChatGPT 和我们的系统里问。ChatGPT 需要你手动喂 Context，我们的直接能回答。</p>
+  </div>
+</div>
+
+<h3>达标标准</h3>
+<div class="standard-grid">
+  <div class="std-card std-yes">
+    <div class="std-label">✅ 应该能做到</div>
+    记住用户名字、职业、项目名<br>
+    能正确转写、切分、提取<br>
+    能基于刚上传的录音回答问题<br>
+    输出质量 ≈ GPT + 录音 Context，比裸 GPT 好
+  </div>
+  <div class="std-card std-no">
+    <div class="std-label">⬜ 不需要做到</div>
+    不需要知道偏好和风格<br>
+    不需要跨录音整合<br>
+    不需要特别精准或个性化<br>
+    不需要有个人风格
+  </div>
+</div>
+<div class="feeling">"嗯，比录音笔好用。"</div>
+
+<!-- ===== Day 7 ===== -->
+<div class="phase-header">
+  <div class="phase-num" style="background:var(--orange-dim);color:var(--orange);">Day 7</div>
+  <div>
+    <div class="phase-title">AI 开始认识你</div>
+    <div class="phase-desc">证明 Memory 在成长，AI 开始有个性化能力</div>
+  </div>
+</div>
+
+<div class="day-section">
+  <div class="day-item">
+    <div class="day-tag">(a) 多段录音积累后的效果</div>
+    <p>系统里已有 7-10 段不同录音（投资人、团队会议、供应商等）。问一个需要跨录音整合的问题（如"帮我写产品定义报告"），展示输出融合了多段不同录音的信息。</p>
+  </div>
+  <div class="day-item">
+    <div class="day-tag">(b) 人物识别与关联</div>
+    <p>系统能认出反复出现的人（"蔡哥"、"Harry"、"林啸"）。新录音进来后提示"你今天又和 Harry 聊了，上次你们聊的是 XXX"。人物之间有关联（Harry = 线性资本 = 投资人）。</p>
+  </div>
+  <div class="day-item">
+    <div class="day-tag">(c) Prompt 调整 / 偏好学习</div>
+    <p>用户对某次输出做了修改（"不要这么正式"或"报告用 bullet point"）。这个偏好被记住，下次生成自动应用。</p>
+  </div>
+  <div class="day-item">
+    <div class="day-tag">(d) Memory Snapshot</div>
+    <p>展示用户画像页面：AI 目前知道关于你的什么。类似"明明，创业者，在做 Monostone，关注融资和产品，偏好简洁沟通..."。用户可查看、编辑、删除。</p>
+  </div>
+  <div class="day-item">
+    <div class="day-tag">(e) 自我进化 — Day 1 vs Day 7 对比</div>
+    <p>同一个问题，展示 Day 1 和 Day 7 的输出对比。Day 7 明显更精准、更符合用户习惯。</p>
+  </div>
+</div>
+
+<h3>达标标准</h3>
+<ul class="checklist">
+  <li><strong>跨录音整合：</strong>从多段录音中提取相关信息，合成一个完整回答</li>
+  <li><strong>人物识别：</strong>知道"蔡哥"是谁、和你什么关系、上次聊了什么</li>
+  <li><strong>偏好记忆：</strong>记住用户对格式/语气/内容的调整偏好</li>
+  <li><strong>Snapshot：</strong>有一个可查看的用户画像</li>
+  <li><strong>成长可感知：</strong>同一问题 Day 7 输出明显优于 Day 1</li>
+</ul>
+<div class="feeling">"它居然记得比我清楚。"</div>
+
+<!-- ===== Day 30 ===== -->
+<div class="phase-header">
+  <div class="phase-num" style="background:var(--accent-dim);color:var(--accent);">Day 30</div>
+  <div>
+    <div class="phase-title">AI 真正懂你</div>
+    <div class="phase-desc">证明这是不可替代的个人资产，迁移成本极高</div>
+  </div>
+</div>
+
+<div class="day-section">
+  <div class="day-item">
+    <div class="day-tag">(a) 大量数据积累</div>
+    <p>系统里有 30+ 段录音 + 多份上传文件（PRD、邮件、报告等）。Memory 里有丰富的实体网络（几十个人物、多个项目、大量事实）。</p>
+  </div>
+  <div class="day-item">
+    <div class="day-tag">(b) 复杂任务一句话完成</div>
+    <p>输入："帮我准备和红杉的会议，他们可能会问什么"。AI 基于你之前和其他投资人聊的经验，总结出投资人常问的问题、你之前哪些回答效果好、建议的 talking points。这个输出不可能从零生成，必须依赖 30 天的 Context 积累。</p>
+  </div>
+  <div class="day-item">
+    <div class="day-tag">(c) 主动提醒 / 洞察</div>
+    <p>AI 主动发现模式，不等用户问：</p>
+    <ul style="margin:8px 0 0 20px;font-size:14px;color:var(--text3);">
+      <li>"你最近三周和 5 个投资人聊了，他们共同关注的问题是 XXX"</li>
+      <li>"上次你答应蔡哥本周发 follow-up，还没做"</li>
+      <li>"团队会议里林啸连续两周提到 Pipeline 延期风险"</li>
+    </ul>
+  </div>
+  <div class="day-item">
+    <div class="day-tag">(d) 深度个性化输出</div>
+    <p>生成的邮件、报告完全是你的风格。不需要任何提示，默认就是你喜欢的格式、语气、详细程度。和 Day 1 的通用输出形成鲜明对比。</p>
+  </div>
+  <div class="day-item">
+    <div class="day-tag">(e) Memory 丰富度可视化</div>
+    <p>展示实体网络图（人物/公司/项目的关系）、时间线（30 天里发生了什么）、事实库（多少条已验证事实）、偏好库（积累了哪些个人偏好）。</p>
+  </div>
+</div>
+
+<h3>达标标准</h3>
+<ul class="checklist">
+  <li><strong>复杂推理：</strong>基于历史 Context 做跨时间、跨人物的推理</li>
+  <li><strong>主动洞察：</strong>不等用户问，主动发现模式和提醒</li>
+  <li><strong>风格一致：</strong>输出默认就是用户的风格，不需要提示</li>
+  <li><strong>可追溯：</strong>每条信息可以追溯到原始录音来源</li>
+  <li><strong>Memory 丰富度：</strong>实体网络、时间线、事实库可视化</li>
+</ul>
+<div class="feeling">"它比我实习生更了解我。换掉它？不可能。"</div>
+
+<!-- ===== 对比总结 ===== -->
+<h2>成长曲线对比</h2>
+
+<table class="compare-table">
+  <thead>
+    <tr><th></th><th>Day 1</th><th>Day 7</th><th class="highlight-col">Day 30</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="row-label">输入数据</td><td>口述 + 1段录音</td><td>7-10段录音</td><td class="highlight-col">30+录音 + 文件</td></tr>
+    <tr><td class="row-label">Memory 状态</td><td>基础信息</td><td>人物、偏好、跨录音知识</td><td class="highlight-col">完整个人知识图谱</td></tr>
+    <tr><td class="row-label">问"帮我写报告"</td><td>通用模板，需要补充</td><td>融合多段录音，基本准确</td><td class="highlight-col">完美输出，你的风格，引用来源</td></tr>
+    <tr><td class="row-label">问"蔡哥关注什么"</td><td>"请问蔡哥是谁？"</td><td>列出蔡哥的关注点</td><td class="highlight-col">对比蔡哥和其他投资人的差异</td></tr>
+    <tr><td class="row-label">主动能力</td><td>无</td><td>基础提醒</td><td class="highlight-col">主动洞察 + 模式发现</td></tr>
+    <tr><td class="row-label">用户体感</td><td>"比录音笔好用"</td><td>"它记得比我清楚"</td><td class="highlight-col" style="color:var(--accent);font-weight:700;">"不可替代"</td></tr>
+  </tbody>
+</table>
+
+<!-- ===== 数据准备 ===== -->
+<h2>明明需要准备的数据</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;">
+  <div class="card" style="border-left:4px solid var(--accent);">
+    <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px;">录音处理流程展示</div>
+    <p style="font-size:14px;">一段包含至少 3 个不同话题的录音</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--green);">
+    <div style="font-size:14px;font-weight:700;color:var(--green);margin-bottom:8px;">Day 1 数据</div>
+    <p style="font-size:14px;">个人基础信息（口述或文档）+ 1-2 段录音</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--orange);">
+    <div style="font-size:14px;font-weight:700;color:var(--orange);margin-bottom:8px;">Day 7 数据</div>
+    <p style="font-size:14px;">7-10 段不同场景录音 + 至少一次输出调整/偏好反馈</p>
+  </div>
+  <div class="card" style="border-left:4px solid var(--accent);">
+    <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px;">Day 30 数据</div>
+    <p style="font-size:14px;">30+ 段录音 + 若干上传文件 + 多人物反复出现 + 有时间跨度</p>
+  </div>
+</div>
+
+<!-- ===== 时间线 ===== -->
+<h2>时间线</h2>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-time">本周</div>
+    <div class="tl-desc">明明挑好所有录音和资料</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">下周</div>
+    <div class="tl-desc">Pipeline + 查询全链路跑通</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">D-Day 前 3 天</div>
+    <div class="tl-desc">Day 1/7/30 三套数据全部 ready</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">D-Day 前 1 天</div>
+    <div class="tl-desc">完整彩排</div>
+  </div>
+</div>
+
+</body>
+</html>
