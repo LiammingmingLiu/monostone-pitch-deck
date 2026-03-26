@@ -1262,8 +1262,77 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 5: CLI ECOSYSTEM ==================== -->
+  <!-- ==================== SLIDE 5.5: MEMORY — 有/无对比 + 终局指标 ==================== -->
   <div class="slide" data-slide="6">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Memory</h3>
+      <h2 class="anim">同一句话。<br>两个 <span class="accent">完全不同</span> 的世界。</h2>
+
+      <!-- 对比区 -->
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;">
+        <!-- 左：没有 Memory -->
+        <div style="padding:28px;border-radius:16px;background:var(--bg-light);border:1px solid var(--border);">
+          <div style="font-size:14px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">❌ 普通 AI — 没有 Memory</div>
+          <div style="padding:16px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid var(--border);margin-bottom:16px;">
+            <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">你说：</div>
+            <div style="font-size:16px;color:var(--text-secondary);font-style:italic;">"帮我整理上周和投资人聊的要点，准备 follow-up 邮件。"</div>
+          </div>
+          <div style="padding:16px;border-radius:10px;background:rgba(255,80,80,0.05);border:1px solid rgba(255,80,80,0.15);">
+            <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">AI 回复：</div>
+            <div style="font-size:15px;color:var(--text-secondary);line-height:1.6;">"请问你上周和哪位投资人聊了？请提供会议内容和对方的关注点。"</div>
+            <div style="margin-top:12px;font-size:13px;color:#ff6b6b;">→ 你还得花 10 分钟喂 Context</div>
+          </div>
+        </div>
+        <!-- 右：有 Memory -->
+        <div style="padding:28px;border-radius:16px;background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(0,212,255,0.02));border:2px solid var(--accent);box-shadow:0 0 30px rgba(0,212,255,0.1);">
+          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">✅ 你的 AI — 有 Memory</div>
+          <div style="padding:16px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,212,255,0.15);margin-bottom:16px;">
+            <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">你说：</div>
+            <div style="font-size:16px;color:var(--text-primary);font-style:italic;">"帮我跟进蔡哥。"</div>
+            <div style="font-size:12px;color:var(--accent);margin-top:4px;">— 3 秒</div>
+          </div>
+          <div style="padding:16px;border-radius:10px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.2);">
+            <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">AI 回复：</div>
+            <div style="font-size:15px;color:var(--text-secondary);line-height:1.6;">"根据 3/22 你和蔡哥的会议，他关注三个点：① 用户画像 ② Day 1 体验 ③ 岗位泛化性。建议 follow-up 邮件重点回应这三项，附更新后的 Demo 链接。"</div>
+            <div style="margin-top:12px;font-size:13px;color:var(--accent);">→ 一句话，3 秒，直接能发</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 终局指标 -->
+      <div class="anim" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px;">
+        <div style="text-align:center;padding:20px 16px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
+          <div style="font-size:36px;font-weight:900;color:var(--accent);line-height:1;">95分</div>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:8px;font-weight:500;">Day 30 输出质量</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">vs 裸模型 60-70 分</div>
+        </div>
+        <div style="text-align:center;padding:20px 16px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
+          <div style="font-size:36px;font-weight:900;color:var(--accent);line-height:1;">3秒</div>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:8px;font-weight:500;">用户输入时间</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">vs 传统 5-10 分钟</div>
+        </div>
+        <div style="text-align:center;padding:20px 16px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
+          <div style="font-size:36px;font-weight:900;color:var(--accent);line-height:1;">↓60-80%</div>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:8px;font-weight:500;">Token 成本</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">结构化召回，不重传背景</div>
+        </div>
+        <div style="text-align:center;padding:20px 16px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
+          <div style="font-size:36px;font-weight:900;color:var(--accent);line-height:1;">>90%</div>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:8px;font-weight:500;">Memory 召回准确率</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">图谱推理，非关键词搜索</div>
+        </div>
+      </div>
+
+      <!-- RSI 一句话 -->
+      <div class="anim" style="margin-top:24px;text-align:center;">
+        <p style="font-size:16px;color:var(--text-muted);">你的每一次纠正都会被 Memory 记住——AI 不只记住答案，还会推理出你的偏好模式，<span style="color:var(--accent);font-weight:600;">递归自我改进</span>。</p>
+        <div style="font-size:20px;font-weight:700;color:var(--text-primary);margin-top:8px;">你不是在用工具，是在养一个越来越像你的 <span class="accent">AI 分身</span>。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 6: CLI ECOSYSTEM ==================== -->
+  <div class="slide" data-slide="8">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">生态即壁垒</h3>
       <h2 class="anim">不自己写百万 App。<br>我们有 <span class="accent">App Store</span>。</h2>
@@ -1324,7 +1393,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 6: CLI USE CASES ==================== -->
-  <div class="slide" data-slide="7">
+  <div class="slide" data-slide="8">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">一句话，全部搞定</h3>
       <h2 class="anim">双击戒指。剩下的交给 <span class="accent">Agent</span>。</h2>
@@ -1426,7 +1495,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 7: PRODUCT ==================== -->
-  <div class="slide" data-slide="8">
+  <div class="slide" data-slide="9">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">产品</h3>
       <h2 class="anim">一枚戒指，持续喂养你的 AI 人格。</h2>
@@ -1497,7 +1566,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 9: FLYWHEEL ==================== -->
-  <div class="slide" data-slide="9">
+  <div class="slide" data-slide="10">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">飞轮</h3>
       <h2 class="anim">用得越久，越离不开。</h2>
@@ -1566,7 +1635,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 10: MARKET ==================== -->
-  <div class="slide" data-slide="10">
+  <div class="slide" data-slide="11">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">市场规模</h3>
       <h2 class="anim">$470B AI 生产力市场的基础设施层。</h2>
@@ -1617,7 +1686,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 11: COMPETITION ==================== -->
-  <div class="slide" data-slide="11">
+  <div class="slide" data-slide="12">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">竞争格局</h3>
       <h2 class="anim">他们的终点，是我们的起点。</h2>
@@ -1669,7 +1738,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 12: BUSINESS MODEL ==================== -->
-  <div class="slide" data-slide="12">
+  <div class="slide" data-slide="13">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">商业模式</h3>
       <h2 class="anim">硬件获客，Context 留存，生态变现。</h2>
@@ -1750,7 +1819,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 13: TEAM ==================== -->
-  <div class="slide" data-slide="13">
+  <div class="slide" data-slide="14">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">团队</h3>
       <h2 class="anim">硬件量产 × AI 产品 × 商业判断。</h2>
@@ -1800,7 +1869,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 14: TRACTION & ROADMAP ==================== -->
-  <div class="slide" data-slide="14">
+  <div class="slide" data-slide="15">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Traction & 路线图</h3>
       <h2 class="anim">已经在跑了。</h2>
@@ -1851,7 +1920,7 @@ table tr:last-child td { border-bottom: none; }
   </div>
 
   <!-- ==================== SLIDE 15: ASK ==================== -->
-  <div class="slide" data-slide="15">
+  <div class="slide" data-slide="16">
     <div class="slide-inner center-text">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Ask</h3>
       <h2 class="anim" style="font-size:48px;">$2-4M Pre-Seed，建 AI 的灵魂层。</h2>
@@ -1920,7 +1989,7 @@ table tr:last-child td { border-bottom: none; }
 
 <script>
 (function() {
-  const TOTAL = 16;
+  const TOTAL = 17;
   let current = 0;
   let animating = false;
   const slides = document.querySelectorAll('.slide');
