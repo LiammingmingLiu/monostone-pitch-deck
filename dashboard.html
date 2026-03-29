@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monostone — Project Dashboard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+:root {
+  --bg: #0A0A0A;
+  --bg-mid: #111111;
+  --bg-light: #1A1A1A;
+  --bg-card: #161616;
+  --accent: #00D4FF;
+  --accent-dim: rgba(0,212,255,0.10);
+  --accent-glow: rgba(0,212,255,0.25);
+  --green: #00E676;
+  --green-dim: rgba(0,230,118,0.10);
+  --orange: #FF9100;
+  --orange-dim: rgba(255,145,0,0.10);
+  --red: #FF5252;
+  --red-dim: rgba(255,82,82,0.10);
+  --yellow: #FFD740;
+  --yellow-dim: rgba(255,215,64,0.10);
+  --purple: #B388FF;
+  --purple-dim: rgba(179,136,255,0.10);
+  --text: #FFFFFF;
+  --text2: #C8C8C8;
+  --text3: #888888;
+  --text4: #555555;
+  --border: rgba(255,255,255,0.06);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.5;}
+
+.container{max-width:1400px;margin:0 auto;padding:32px 40px;}
+
+/* Header */
+.header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+.header-left h1{font-size:28px;font-weight:800;letter-spacing:-0.5px;}
+.header-left h1 span{color:var(--accent);}
+.header-left .tagline{font-size:13px;color:var(--text3);margin-top:4px;}
+.header-right{text-align:right;}
+.header-right .date{font-size:13px;color:var(--text3);font-family:'JetBrains Mono',monospace;}
+.header-right .phase{display:inline-block;margin-top:6px;padding:5px 14px;background:var(--accent-dim);border:1px solid rgba(0,212,255,0.2);border-radius:8px;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:0.5px;}
+
+/* Grid */
+.grid{display:grid;gap:16px;}
+.grid-top{grid-template-columns:1fr 1fr 1fr 1fr;margin-bottom:8px;}
+.grid-main{grid-template-columns:2fr 1fr;}
+.grid-bottom{grid-template-columns:1fr 1fr 1fr;}
+
+/* Cards */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px;transition:border-color 0.2s;}
+.card:hover{border-color:rgba(255,255,255,0.12);}
+.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.card-title{font-size:13px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:1px;}
+.card-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:6px;}
+
+/* Stat cards */
+.stat-card{text-align:center;padding:24px 16px;}
+.stat-icon{font-size:28px;margin-bottom:8px;}
+.stat-value{font-size:32px;font-weight:900;line-height:1;margin-bottom:4px;}
+.stat-label{font-size:12px;color:var(--text3);font-weight:500;}
+.stat-sub{font-size:11px;color:var(--text4);margin-top:4px;}
+
+/* Status indicator */
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;}
+.status::before{content:'';width:8px;height:8px;border-radius:50%;}
+.status-green::before{background:var(--green);box-shadow:0 0 8px rgba(0,230,118,0.4);}
+.status-orange::before{background:var(--orange);box-shadow:0 0 8px rgba(255,145,0,0.4);}
+.status-red::before{background:var(--red);box-shadow:0 0 8px rgba(255,82,82,0.4);}
+.status-blue::before{background:var(--accent);box-shadow:0 0 8px rgba(0,212,255,0.4);}
+.status-green{color:var(--green);}
+.status-orange{color:var(--orange);}
+.status-red{color:var(--red);}
+.status-blue{color:var(--accent);}
+
+/* Progress bar */
+.progress{height:6px;background:rgba(255,255,255,0.06);border-radius:4px;margin:8px 0;overflow:hidden;}
+.progress-fill{height:100%;border-radius:4px;transition:width 0.5s;}
+
+/* Module rows */
+.module-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);}
+.module-row:last-child{border-bottom:none;}
+.module-info{display:flex;align-items:center;gap:12px;}
+.module-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.module-name{font-size:14px;font-weight:600;}
+.module-desc{font-size:12px;color:var(--text4);}
+.module-right{text-align:right;}
+.module-pct{font-size:16px;font-weight:800;}
+
+/* Todo items */
+.todo{padding:10px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px;}
+.todo:last-child{border-bottom:none;}
+.todo-priority{width:4px;min-height:20px;border-radius:2px;margin-top:2px;flex-shrink:0;}
+.todo-priority.p0{background:var(--red);}
+.todo-priority.p1{background:var(--orange);}
+.todo-priority.p2{background:var(--accent);}
+.todo-content{flex:1;}
+.todo-title{font-size:14px;font-weight:500;color:var(--text2);}
+.todo-meta{font-size:11px;color:var(--text4);margin-top:2px;}
+.todo-tag{display:inline-block;padding:1px 8px;border-radius:4px;font-size:10px;font-weight:600;margin-left:4px;}
+
+/* Timeline */
+.tl-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);}
+.tl-item:last-child{border-bottom:none;}
+.tl-date{font-size:12px;font-weight:600;color:var(--accent);min-width:60px;font-family:'JetBrains Mono',monospace;}
+.tl-content{font-size:13px;color:var(--text2);}
+.tl-done{color:var(--text4);text-decoration:line-through;}
+
+/* Team */
+.team-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);}
+.team-row:last-child{border-bottom:none;}
+.team-info{display:flex;align-items:center;gap:10px;}
+.team-avatar{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#000;}
+.team-name{font-size:14px;font-weight:600;}
+.team-role{font-size:11px;color:var(--text4);}
+.team-status{font-size:12px;}
+
+/* Detail modal */
+.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:100;align-items:center;justify-content:center;}
+.modal-overlay.active{display:flex;}
+.modal{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:32px;max-width:700px;width:90%;max-height:80vh;overflow-y:auto;position:relative;}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text3);font-size:20px;cursor:pointer;}
+.modal-close:hover{color:var(--text);}
+.modal h2{font-size:22px;font-weight:800;margin-bottom:6px;}
+.modal h3{font-size:16px;font-weight:700;margin:20px 0 10px;color:var(--text2);}
+.modal p,.modal li{font-size:14px;color:var(--text2);line-height:1.7;}
+.modal .detail-item{padding:12px 0;border-bottom:1px solid var(--border);}
+.modal .detail-item:last-child{border-bottom:none;}
+
+/* Clickable */
+.clickable{cursor:pointer;}
+.clickable:hover{border-color:rgba(0,212,255,0.3);}
+
+@media(max-width:900px){
+  .grid-top{grid-template-columns:1fr 1fr;}
+  .grid-main{grid-template-columns:1fr;}
+  .grid-bottom{grid-template-columns:1fr;}
+  .container{padding:20px;}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="header-left">
+    <h1>MONO<span>STONE</span></h1>
+    <div class="tagline">AI Voice Commander · Project Dashboard</div>
+  </div>
+  <div class="header-right">
+    <div class="date" id="currentDate"></div>
+    <div class="phase">PHASE 1 · MVP</div>
+  </div>
+</div>
+
+<!-- Top Stats -->
+<div class="grid grid-top">
+  <div class="card stat-card clickable" onclick="openModal('milestone')">
+    <div class="stat-icon">🎯</div>
+    <div class="stat-value" style="color:var(--accent);">D-Day</div>
+    <div class="stat-label">线性资本</div>
+    <div class="stat-sub">准备中 · 日期待定</div>
+  </div>
+  <div class="card stat-card clickable" onclick="openModal('hardware')">
+    <div class="stat-icon">💍</div>
+    <div class="stat-value" style="color:var(--orange);">65%</div>
+    <div class="stat-label">硬件进度</div>
+    <div class="stat-sub">FPC板 4月中</div>
+  </div>
+  <div class="card stat-card clickable" onclick="openModal('software')">
+    <div class="stat-icon">🧠</div>
+    <div class="stat-value" style="color:var(--green);">40%</div>
+    <div class="stat-label">软件进度</div>
+    <div class="stat-sub">Memory V2 重构中</div>
+  </div>
+  <div class="card stat-card clickable" onclick="openModal('fundraising')">
+    <div class="stat-icon">💰</div>
+    <div class="stat-value" style="color:var(--purple);">进行中</div>
+    <div class="stat-label">融资</div>
+    <div class="stat-sub">Pre-seed $2-4M</div>
+  </div>
+</div>
+
+<!-- Main Grid -->
+<div class="grid grid-main">
+
+  <!-- Left: Module Status + Todos -->
+  <div style="display:flex;flex-direction:column;gap:16px;">
+
+    <!-- Module Status -->
+    <div class="card clickable" onclick="openModal('modules')">
+      <div class="card-header">
+        <div class="card-title">📊 模块状态</div>
+        <div class="card-badge" style="background:var(--accent-dim);color:var(--accent);">点击看详情</div>
+      </div>
+
+      <div class="module-row">
+        <div class="module-info">
+          <div class="module-icon" style="background:var(--orange-dim);">💍</div>
+          <div><div class="module-name">硬件 · 戒指</div><div class="module-desc">Marshal 负责 · FPC板待出</div></div>
+        </div>
+        <div class="module-right">
+          <div class="module-pct" style="color:var(--orange);">65%</div>
+          <div class="status status-orange">进行中</div>
+        </div>
+      </div>
+      <div class="progress"><div class="progress-fill" style="width:65%;background:var(--orange);"></div></div>
+
+      <div class="module-row">
+        <div class="module-info">
+          <div class="module-icon" style="background:var(--green-dim);">🧠</div>
+          <div><div class="module-name">软件 · Memory + Pipeline</div><div class="module-desc">林啸 & 王浩 · Memory V2 重构</div></div>
+        </div>
+        <div class="module-right">
+          <div class="module-pct" style="color:var(--green);">40%</div>
+          <div class="status status-green">进行中</div>
+        </div>
+      </div>
+      <div class="progress"><div class="progress-fill" style="width:40%;background:var(--green);"></div></div>
+
+      <div class="module-row">
+        <div class="module-info">
+          <div class="module-icon" style="background:var(--purple-dim);">🎨</div>
+          <div><div class="module-name">UX / UI 设计</div><div class="module-desc">Sean · 预计 4 月底结束</div></div>
+        </div>
+        <div class="module-right">
+          <div class="module-pct" style="color:var(--purple);">60%</div>
+          <div class="status status-blue">进行中</div>
+        </div>
+      </div>
+      <div class="progress"><div class="progress-fill" style="width:60%;background:var(--purple);"></div></div>
+
+      <div class="module-row">
+        <div class="module-info">
+          <div class="module-icon" style="background:var(--accent-dim);">📈</div>
+          <div><div class="module-name">市场 · GTM</div><div class="module-desc">明明 · 独立站 + Content 策略</div></div>
+        </div>
+        <div class="module-right">
+          <div class="module-pct" style="color:var(--text4);">20%</div>
+          <div class="status status-orange">规划中</div>
+        </div>
+      </div>
+      <div class="progress"><div class="progress-fill" style="width:20%;background:var(--accent);"></div></div>
+
+      <div class="module-row">
+        <div class="module-info">
+          <div class="module-icon" style="background:var(--yellow-dim);">💰</div>
+          <div><div class="module-name">融资</div><div class="module-desc">明明 · 线性 D-Day 准备</div></div>
+        </div>
+        <div class="module-right">
+          <div class="module-pct" style="color:var(--yellow);">进行中</div>
+          <div class="status status-orange">D-Day 待定</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- This Week Todos -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">📋 本周重点</div>
+        <div class="card-badge" style="background:var(--red-dim);color:var(--red);">本周</div>
+      </div>
+
+      <div class="todo">
+        <div class="todo-priority p0"></div>
+        <div class="todo-content">
+          <div class="todo-title">D-Day Demo 数据准备：挑选 10-15 段录音<span class="todo-tag" style="background:var(--red-dim);color:var(--red);">P0</span></div>
+          <div class="todo-meta">明明 · 包含多主题录音、不同场景</div>
+        </div>
+      </div>
+
+      <div class="todo">
+        <div class="todo-priority p0"></div>
+        <div class="todo-content">
+          <div class="todo-title">Memory V2 主题切分模块开发<span class="todo-tag" style="background:var(--red-dim);color:var(--red);">P0</span></div>
+          <div class="todo-meta">林啸 & 王浩 · Pipeline 全链路跑通</div>
+        </div>
+      </div>
+
+      <div class="todo">
+        <div class="todo-priority p0"></div>
+        <div class="todo-content">
+          <div class="todo-title">线性资本 DDay Deck 内容修改<span class="todo-tag" style="background:var(--red-dim);color:var(--red);">P0</span></div>
+          <div class="todo-meta">明明 · 按 Harry 反馈调整</div>
+        </div>
+      </div>
+
+      <div class="todo">
+        <div class="todo-priority p1"></div>
+        <div class="todo-content">
+          <div class="todo-title">FPC 板进度跟踪<span class="todo-tag" style="background:var(--orange-dim);color:var(--orange);">P1</span></div>
+          <div class="todo-meta">Marshal · 4月中预计出板</div>
+        </div>
+      </div>
+
+      <div class="todo">
+        <div class="todo-priority p1"></div>
+        <div class="todo-content">
+          <div class="todo-title">UX 设计评审<span class="todo-tag" style="background:var(--orange-dim);color:var(--orange);">P1</span></div>
+          <div class="todo-meta">Sean · iOS 四 Tab 交互稿</div>
+        </div>
+      </div>
+
+      <div class="todo">
+        <div class="todo-priority p2"></div>
+        <div class="todo-content">
+          <div class="todo-title">CMO 候选人筛选<span class="todo-tag" style="background:var(--accent-dim);color:var(--accent);">P2</span></div>
+          <div class="todo-meta">明明 · 消费电子/DTC 背景优先</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column -->
+  <div style="display:flex;flex-direction:column;gap:16px;">
+
+    <!-- Timeline -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🗓️ 里程碑</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">3/26</div>
+        <div class="tl-content tl-done">✅ 线性资本 Harry 面谈（香港）</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">3/29</div>
+        <div class="tl-content" style="color:var(--accent);font-weight:600;">← 今天</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">4月中</div>
+        <div class="tl-content">FPC 板出板</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">4月底</div>
+        <div class="tl-content">UX 设计完成</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">5月初</div>
+        <div class="tl-content">量产样机</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">5月中</div>
+        <div class="tl-content">软件 MVP ready</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">TBD</div>
+        <div class="tl-content" style="color:var(--yellow);font-weight:600;">🎯 线性 D-Day</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">6-8月</div>
+        <div class="tl-content">独立站上线 + Content 推广</div>
+      </div>
+    </div>
+
+    <!-- Team -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">👥 团队</div>
+      </div>
+
+      <div class="team-row">
+        <div class="team-info">
+          <div class="team-avatar" style="background:var(--accent);">M</div>
+          <div><div class="team-name">明明</div><div class="team-role">CEO / 产品</div></div>
+        </div>
+        <div class="team-status status status-green">Active</div>
+      </div>
+      <div class="team-row">
+        <div class="team-info">
+          <div class="team-avatar" style="background:var(--orange);">M</div>
+          <div><div class="team-name">Marshal</div><div class="team-role">硬件</div></div>
+        </div>
+        <div class="team-status status status-green">Active</div>
+      </div>
+      <div class="team-row">
+        <div class="team-info">
+          <div class="team-avatar" style="background:var(--green);">林</div>
+          <div><div class="team-name">林啸</div><div class="team-role">软件</div></div>
+        </div>
+        <div class="team-status status status-green">Active</div>
+      </div>
+      <div class="team-row">
+        <div class="team-info">
+          <div class="team-avatar" style="background:var(--text4);">J</div>
+          <div><div class="team-name">Jim</div><div class="team-role">结构工程</div></div>
+        </div>
+        <div class="team-status status status-green">Active</div>
+      </div>
+      <div class="team-row">
+        <div class="team-info">
+          <div class="team-avatar" style="background:var(--text4);">K</div>
+          <div><div class="team-name">Ken</div><div class="team-role">嵌入式</div></div>
+        </div>
+        <div class="team-status status status-green">Active</div>
+      </div>
+      <div class="team-row">
+        <div class="team-info">
+          <div class="team-avatar" style="background:var(--purple);">S</div>
+          <div><div class="team-name">Sean</div><div class="team-role">UX/UI</div></div>
+        </div>
+        <div class="team-status status status-blue">设计中</div>
+      </div>
+      <div class="team-row">
+        <div class="team-info">
+          <div class="team-avatar" style="background:var(--border);color:var(--text3);">?</div>
+          <div><div class="team-name">CMO</div><div class="team-role">预留 5% · 招聘中</div></div>
+        </div>
+        <div class="team-status status status-red">招聘中</div>
+      </div>
+      <div class="team-row">
+        <div class="team-info">
+          <div class="team-avatar" style="background:var(--yellow);color:#000;">字</div>
+          <div><div class="team-name">字节 2-2</div><div class="team-role">后端工程师</div></div>
+        </div>
+        <div class="team-status status status-orange">即将入职</div>
+      </div>
+    </div>
+
+    <!-- Fundraising -->
+    <div class="card clickable" onclick="openModal('fundraising')">
+      <div class="card-header">
+        <div class="card-title">💰 融资进展</div>
+      </div>
+      <div style="text-align:center;padding:8px 0;">
+        <div style="font-size:28px;font-weight:900;color:var(--accent);">$2-4M</div>
+        <div style="font-size:12px;color:var(--text3);margin-top:2px;">Pre-seed @ $20M pre-money</div>
+      </div>
+      <div style="margin-top:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">
+          <span style="color:var(--text3);">线性资本</span>
+          <span class="status status-orange">D-Day 准备中</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">
+          <span style="color:var(--text3);">录音1 VC</span>
+          <span class="status status-orange">周会待过</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;">
+          <span style="color:var(--text3);">录音2 VC</span>
+          <span style="color:var(--text4);font-size:12px;">大概率不推进</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom: D-Day Prep -->
+<div style="margin-top:16px;">
+  <div class="card clickable" onclick="openModal('dday')">
+    <div class="card-header">
+      <div class="card-title">🎯 D-Day Demo 准备状态</div>
+      <div class="card-badge" style="background:var(--yellow-dim);color:var(--yellow);">点击看详情</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;">
+      <div style="text-align:center;padding:16px;background:var(--bg);border-radius:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--text3);margin-bottom:6px;">录音数据</div>
+        <div style="font-size:20px;font-weight:800;color:var(--orange);">待准备</div>
+        <div style="font-size:11px;color:var(--text4);margin-top:4px;">需要 10-15 段</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--bg);border-radius:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--text3);margin-bottom:6px;">Pipeline</div>
+        <div style="font-size:20px;font-weight:800;color:var(--orange);">开发中</div>
+        <div style="font-size:11px;color:var(--text4);margin-top:4px;">切分+提取+检索</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--bg);border-radius:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--text3);margin-bottom:6px;">Day 1/7/30 数据</div>
+        <div style="font-size:20px;font-weight:800;color:var(--red);">未开始</div>
+        <div style="font-size:11px;color:var(--text4);margin-top:4px;">三套状态数据</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--bg);border-radius:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--text3);margin-bottom:6px;">彩排</div>
+        <div style="font-size:20px;font-weight:800;color:var(--red);">未开始</div>
+        <div style="font-size:11px;color:var(--text4);margin-top:4px;">至少 3 遍</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<!-- ===== MODALS ===== -->
+
+<div class="modal-overlay" id="modal-milestone" onclick="closeModal(event,'milestone')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(event,'milestone')">✕</button>
+    <h2>🎯 关键里程碑</h2>
+    <p style="color:var(--text3);margin-bottom:16px;">Phase 1: MVP → 独立站上线</p>
+    <div class="detail-item"><strong style="color:var(--accent);">3/22</strong> — ✅ 线性资本郑灿初聊</div>
+    <div class="detail-item"><strong style="color:var(--accent);">3/26</strong> — ✅ 线性资本 Harry 面谈（香港四季）</div>
+    <div class="detail-item"><strong style="color:var(--accent);">3/29</strong> — 进入 D-Day 准备阶段</div>
+    <div class="detail-item"><strong style="color:var(--orange);">4月中</strong> — FPC 板出板</div>
+    <div class="detail-item"><strong style="color:var(--orange);">4月底</strong> — UX 设计交付</div>
+    <div class="detail-item"><strong style="color:var(--orange);">5月初</strong> — 量产样机完成</div>
+    <div class="detail-item"><strong style="color:var(--orange);">5月中</strong> — 软件 MVP ready</div>
+    <div class="detail-item"><strong style="color:var(--yellow);">TBD</strong> — 线性 D-Day</div>
+    <div class="detail-item"><strong style="color:var(--text4);">6-8月</strong> — 独立站上线 + Content 推广</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-hardware" onclick="closeModal(event,'hardware')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(event,'hardware')">✕</button>
+    <h2>💍 硬件进度详情</h2>
+    <h3>当前状态</h3>
+    <p>FPC 柔性板预计 4 月中出板，量产样机 4 月中-5 月初完成。</p>
+    <h3>Spec</h3>
+    <div class="detail-item">食指佩戴 · 4 槽设计（麦克风藏槽内）</div>
+    <div class="detail-item">双麦克风 · 人声增强</div>
+    <div class="detail-item">BLE 5.0 实时传输</div>
+    <div class="detail-item">双核 + VAD · 10-15h 续航</div>
+    <div class="detail-item">触觉反馈 · 金属磨砂</div>
+    <div class="detail-item">BOM ~$20 · 零售 $249</div>
+    <h3>决策记录</h3>
+    <div class="detail-item">❌ 第一代不做陶瓷/健康监测</div>
+    <div class="detail-item">❌ 1/4 触屏暂不做</div>
+    <div class="detail-item">✅ 聚焦录音 + Voice Commander</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-software" onclick="closeModal(event,'software')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(event,'software')">✕</button>
+    <h2>🧠 软件进度详情</h2>
+    <h3>Memory V2 重构</h3>
+    <p>从 Trie 树 + Embedding 架构迁移到：写入时智能切分 + 双轨索引 + 精准召回</p>
+    <div class="detail-item"><strong>主题切分</strong> — 长录音自动按话题切成独立 Segment</div>
+    <div class="detail-item"><strong>结构化索引</strong> — 人名/日期/实体精确匹配</div>
+    <div class="detail-item"><strong>Summary Embedding</strong> — 对摘要做向量，不对口语原文</div>
+    <div class="detail-item"><strong>混合检索</strong> — 双路合并 Top-K</div>
+    <div class="detail-item"><strong>RSI</strong> — 用户反馈驱动记忆进化</div>
+    <h3>MVP 优先级</h3>
+    <p>Pipeline（数据处理）> Memory > 交付层 API > Plugin > 前端</p>
+    <h3>后端</h3>
+    <p>AWS 部署</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-fundraising" onclick="closeModal(event,'fundraising')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(event,'fundraising')">✕</button>
+    <h2>💰 融资详情</h2>
+    <h3>本轮</h3>
+    <p>Pre-seed $2-4M @ $20M pre-money · 稀释 10-15%</p>
+    <h3>Cap Table</h3>
+    <div class="detail-item">明明 60% · Marshal 20% · 林啸 20% · ESOP 30%</div>
+    <h3>资金用途</h3>
+    <div class="detail-item">硬件量产 40% · 软件开发 30% · 市场 20% · 运营 10%</div>
+    <h3>投资人接触</h3>
+    <div class="detail-item"><strong style="color:var(--accent);">线性资本</strong> — 进入 D-Day · Harry 对 Voice Commander 感兴趣</div>
+    <div class="detail-item"><strong style="color:var(--orange);">录音1 VC</strong> — 投了不少可穿戴，说下周周会过</div>
+    <div class="detail-item"><strong style="color:var(--text4);">录音2 VC</strong> — 追问大厂竞争，大概率不推进</div>
+    <div class="detail-item"><strong style="color:var(--text3);">郑灿（线性MD）</strong> — 3/12 初聊，建议定位"指挥Agent入口"</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-modules" onclick="closeModal(event,'modules')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(event,'modules')">✕</button>
+    <h2>📊 各模块详细状态</h2>
+    <h3>💍 硬件 — 65%</h3>
+    <div class="detail-item">FPC 板 4月中出 → 量产样机 5月初</div>
+    <div class="detail-item">结构设计：Jim 负责，进行中</div>
+    <div class="detail-item">嵌入式固件：Ken 负责，等 FPC 板</div>
+    <h3>🧠 软件 — 40%</h3>
+    <div class="detail-item">Memory V2 重构中（林啸 & 王浩）</div>
+    <div class="detail-item">Pipeline 全链路待跑通</div>
+    <div class="detail-item">查询接口开发中</div>
+    <h3>🎨 UX/UI — 60%</h3>
+    <div class="detail-item">Sean 负责，预计 4 月底完成</div>
+    <div class="detail-item">iOS 四 Tab（Timeline / Library / Memory / Agent）</div>
+    <div class="detail-item">macOS 两栏/三栏布局</div>
+    <h3>📈 市场 GTM — 20%</h3>
+    <div class="detail-item">策略已定：独立站 + Content + KOC</div>
+    <div class="detail-item">不上 KS（ROI 28% 太低）</div>
+    <div class="detail-item">执行等产品 ready 后启动</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-dday" onclick="closeModal(event,'dday')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(event,'dday')">✕</button>
+    <h2>🎯 D-Day Demo 准备</h2>
+    <p style="color:var(--text3);margin-bottom:16px;">展示 Day 1 → Day 7 → Day 30 的用户旅程 + 录音处理全流程</p>
+    <h3>录音处理流程展示</h3>
+    <div class="detail-item">一段多主题录音 → 转写 → 主题切分 → 结构化提取 → 入库 → 验证查询</div>
+    <h3>Day 1 — 冷启动</h3>
+    <div class="detail-item">口述/上传基础信息 + 第一段录音 + 和 ChatGPT 对比</div>
+    <h3>Day 7 — 开始认识你</h3>
+    <div class="detail-item">跨录音整合 · 人物识别 · 偏好学习 · Memory Snapshot · Day1 vs Day7 对比</div>
+    <h3>Day 30 — 不可替代</h3>
+    <div class="detail-item">复杂推理 · 主动洞察 · 深度个性化 · Memory 丰富度可视化</div>
+    <h3>数据需求</h3>
+    <div class="detail-item">🔴 10-15 段真实录音（明明准备）</div>
+    <div class="detail-item">🔴 Day 1/7/30 三套数据状态</div>
+    <div class="detail-item">🟡 Pipeline 全链路跑通</div>
+    <div class="detail-item">🟡 查询接口 ready</div>
+    <p style="margin-top:16px;"><a href="dday-demo-spec.html" target="_blank">→ 查看完整 Demo Spec 文档</a></p>
+  </div>
+</div>
+
+<script>
+// Date
+document.getElementById('currentDate').textContent = new Date().toLocaleDateString('zh-CN', {year:'numeric',month:'long',day:'numeric',weekday:'long'});
+
+// Modal
+function openModal(id) {
+  document.getElementById('modal-' + id).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e, id) {
+  document.getElementById('modal-' + id).classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+    document.body.style.overflow = '';
+  }
+});
+</script>
+
+</body>
+</html>
