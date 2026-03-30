@@ -507,33 +507,117 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 </div>
 
 <!-- SLIDE 12: 竞争壁垒 -->
+<!-- SLIDE 12: Why We Win — Context 采集全局地图 -->
 <div class="slide" data-slide="12">
-  <div class="slide-inner" style="text-align:center;">
-    <div class="section-label anim">04 产品 · 壁垒</div>
-    <h2 class="anim">竞争壁垒：<span class="accent">深度效应</span></h2>
-    <p class="anim" style="font-size:18px;color:var(--text-muted);max-width:800px;margin:0 auto 36px;">换一个 Email 插件是一分钟。换掉三个月积累的 Memory？不可能。</p>
-    <div class="anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;text-align:left;">
-      <div class="card" style="border-top:3px solid var(--accent);">
-        <div style="font-size:36px;margin-bottom:8px;">🧠</div>
-        <div style="font-size:16px;font-weight:700;margin-bottom:8px;">Memory 深度壁垒</div>
-        <p style="font-size:14px;">用户越用 Context 越深，AI 越精准。30 天的积累 = 不可迁移的个人资产。迁移成本随时间指数增长。</p>
+  <div class="slide-inner">
+    <div class="section-label anim">04 产品 · 靠什么赢（上）</div>
+    <h2 class="anim">第一性原理：<span class="accent">Context 从哪来？</span></h2>
+    <p class="anim" style="font-size:17px;color:var(--text-muted);margin-bottom:24px;">个人 Context 是 AI 时代最重要的基础设施。核心问题只有一个：Context 从哪来？</p>
+
+    <div class="anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px;">
+      <div class="card" style="text-align:center;padding:24px;">
+        <div style="font-size:28px;margin-bottom:8px;">✍️</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:6px;">主动输入型</div>
+        <p style="font-size:13px;">用户主动告诉 AI 自己是谁<br>（AI 社交 / 对话输入）</p>
+        <div style="margin-top:12px;padding:6px;background:rgba(255,82,82,0.1);border-radius:6px;font-size:12px;color:#FF5252;">只能拿到用户愿意给的</div>
       </div>
-      <div class="card" style="border-top:3px solid var(--accent);">
-        <div style="font-size:36px;margin-bottom:8px;">⚙️</div>
-        <div style="font-size:16px;font-weight:700;margin-bottom:8px;">技术架构壁垒</div>
-        <p style="font-size:14px;">Memory V2 架构（写入切分 + 双轨索引 + RSI 自进化）是从零设计的，非通用 RAG 魔改。召回率 94%+，Token 降 60-80%。</p>
+      <div class="card" style="text-align:center;padding:24px;">
+        <div style="font-size:28px;margin-bottom:8px;">👁️</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:6px;">被动标签型</div>
+        <p style="font-size:13px;">平台通过行为反推偏好<br>（抖音推荐 / 浏览记录）</p>
+        <div style="margin-top:12px;padding:6px;background:rgba(255,82,82,0.1);border-radius:6px;font-size:12px;color:#FF5252;">只能拿到平台能观察到的</div>
       </div>
-      <div class="card" style="border-top:3px solid var(--accent);">
-        <div style="font-size:36px;margin-bottom:8px;">🔌</div>
-        <div style="font-size:16px;font-weight:700;margin-bottom:8px;">生态网络效应</div>
-        <p style="font-size:14px;">插件越多 → 用户越多 → 开发者越多 → 更多能力涌现。双飞轮（数据飞轮 + 生态飞轮）同时转。</p>
+      <div class="card card-accent" style="text-align:center;padding:24px;border:2px solid var(--accent);">
+        <div style="font-size:28px;margin-bottom:8px;">🎙️</div>
+        <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:6px;">物理世界采集型</div>
+        <p style="font-size:13px;">从真实生活中直接捕获<br>（录音 / 视觉 / 健康数据）</p>
+        <div style="margin-top:12px;padding:6px;background:rgba(0,212,255,0.15);border-radius:6px;font-size:12px;color:var(--accent);font-weight:600;">高密度 Context 只能从这里来</div>
       </div>
+    </div>
+
+    <div class="anim card" style="margin-bottom:16px;">
+      <p style="font-size:15px;"><strong>人每天最有价值的信息——开会说了什么、和谁聊了什么、做了什么决策——这些信息产生了就消失了，从来不会主动进入任何软件系统。</strong><br>真正高密度的个人 Context 必须靠硬件从物理世界采集。软件只能拿到冰山一角。</p>
+    </div>
+
+    <div class="anim" style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;">为什么现在切语音？</div>
+    <div class="anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+      <div class="card" style="border-top:3px solid var(--accent);padding:16px;">
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">🎙️ 语音</div>
+        <p style="font-size:13px;"><span style="color:var(--green);">✅</span> 模型成熟（文字模型最强）<br><span style="color:var(--green);">✅</span> Day 1 有即时价值<br><span style="color:var(--green);">✅</span> 硬件可无感佩戴</p>
+      </div>
+      <div class="card" style="padding:16px;">
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">📷 视觉</div>
+        <p style="font-size:13px;"><span style="color:#FF5252;">❌</span> 模型不成熟<br><span style="color:#FF5252;">❌</span> 吞吐大 / 成本高<br><span style="color:#FF5252;">❌</span> 眼镜不够无感</p>
+      </div>
+      <div class="card" style="padding:16px;">
+        <div style="font-size:14px;font-weight:700;margin-bottom:8px;">💓 健康</div>
+        <p style="font-size:13px;"><span style="color:var(--green);">✅</span> 传感器成熟<br><span style="color:#FF5252;">❌</span> Day 1 无即时反馈<br><span style="color:#FF5252;">❌</span> 数据需长期积累才有意义</p>
+      </div>
+    </div>
+    <div class="anim" style="margin-top:12px;text-align:center;">
+      <p style="font-size:14px;color:var(--text-muted);">语音不是终局，是最优的第一步。终局 = 语音 → 健康 → 视觉依次叠加。<span class="accent bold">谁先跑通第一步，谁就有权叠加后续模态。</span></p>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 13: 技术方法论 -->
+<!-- SLIDE 12.5: Why We Win — 硬件定义权 + 时间复利 + 飞轮 -->
 <div class="slide" data-slide="13">
+  <div class="slide-inner">
+    <div class="section-label anim">04 产品 · 靠什么赢（下）</div>
+    <h2 class="anim">硬件定义权 + <span class="accent">不可逆的时间复利</span></h2>
+
+    <div class="split anim" style="margin-top:24px;">
+      <div>
+        <div class="card" style="border-left:4px solid var(--accent);margin-bottom:16px;">
+          <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:10px;">硬件定义必须由 Context 层倒推</div>
+          <p style="font-size:14px;">硬件公司（Plaud/Stream）的定义是"做录音设备"→ 单麦、4h 续航、转写完就结束。</p>
+          <p style="font-size:14px;">软件公司（MemoryLake）的定义是"做 Memory"→ 没有硬件，数据源靠手动上传。</p>
+          <p style="font-size:14px;color:var(--accent);font-weight:600;margin-top:8px;">两类公司都有断层。只有从 Context 倒推硬件定义，飞轮才能闭合。</p>
+        </div>
+        <div class="card" style="border-left:4px solid var(--accent);">
+          <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:10px;">我们的硬件：四变量精密平衡</div>
+          <p style="font-size:14px;">要做到全天候 Context 采集，必须同时平衡：<strong>收音质量 × 音频压缩 × 通信稳定 × 高续航</strong></p>
+          <p style="font-size:13px;color:var(--text-muted);margin-top:6px;">四个变量互相制约——高采样率吃功耗，压缩省带宽但增加计算负载，通信要稳定要更多发射功率。在 30mAh 电池的戒指里同时做到 12-15h + 双麦高质量收音，是精密系统工程。</p>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="border-left:4px solid var(--green);">
+          <div style="font-size:15px;font-weight:700;color:var(--green);margin-bottom:10px;">个人 Context = 深度壁垒，不是规模壁垒</div>
+          <p style="font-size:14px;margin-bottom:8px;"><strong>Day 1</strong> — AI 知道你叫明明，在做硬件创业。5 分钟就能给。</p>
+          <p style="font-size:14px;margin-bottom:8px;"><strong>Day 7</strong> — AI 知道你和 5 个投资人分别聊了什么、写邮件喜欢什么语气。</p>
+          <p style="font-size:14px;margin-bottom:12px;"><strong>Day 30</strong> — AI 知道你每个决策节点的思考路径、团队谁擅长什么、哪个投资人对哪个问题敏感。<span style="color:var(--green);font-weight:600;">这 30 天的生活经历本身不可复制。</span></p>
+          <div style="padding:12px;background:rgba(0,230,118,0.08);border-radius:8px;margin-top:8px;">
+            <p style="font-size:13px;margin:0;"><strong>传统数据壁垒（规模）：</strong>我有 1000 万条数据 → 你砸钱也能到 → <span style="color:#FF5252;">可破</span></p>
+            <p style="font-size:13px;margin:4px 0 0;"><strong>个人 Context 壁垒（深度）：</strong>30 天的生活轨迹、人际关系、决策偏好 → 迁移格式不兼容、语义丢失 → <span style="color:var(--green);font-weight:700;">不可破</span></p>
+          </div>
+          <p style="font-size:14px;margin-top:10px;color:var(--accent);font-weight:600;">迁移成本随时间指数增长。先发 6 个月 = 追不上。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flywheel -->
+    <div class="anim card card-accent" style="margin-top:20px;padding:20px 24px;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+        <span style="padding:6px 14px;background:var(--accent);color:#000;border-radius:8px;font-size:13px;font-weight:700;">🎙️ 硬件采集</span>
+        <span style="color:var(--accent);">→</span>
+        <span style="padding:6px 14px;background:var(--accent-dim);border:1px solid rgba(0,212,255,0.25);border-radius:8px;font-size:13px;color:var(--accent);font-weight:600;">🧠 Context 积累</span>
+        <span style="color:var(--accent);">→</span>
+        <span style="padding:6px 14px;background:var(--accent-dim);border:1px solid rgba(0,212,255,0.25);border-radius:8px;font-size:13px;color:var(--accent);font-weight:600;">💡 输出精准</span>
+        <span style="color:var(--accent);">→</span>
+        <span style="padding:6px 14px;background:var(--accent-dim);border:1px solid rgba(0,212,255,0.25);border-radius:8px;font-size:13px;color:var(--accent);font-weight:600;">❤️ 用户依赖</span>
+        <span style="color:var(--accent);">→</span>
+        <span style="padding:6px 14px;background:var(--accent-dim);border:1px solid rgba(0,212,255,0.25);border-radius:8px;font-size:13px;color:var(--accent);font-weight:600;">📈 更多数据</span>
+        <span style="color:var(--accent);">→</span>
+        <span style="padding:6px 14px;background:var(--accent-dim);border:1px solid rgba(0,212,255,0.25);border-radius:8px;font-size:13px;color:var(--accent);font-weight:600;">⚙️ 迭代</span>
+        <span style="color:var(--accent);">↻</span>
+      </div>
+      <p style="font-size:15px;text-align:center;">赢不是赢在某一个环节，是赢在三件事构成的飞轮转起来以后别人追不上：<br><span class="accent bold">押对模态和路径 × 同时控制采集和理解 × 时间复利指数增长</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 14: 技术方法论 -->
+<div class="slide" data-slide="14">
   <div class="slide-inner">
     <div class="section-label anim">04 技术 · 方法论</div>
     <h2 class="anim">技术方法论：<span class="accent">写入时智能，检索时极快</span></h2>
@@ -565,7 +649,7 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 </div>
 
 <!-- SLIDE 14: 核心技术架构 -->
-<div class="slide" data-slide="14">
+<div class="slide" data-slide="15">
   <div class="slide-inner">
     <div class="section-label anim">04 技术 · 架构</div>
     <h2 class="anim">核心技术模块与链路</h2>
@@ -639,7 +723,7 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 <!-- ===== SECTION 5: 市场及品牌 ===== -->
 
 <!-- SLIDE 15: 市场规模 -->
-<div class="slide" data-slide="15">
+<div class="slide" data-slide="16">
   <div class="slide-inner">
     <div class="section-label anim">05 市场</div>
     <h2 class="anim">$470B AI 生产力市场的<span class="accent">基础设施层</span></h2>
@@ -671,7 +755,7 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 </div>
 
 <!-- SLIDE 16: 产品共识 -->
-<div class="slide" data-slide="16">
+<div class="slide" data-slide="17">
   <div class="slide-inner">
     <div class="section-label anim">05 市场 · 产品共识</div>
     <h2 class="anim">怎么和用户建立产品共识</h2>
@@ -710,7 +794,7 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 </div>
 
 <!-- SLIDE 17: GTM -->
-<div class="slide" data-slide="17">
+<div class="slide" data-slide="18">
   <div class="slide-inner">
     <div class="section-label anim">05 市场 · GTM</div>
     <h2 class="anim">Go-to-Market：<span class="accent">独立站 + Content + 社群</span></h2>
@@ -742,7 +826,7 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 </div>
 
 <!-- SLIDE 18: 增长路径 -->
-<div class="slide" data-slide="18">
+<div class="slide" data-slide="19">
   <div class="slide-inner" style="text-align:center;">
     <div class="section-label anim">05 市场 · 增长</div>
     <h2 class="anim">业务增长路径图</h2>
@@ -772,7 +856,7 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 <!-- ===== SECTION 6: 运营融资财务 ===== -->
 
 <!-- SLIDE 19: 团队发展计划 -->
-<div class="slide" data-slide="19">
+<div class="slide" data-slide="20">
   <div class="slide-inner">
     <div class="section-label anim">06 运营 · 团队</div>
     <h2 class="anim">团队发展计划</h2>
@@ -815,7 +899,7 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 </div>
 
 <!-- SLIDE 20: 融资 -->
-<div class="slide" data-slide="20">
+<div class="slide" data-slide="21">
   <div class="slide-inner" style="text-align:center;">
     <div class="section-label anim">06 融资</div>
     <h2 class="anim">Pre-Seed：<span class="accent">$2-4M</span></h2>
@@ -876,7 +960,7 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 </div>
 
 <!-- SLIDE 21: 财务预测 -->
-<div class="slide" data-slide="21">
+<div class="slide" data-slide="22">
   <div class="slide-inner">
     <div class="section-label anim">06 财务</div>
     <h2 class="anim">资金计划与财务预测</h2>
@@ -944,7 +1028,7 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 </div>
 
 <!-- SLIDE 22: 风险 -->
-<div class="slide" data-slide="22">
+<div class="slide" data-slide="23">
   <div class="slide-inner">
     <div class="section-label anim">06 风险</div>
     <h2 class="anim">最大的风险及应对措施</h2>
@@ -992,7 +1076,7 @@ p, li { font-size:17px; line-height:1.7; color:var(--text-secondary); }
 
 <script>
 (function() {
-  const TOTAL = 23;
+  const TOTAL = 24;
   let current = 0;
   let animating = false;
   const slides = document.querySelectorAll('.slide');
