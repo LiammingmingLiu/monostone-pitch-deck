@@ -174,9 +174,9 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sa
   </div>
   <div class="card stat-card clickable" onclick="openModal('software')">
     <div class="stat-icon">🧠</div>
-    <div class="stat-value" style="color:var(--green);">40%</div>
+    <div class="stat-value" style="color:var(--green);">50%</div>
     <div class="stat-label">软件进度</div>
-    <div class="stat-sub">Memory V2 重构中</div>
+    <div class="stat-sub">三模块解耦 · ASR 测试完成</div>
   </div>
   <div class="card stat-card clickable" onclick="openModal('fundraising')">
     <div class="stat-icon">💰</div>
@@ -214,14 +214,14 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sa
       <div class="module-row">
         <div class="module-info">
           <div class="module-icon" style="background:var(--green-dim);">🧠</div>
-          <div><div class="module-name">软件 · Memory + Pipeline</div><div class="module-desc">林啸 & 王浩 · Memory V2 重构</div></div>
+          <div><div class="module-name">软件 · Memory + Plugins + Agent</div><div class="module-desc">林啸 & 王浩 · 三模块完全解耦 · ASR 千问测试完成</div></div>
         </div>
         <div class="module-right">
-          <div class="module-pct" style="color:var(--green);">40%</div>
+          <div class="module-pct" style="color:var(--green);">50%</div>
           <div class="status status-green">进行中</div>
         </div>
       </div>
-      <div class="progress"><div class="progress-fill" style="width:40%;background:var(--green);"></div></div>
+      <div class="progress"><div class="progress-fill" style="width:50%;background:var(--green);"></div></div>
 
       <div class="module-row">
         <div class="module-info">
@@ -301,16 +301,24 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sa
       <div class="todo">
         <div class="todo-priority p0"></div>
         <div class="todo-content">
-          <div class="todo-title">Memory V2 主题切分模块开发<span class="todo-tag" style="background:var(--red-dim);color:var(--red);">P0</span></div>
-          <div class="todo-meta">林啸 & 王浩 · Pipeline 全链路跑通 · Demo 数据准备</div>
+          <div class="todo-title">林啸：APP 小重构 + 前后端联调 + Day1/7/30 演示准备<span class="todo-tag" style="background:var(--red-dim);color:var(--red);">P0</span></div>
+          <div class="todo-meta">林啸 · 今明两天 · 录屏展示效果</div>
         </div>
       </div>
 
       <div class="todo">
         <div class="todo-priority p0"></div>
         <div class="todo-content">
-          <div class="todo-title">D-Day Demo 数据准备：挑选 10-15 段录音<span class="todo-tag" style="background:var(--red-dim);color:var(--red);">P0</span></div>
-          <div class="todo-meta">明明 · 包含多主题录音、不同场景</div>
+          <div class="todo-title">王浩：Memory 新 branch 重写 + A/B 对比测试<span class="todo-tag" style="background:var(--red-dim);color:var(--red);">P0</span></div>
+          <div class="todo-meta">王浩 · 开新 branch · 替换 Memory 模块 · 录屏 · 统一变量（Opus 4.6）</div>
+        </div>
+      </div>
+
+      <div class="todo">
+        <div class="todo-priority p0"></div>
+        <div class="todo-content">
+          <div class="todo-title">明明：设计 Demo 测试问题 + 打包所有录音文件<span class="todo-tag" style="background:var(--red-dim);color:var(--red);">P0</span></div>
+          <div class="todo-meta">明明 · 明天给到林啸和王浩 · 统一数据源</div>
         </div>
       </div>
 
@@ -376,6 +384,10 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sa
       <div class="tl-item">
         <div class="tl-date">3/30</div>
         <div class="tl-content tl-done">✅ 华业天成面谈（明明 + Marshal + 林啸）</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">3/30</div>
+        <div class="tl-content tl-done">✅ 软件 team 进度会 · ASR 千问确认 · 三模块解耦 · Memory A/B 启动</div>
       </div>
       <div class="tl-item">
         <div class="tl-date">3/31</div>
@@ -520,16 +532,12 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sa
           <span class="status status-green">D-Day 4/8 ✓</span>
         </div>
         <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">
-          <span style="color:var(--text3);">录音1 VC</span>
-          <span class="status status-orange">周会待过</span>
+          <span style="color:var(--text3);">华业天成（王堃）</span>
+          <span class="status status-green">基本 close ✓</span>
         </div>
         <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);">
-          <span style="color:var(--text3);">录音2 VC</span>
-          <span style="color:var(--text4);font-size:12px;">大概率不推进</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;">
-          <span style="color:var(--text3);">华业天成（王堃）</span>
-          <span class="status status-green">已面谈 3/30 ✓</span>
+          <span style="color:var(--text3);">Mono List</span>
+          <span style="color:var(--text4);font-size:12px;">推到下一轮 · 华业天成引荐曹曦</span>
         </div>
       </div>
     </div>
