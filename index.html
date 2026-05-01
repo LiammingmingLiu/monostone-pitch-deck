@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MONOSTONE — Pitch Deck V3.0</title>
+<title>MONOSTONE — Anytime, Anywhere, Any Agent</title>
 <style>
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,106 +35,36 @@ html, body {
 }
 
 /* ===== SLIDE CONTAINER ===== */
-.deck {
-  width: 100%; height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
+.deck { width: 100%; height: 100%; position: relative; overflow: hidden; }
 .slide {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
   padding: var(--slide-padding);
-  opacity: 0;
-  transform: translateY(60px);
+  opacity: 0; transform: translateY(60px);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  pointer-events: none;
-  overflow-y: auto;
+  pointer-events: none; overflow-y: auto;
 }
-
-.slide.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-  z-index: 2;
-}
-
-.slide.prev {
-  opacity: 0;
-  transform: translateY(-60px);
-}
-
-.slide-inner {
-  max-width: 1200px;
-  width: 100%;
-}
+.slide.active { opacity: 1; transform: translateY(0); pointer-events: auto; z-index: 2; }
+.slide.prev { opacity: 0; transform: translateY(-60px); }
+.slide-inner { max-width: 1200px; width: 100%; }
 
 /* ===== TYPOGRAPHY ===== */
-h1 {
-  font-size: 56px;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -1.5px;
-  margin-bottom: 24px;
-}
-
-h2 {
-  font-size: 44px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
-}
-
-h3 {
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
-}
-
-p, li {
-  font-size: 20px;
-  line-height: 1.7;
-  color: var(--text-secondary);
-}
-
+h1 { font-size: 56px; font-weight: 800; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 24px; }
+h2 { font-size: 44px; font-weight: 700; line-height: 1.2; letter-spacing: -1px; margin-bottom: 20px; }
+h3 { font-size: 28px; font-weight: 600; line-height: 1.3; color: var(--text-secondary); margin-bottom: 16px; }
+p, li { font-size: 20px; line-height: 1.7; color: var(--text-secondary); }
 .accent { color: var(--accent); }
 .bold { font-weight: 700; color: var(--text-primary); }
-
-.subtitle {
-  font-size: 24px;
-  font-weight: 400;
-  color: var(--text-muted);
-  margin-bottom: 40px;
-}
-
+.subtitle { font-size: 24px; font-weight: 400; color: var(--text-muted); margin-bottom: 40px; }
 .big-quote {
-  font-size: 26px;
-  font-weight: 500;
-  color: var(--accent);
-  border-left: 3px solid var(--accent);
-  padding-left: 24px;
-  margin: 40px 0;
-  font-style: italic;
+  font-size: 26px; font-weight: 500; color: var(--accent);
+  border-left: 3px solid var(--accent); padding-left: 24px;
+  margin: 40px 0; font-style: italic;
 }
-
-.punch {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-top: 32px;
-}
+.punch { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-top: 32px; }
 
 /* ===== STAGGER ANIMATION ===== */
-.slide.active .anim {
-  animation: fadeUp 0.5s ease forwards;
-}
+.slide.active .anim { animation: fadeUp 0.5s ease forwards; }
 .slide.active .anim:nth-child(1) { animation-delay: 0.1s; }
 .slide.active .anim:nth-child(2) { animation-delay: 0.2s; }
 .slide.active .anim:nth-child(3) { animation-delay: 0.3s; }
@@ -143,735 +73,190 @@ p, li {
 .slide.active .anim:nth-child(6) { animation-delay: 0.6s; }
 .slide.active .anim:nth-child(7) { animation-delay: 0.7s; }
 .slide.active .anim:nth-child(8) { animation-delay: 0.8s; }
-
-.anim {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
+.anim { opacity: 0; transform: translateY(20px); }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
 /* ===== LAYOUT HELPERS ===== */
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.split-60-40 {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.split-40-60 {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 60px;
-  align-items: start;
-}
-
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.split-60-40 { display: grid; grid-template-columns: 3fr 2fr; gap: 60px; align-items: start; }
+.split-40-60 { display: grid; grid-template-columns: 2fr 3fr; gap: 60px; align-items: start; }
 .center-text { text-align: center; }
 
 /* ===== CARD / TABLE STYLES ===== */
-.card {
-  background: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-}
-
-.card-accent {
-  background: var(--accent-dim);
-  border: 1px solid rgba(0,212,255,0.25);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 17px;
-}
-
+.card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+.card-accent { background: var(--accent-dim); border: 1px solid rgba(0,212,255,0.25); }
+table { width: 100%; border-collapse: collapse; font-size: 17px; }
 table th {
-  text-align: left;
-  font-weight: 600;
-  color: var(--accent);
-  padding: 12px 16px;
-  border-bottom: 2px solid var(--accent);
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  text-align: left; font-weight: 600; color: var(--accent);
+  padding: 12px 16px; border-bottom: 2px solid var(--accent);
+  font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px;
 }
-
-table td {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-secondary);
-  vertical-align: top;
-}
-
+table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; }
 table tr:last-child td { border-bottom: none; }
 
 /* ===== ARCHITECTURE DIAGRAM ===== */
-.arch-layer {
-  border-radius: 16px;
-  padding: 28px 36px;
-  margin-bottom: 12px;
-  position: relative;
-}
+.arch-layer { border-radius: 16px; padding: 28px 36px; margin-bottom: 12px; position: relative; }
+.arch-layer.top { background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.03)); border: 1px solid rgba(0,212,255,0.15); }
+.arch-layer.mid { background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(0,212,255,0.1)); border: 2px solid var(--accent); box-shadow: 0 0 40px rgba(0,212,255,0.15); }
+.arch-layer.bottom { background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.03)); border: 1px solid rgba(0,212,255,0.15); }
+.arch-label { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 8px; }
+.arch-title { font-size: 22px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+.arch-desc { font-size: 16px; color: var(--text-muted); }
+.arch-arrow { text-align: center; font-size: 24px; color: var(--accent); margin: 4px 0; opacity: 0.6; }
 
-.arch-layer.top {
-  background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.03));
-  border: 1px solid rgba(0,212,255,0.15);
+/* ===== AGENT FAN ===== */
+.agent-fan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.agent-chip {
+  background: var(--bg-light); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 16px; text-align: center;
+  font-size: 14px; font-weight: 600; color: var(--text-secondary);
+  transition: all 0.3s ease;
 }
-
-.arch-layer.mid {
-  background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(0,212,255,0.1));
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 40px rgba(0,212,255,0.15);
-}
-
-.arch-layer.bottom {
-  background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.03));
-  border: 1px solid rgba(0,212,255,0.15);
-}
-
-.arch-label {
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--accent);
-  margin-bottom: 8px;
-}
-
-.arch-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-}
-
-.arch-desc {
-  font-size: 16px;
-  color: var(--text-muted);
-}
-
-.arch-arrow {
-  text-align: center;
-  font-size: 24px;
-  color: var(--accent);
-  margin: 4px 0;
-  opacity: 0.6;
-}
-
-/* ===== FLYWHEEL ===== */
-.flywheel-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.flywheel {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  margin: 0 auto;
-}
-
-.flywheel-ring {
-  position: absolute;
-  border: 2px solid var(--accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flywheel-node {
-  position: absolute;
-  background: var(--bg-light);
-  border: 1px solid var(--accent);
-  border-radius: 12px;
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent);
-  white-space: nowrap;
-}
+.agent-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.agent-chip-name { font-size: 15px; color: var(--text-primary); font-weight: 700; }
+.agent-chip-tag { font-size: 11px; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
 
 /* ===== MARKET CIRCLES ===== */
-.market-circles {
-  position: relative;
-  width: 320px;
-  height: 320px;
-  margin: 0 auto;
-}
-
-.market-circle {
-  position: absolute;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.market-circle.tam {
-  width: 320px; height: 320px;
-  top: 0; left: 0;
-  background: rgba(0,212,255,0.06);
-  border: 1px solid rgba(0,212,255,0.15);
-}
-
-.market-circle.sam {
-  width: 220px; height: 220px;
-  top: 50px; left: 50px;
-  background: rgba(0,212,255,0.12);
-  border: 1px solid rgba(0,212,255,0.25);
-}
-
-.market-circle.som {
-  width: 120px; height: 120px;
-  top: 100px; left: 100px;
-  background: rgba(0,212,255,0.25);
-  border: 2px solid var(--accent);
-}
-
-.market-label {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 1px;
-}
-
-.market-value {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--text-primary);
-}
+.market-circles { position: relative; width: 320px; height: 320px; margin: 0 auto; }
+.market-circle { position: absolute; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
+.market-circle.tam { width: 320px; height: 320px; top: 0; left: 0; background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); }
+.market-circle.sam { width: 220px; height: 220px; top: 50px; left: 50px; background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.25); }
+.market-circle.som { width: 120px; height: 120px; top: 100px; left: 100px; background: rgba(0,212,255,0.25); border: 2px solid var(--accent); }
+.market-label { font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
+.market-value { font-size: 18px; font-weight: 800; color: var(--text-primary); }
 
 /* ===== COMPETITOR TABLE ===== */
-.comp-table td:first-child {
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.comp-us {
-  background: rgba(0,212,255,0.08) !important;
-}
-
-.comp-us td {
-  color: var(--accent) !important;
-  font-weight: 600 !important;
-}
+.comp-table td:first-child { font-weight: 700; color: var(--text-primary); }
+.comp-us { background: rgba(0,212,255,0.08) !important; }
+.comp-us td { color: var(--accent) !important; font-weight: 600 !important; }
 
 /* ===== PRICING ===== */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-}
-
-.pricing-card {
-  background: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-  text-align: center;
-}
-
-.pricing-card.featured {
-  border-color: var(--accent);
-  box-shadow: 0 0 30px rgba(0,212,255,0.1);
-}
-
-.pricing-plan {
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--accent);
-  margin-bottom: 8px;
-}
-
-.pricing-price {
-  font-size: 40px;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 16px;
-}
-
-.pricing-price span {
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--text-muted);
-}
-
-.pricing-features {
-  list-style: none;
-  text-align: left;
-  font-size: 15px;
-}
-
-.pricing-features li {
-  padding: 6px 0;
-  font-size: 15px;
-  color: var(--text-muted);
-}
-
-.pricing-features li::before {
-  content: '✓ ';
-  color: var(--accent);
-  font-weight: 700;
-}
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.pricing-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 16px; padding: 28px; text-align: center; }
+.pricing-card.featured { border-color: var(--accent); box-shadow: 0 0 30px rgba(0,212,255,0.1); }
+.pricing-plan { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 8px; }
+.pricing-price { font-size: 40px; font-weight: 800; color: var(--text-primary); margin-bottom: 16px; }
+.pricing-price span { font-size: 16px; font-weight: 400; color: var(--text-muted); }
+.pricing-features { list-style: none; text-align: left; font-size: 15px; }
+.pricing-features li { padding: 6px 0; font-size: 15px; color: var(--text-muted); }
+.pricing-features li::before { content: '✓ '; color: var(--accent); font-weight: 700; }
 
 /* ===== REDACTED NAME ===== */
-.redacted {
-  display: inline-block;
-  position: relative;
-  color: transparent;
-  user-select: none;
-}
+.redacted { display: inline-block; position: relative; color: transparent; user-select: none; }
 .redacted::after {
-  content: '';
-  position: absolute;
-  inset: 2px 0;
-  background: linear-gradient(90deg, 
-    rgba(0,212,255,0.4) 0%, 
-    rgba(0,212,255,0.7) 20%, 
-    rgba(0,212,255,0.3) 40%, 
-    rgba(0,212,255,0.8) 60%, 
-    rgba(0,212,255,0.4) 80%, 
-    rgba(0,212,255,0.6) 100%);
-  background-size: 200% 100%;
-  border-radius: 4px;
-  animation: mosaic-shift 2s ease-in-out infinite;
-  filter: blur(1px);
+  content: ''; position: absolute; inset: 2px 0;
+  background: linear-gradient(90deg, rgba(0,212,255,0.4) 0%, rgba(0,212,255,0.7) 20%, rgba(0,212,255,0.3) 40%, rgba(0,212,255,0.8) 60%, rgba(0,212,255,0.4) 80%, rgba(0,212,255,0.6) 100%);
+  background-size: 200% 100%; border-radius: 4px;
+  animation: mosaic-shift 2s ease-in-out infinite; filter: blur(1px);
 }
-@keyframes mosaic-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+@keyframes mosaic-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
 /* ===== TEAM ===== */
-.team-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.team-card {
-  background: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-}
-
-.team-role {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--accent);
-  margin-bottom: 6px;
-}
-
-.team-name {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 10px;
-}
-
-.team-bio {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
+.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.team-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+.team-role { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin-bottom: 6px; }
+.team-name { font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
+.team-bio { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
 
 /* ===== TIMELINE ===== */
-.timeline {
-  display: flex;
-  gap: 0;
-  position: relative;
-}
+.timeline { display: flex; gap: 0; position: relative; }
+.timeline::before { content: ''; position: absolute; top: 38px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), rgba(0,212,255,0.2)); }
+.timeline-item { flex: 1; text-align: center; position: relative; padding: 0 16px; }
+.timeline-dot { width: 16px; height: 16px; background: var(--accent); border-radius: 50%; margin: 30px auto 20px; box-shadow: 0 0 16px var(--accent-glow); position: relative; z-index: 1; }
+.timeline-dot.future { background: var(--bg-dark); border: 2px solid var(--accent); }
+.timeline-date { font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 4px; }
+.timeline-label { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+.timeline-desc { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 38px;
-  left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), rgba(0,212,255,0.2));
-}
+/* ===== TRACTION ===== */
+.traction-list { list-style: none; }
+.traction-list li { font-size: 18px; padding: 10px 0; display: flex; align-items: flex-start; gap: 12px; }
+.traction-list li::before { content: '✅'; flex-shrink: 0; }
 
-.timeline-item {
-  flex: 1;
-  text-align: center;
-  position: relative;
-  padding: 0 16px;
-}
-
-.timeline-dot {
-  width: 16px; height: 16px;
-  background: var(--accent);
-  border-radius: 50%;
-  margin: 30px auto 20px;
-  box-shadow: 0 0 16px var(--accent-glow);
-  position: relative;
-  z-index: 1;
-}
-
-.timeline-dot.done {
-  background: var(--accent);
-}
-
-.timeline-dot.future {
-  background: var(--bg-dark);
-  border: 2px solid var(--accent);
-}
-
-.timeline-date {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 1px;
-  margin-bottom: 4px;
-}
-
-.timeline-label {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.timeline-desc {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* ===== TRACTION CHECKS ===== */
-.traction-list {
-  list-style: none;
-}
-
-.traction-list li {
-  font-size: 18px;
-  padding: 10px 0;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.traction-list li::before {
-  content: '✅';
-  flex-shrink: 0;
-}
-
-/* ===== PIE CHART (CSS) ===== */
-.pie-chart {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: conic-gradient(
-    var(--accent) 0deg 144deg,
-    #0088aa 144deg 252deg,
-    #005577 252deg 324deg,
-    #003344 324deg 360deg
-  );
-  margin: 0 auto;
-  position: relative;
-}
-
-.pie-chart::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  width: 80px; height: 80px;
-  background: var(--bg-dark);
-  border-radius: 50%;
-}
-
-.pie-legend {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.pie-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-  color: var(--text-secondary);
-}
-
-.pie-dot {
-  width: 12px; height: 12px;
-  border-radius: 3px;
-  flex-shrink: 0;
-}
+/* ===== PIE CHART ===== */
+.pie-chart { width: 220px; height: 220px; border-radius: 50%; background: conic-gradient(var(--accent) 0deg 144deg, #0088aa 144deg 252deg, #005577 252deg 324deg, #003344 324deg 360deg); margin: 0 auto; position: relative; }
+.pie-chart::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 80px; height: 80px; background: var(--bg-dark); border-radius: 50%; }
+.pie-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.pie-legend-item { display: flex; align-items: center; gap: 8px; font-size: 15px; color: var(--text-secondary); }
+.pie-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
 
 /* ===== BAR CHART ===== */
-.bar-chart {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+.bar-chart { display: flex; flex-direction: column; gap: 16px; }
+.bar-item { display: flex; align-items: center; gap: 16px; }
+.bar-label { width: 140px; font-size: 14px; font-weight: 600; color: var(--text-secondary); text-align: right; flex-shrink: 0; }
+.bar-track { flex: 1; height: 28px; background: rgba(255,255,255,0.04); border-radius: 6px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), rgba(0,212,255,0.5)); border-radius: 6px; transition: width 1s ease; }
+.bar-value { font-size: 14px; font-weight: 700; color: var(--accent); width: 60px; flex-shrink: 0; }
 
-.bar-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.bar-label {
-  width: 140px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.bar-track {
-  flex: 1;
-  height: 28px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), rgba(0,212,255,0.5));
-  border-radius: 6px;
-  transition: width 1s ease;
-}
-
-.bar-value {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--accent);
-  width: 60px;
-  flex-shrink: 0;
-}
-
-/* ===== FUNDING TABLE ===== */
-.ask-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.ask-big {
-  font-size: 64px;
-  font-weight: 900;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.ask-label {
-  font-size: 18px;
-  color: var(--text-muted);
-  margin-bottom: 32px;
-}
+/* ===== ASK ===== */
+.ask-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.ask-big { font-size: 64px; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.ask-label { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; }
 
 /* ===== NAV DOTS ===== */
-.nav-dots {
-  position: fixed;
-  right: 32px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 100;
+.nav-dots { position: fixed; right: 32px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 100; }
+.nav-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: all 0.3s ease; border: none; padding: 0; }
+.nav-dot:hover { background: rgba(255,255,255,0.5); transform: scale(1.3); }
+.nav-dot.active { background: var(--accent); box-shadow: 0 0 10px var(--accent-glow); transform: scale(1.3); }
+
+/* ===== BRIDGE BOX (大白话比喻) ===== */
+.bridge {
+  background: rgba(167, 139, 250, 0.08);
+  border-left: 3px solid #A78BFA;
+  border-radius: 8px;
+  padding: 14px 20px;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.bridge::before {
+  content: '💡 大白话';
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #A78BFA;
+  letter-spacing: 1px;
+  margin-right: 10px;
+  text-transform: uppercase;
 }
 
-.nav-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  padding: 0;
-}
-
-.nav-dot:hover {
-  background: rgba(255,255,255,0.5);
-  transform: scale(1.3);
-}
-
-.nav-dot.active {
-  background: var(--accent);
-  box-shadow: 0 0 10px var(--accent-glow);
-  transform: scale(1.3);
-}
-
-/* ===== ECO TILES (Slide 5) ===== */
-.eco-tile {
+/* ===== SCENARIO CARDS ===== */
+.scenario-step {
   background: var(--bg-light);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 18px 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-.eco-tile:hover {
-  border-color: rgba(0,212,255,0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-}
-.eco-tile-cat {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin: 6px 0;
-}
-.eco-tile-ex {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* ===== CLI CASE CARDS (Slide 6) ===== */
-.cli-case {
-  background: var(--bg-light);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px 18px;
+  padding: 18px 22px;
   margin-bottom: 12px;
-  position: relative;
-  transition: all 0.3s ease;
 }
-.cli-case:hover {
-  border-color: rgba(0,212,255,0.3);
-  transform: translateX(4px);
+.scenario-step.highlight {
+  background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(0,212,255,0.02));
+  border: 1px solid var(--accent);
 }
-.cli-case.cli-future {
-  border-left: 3px solid #FB923C;
-}
-.cli-case.cli-future::after {
-  content: '未来';
-  position: absolute;
-  top: 8px; right: 10px;
-  font-size: 10px; font-weight: 700;
-  color: #0A0A0A;
-  background: #FB923C;
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-.cli-trigger {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 600;
-}
-.cli-ring {
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(0,212,255,0.05));
-  border: 1.5px solid var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.scenario-time {
   font-size: 11px;
-  flex-shrink: 0;
-}
-.cli-actions { padding-left: 32px; }
-.cli-act {
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  position: relative;
-  padding-left: 14px;
-}
-.cli-act::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
   font-weight: 700;
-}
-.cli-tag {
-  font-size: 10px;
-  font-weight: 600;
   color: var(--accent);
-  background: rgba(0,212,255,0.1);
-  padding: 1px 5px;
-  border-radius: 3px;
-  margin-left: 3px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
-.cli-tag-ctx {
-  color: #A78BFA;
-  background: rgba(167,139,250,0.1);
-}
-.cli-tag-future {
-  color: #FB923C;
-  background: rgba(251,146,60,0.1);
-}
+.scenario-action { font-size: 16px; color: var(--text-primary); font-weight: 600; }
+.scenario-detail { font-size: 13px; color: var(--text-muted); margin-top: 4px; line-height: 1.5; }
 
-/* ===== SLIDE NUMBER ===== */
-.slide-counter {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-muted);
-  z-index: 100;
-  font-variant-numeric: tabular-nums;
-}
+/* ===== SLIDE COUNTER ===== */
+.slide-counter { position: fixed; bottom: 32px; right: 32px; font-size: 14px; font-weight: 600; color: var(--text-muted); z-index: 100; font-variant-numeric: tabular-nums; }
 
 /* ===== PROGRESS BAR ===== */
-.progress-bar {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  background: var(--accent);
-  z-index: 100;
-  transition: width 0.4s ease;
-  box-shadow: 0 0 10px var(--accent-glow);
-}
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); z-index: 100; transition: width 0.4s ease; box-shadow: 0 0 10px var(--accent-glow); }
 
 /* ===== PRINT ===== */
 @media print {
   html, body { overflow: visible; height: auto; }
   .nav-dots, .slide-counter, .progress-bar { display: none !important; }
-  .slide {
-    position: relative !important;
-    opacity: 1 !important;
-    transform: none !important;
-    pointer-events: auto !important;
-    page-break-after: always;
-    page-break-inside: avoid;
-    min-height: 100vh;
-    padding: 60px;
-  }
+  .slide { position: relative !important; opacity: 1 !important; transform: none !important; pointer-events: auto !important; page-break-after: always; page-break-inside: avoid; min-height: 100vh; padding: 60px; }
   .anim { opacity: 1 !important; transform: none !important; }
   .deck { overflow: visible; height: auto; }
-  :root { --bg-dark: #fff; --bg-mid: #f5f5f5; --bg-light: #f0f0f0;
-    --text-primary: #111; --text-secondary: #333; --text-muted: #666;
-    --accent: #0088cc; --border: #ddd; }
+  :root { --bg-dark: #fff; --bg-mid: #f5f5f5; --bg-light: #f0f0f0; --text-primary: #111; --text-secondary: #333; --text-muted: #666; --accent: #0088cc; --border: #ddd; }
   .arch-layer.mid { box-shadow: none; }
 }
 
@@ -886,10 +271,10 @@ table tr:last-child td { border-bottom: none; }
   .split, .split-60-40, .split-40-60 { grid-template-columns: 1fr; gap: 32px; }
   .team-grid { grid-template-columns: 1fr !important; }
   .pricing-grid { grid-template-columns: 1fr !important; }
-  .flywheel-container { grid-template-columns: 1fr; }
   .ask-grid { grid-template-columns: 1fr; gap: 32px; }
   .timeline { flex-direction: column; }
   .timeline::before { display: none; }
+  .agent-fan { grid-template-columns: repeat(2, 1fr); }
   .slide { overflow-y: auto; align-items: flex-start; padding-top: 60px; padding-bottom: 60px; }
   .nav-dots { display: none; }
   .slide-counter { bottom: 16px; right: 16px; font-size: 12px; }
@@ -925,8 +310,7 @@ table tr:last-child td { border-bottom: none; }
   .bar-track { height: 20px; }
   .pie-chart { width: 120px; height: 120px; }
   .pie-legend { grid-template-columns: 1fr; gap: 8px; }
-  /* User journey cards */
-  .uj-grid { grid-template-columns: 1fr !important; }
+  .agent-fan { grid-template-columns: 1fr 1fr; }
 }
 </style>
 </head>
@@ -934,1044 +318,1018 @@ table tr:last-child td { border-bottom: none; }
 
 <div class="deck" id="deck">
 
-  <!-- ==================== SLIDE 1: OPENING ==================== -->
+  <!-- ==================== SLIDE 1: COVER ==================== -->
   <div class="slide active" data-slide="0">
     <div class="slide-inner center-text">
       <div class="anim" style="margin-bottom: 40px;">
-        <span style="font-size:14px;font-weight:700;letter-spacing:4px;color:var(--accent);text-transform:uppercase;">Pre-Seed · $2M · 2026</span>
+        <span style="font-size:14px;font-weight:700;letter-spacing:4px;color:var(--accent);text-transform:uppercase;">Pre-Seed · 2026</span>
       </div>
-      <h1 class="anim" style="font-size:72px;letter-spacing:-2px;">MONOSTONE</h1>
+      <h1 class="anim" style="font-size:80px;letter-spacing:-2px;">MONOSTONE</h1>
       <div class="anim" style="width:60px;height:3px;background:var(--accent);margin:24px auto 32px;border-radius:2px;"></div>
-      <h2 class="anim" style="font-size:48px;font-weight:300;color:var(--text-secondary);">你和 AI 之间，差一枚戒指。</h2>
-      <p class="anim" style="font-size:22px;color:var(--text-muted);max-width:640px;margin:24px auto 0;">
-        抬手说一句，AI 替你做完。而且它越来越懂你。
+      <h2 class="anim" style="font-size:52px;font-weight:300;color:var(--text-secondary);">
+        Anytime · Anywhere · <span class="accent" style="font-weight:600;">Any Agent</span>
+      </h2>
+      <p class="anim" style="font-size:28px;color:var(--text-secondary);max-width:840px;margin:32px auto 0;line-height:1.5;font-weight:500;">
+        在任何地方、任何时间，用戒指让<span class="accent" style="font-weight:700;">任何 Agent</span> 帮你执行。
+      </p>
+      <p class="anim" style="font-size:14px;color:var(--text-muted);margin-top:48px;letter-spacing:1px;">
+        Personal Context Infrastructure · Built for the AI-Native Generation
       </p>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 2: PROBLEM ==================== -->
+  <!-- ==================== SLIDE 2: 痛点 — 想法在哪 vs Agent 在哪 ==================== -->
   <div class="slide" data-slide="1">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">问题</h3>
-      <h2 class="anim">时代变了。工具没跟上。</h2>
+      <h2 class="anim">想法发生在线下。<br><span class="accent">Agent 却在电脑里。</span></h2>
 
-      <div class="anim card" style="margin-top:32px;padding:28px 32px;">
-        <p style="font-size:18px;color:var(--text-secondary);line-height:1.8;">
-          人和 AI 的沟通频率正在指数级增长。<br>
-          <span class="bold">2023</span>：偶尔试试 ChatGPT。<span class="bold">2024</span>：每天用几次。<span class="bold">2025</span>：离不开了。<span class="bold">2026</span>：？<br>
-          <span style="color:var(--accent);font-weight:600;">在座各位，有谁完全不和 AI 沟通？</span>
+      <div class="anim" style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="card" style="padding:20px 24px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">🚶 散步时</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">
+            "诶这个文档处理流程完全可以让 Claude 跑。"<br>
+            <span style="color:var(--text-muted);">→ 必须等回到电脑前才能启动。等到了电脑前，已经忘了一半。</span>
+          </p>
+        </div>
+        <div class="card" style="padding:20px 24px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">🚿 洗澡时</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">
+            "刚才那个 bug 应该改 schema 不是改 query。"<br>
+            <span style="color:var(--text-muted);">→ 想 vibe coding 的灵感，必须坐回电脑前才能继续。</span>
+          </p>
+        </div>
+        <div class="card" style="padding:20px 24px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">🤝 管理层访谈后</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">
+            "刚才那几个点特别重要，得在 memo 里加上。"<br>
+            <span style="color:var(--text-muted);">→ 必须回到电脑前回忆细节、组织语言重写。回到电脑时，最有感的那句话已经记不清原话。</span>
+          </p>
+        </div>
+        <div class="card" style="padding:20px 24px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">💡 跟同事聊出一个 idea</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">
+            "这个 idea 太好了，今晚就做出来 demo。"<br>
+            <span style="color:var(--text-muted);">→ 趁热打铁的窗口只有几小时。但等回到电脑前、配好环境、想清楚 prompt — 那股劲已经过去了。</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:24px;padding:24px 32px;">
+        <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">谁每天都在经历这件事？</div>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
+          每月在 AI 上烧 <span class="bold">$100+</span> token 的 power user — 开发者、PM、投资人、独立顾问、创作者。<br>
+          这群人的特征：<span class="bold">大量高价值思考发生在线下、在路上、在和人聊天的过程中</span>。
         </p>
-      </div>
-
-      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
-        <div class="card" style="padding:28px 32px;">
-          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:12px;">问题一：交互路径太长</div>
-          <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;">
-            想和 AI 说句话 → 掏手机 → 解锁 → 打开 APP → 打字。<br>
-            <span class="bold">每一次交互都有 5-10 步操作摩擦。</span>
-          </p>
+        <div style="margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+          <div style="padding:14px;background:rgba(0,0,0,0.2);border-radius:8px;">
+            <div style="font-size:24px;font-weight:900;color:var(--accent);">$100-400</div>
+            <div style="font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.4;">Knowledge worker 平均 AI 月支出（含订阅+API）<sup style="color:var(--accent);">¹</sup></div>
+          </div>
+          <div style="padding:14px;background:rgba(0,0,0,0.2);border-radius:8px;">
+            <div style="font-size:24px;font-weight:900;color:var(--accent);">47M → 122M</div>
+            <div style="font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.4;">ChatGPT 全球付费用户<br>（2025 → 2026 预测）<sup style="color:var(--accent);">²</sup></div>
+          </div>
+          <div style="padding:14px;background:rgba(0,0,0,0.2);border-radius:8px;border:1px solid rgba(0,212,255,0.25);">
+            <div style="font-size:24px;font-weight:900;color:var(--accent);">~10M+</div>
+            <div style="font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.4;">全球月 AI 消费 $100+ 的 power users<br>（2027 预计 30M+）<sup style="color:var(--accent);">³</sup></div>
+          </div>
         </div>
-        <div class="card" style="padding:28px 32px;">
-          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:12px;">问题二：Context 成本太高</div>
-          <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;">
-            每次都要从头解释「我是谁、在做什么、要什么」。<br>
-            <span class="bold">AI 不认识你，你必须输入大量背景它才能帮上忙。</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="anim card card-accent" style="margin-top:24px;padding:28px 32px;">
-        <p style="font-size:18px;color:var(--text-secondary);line-height:1.8;">
-          <span class="bold" style="font-size:20px;">结果：大量「算了，等有空再说」的瞬间。</span><br>
-          走路时想问 AI — 算了。刚聊完想让 AI 跟进 — 算了。开车时有个想法 — 算了。<br>
-          <span class="accent bold">保守估计，每人每天 10-20 次。</span>
+        <p style="font-size:11px;color:var(--text-muted);margin-top:12px;line-height:1.5;">
+          <sup>1</sup> Meaningful Tech, "The Token Economy", 2026 · <sup>2</sup> The Information / Tech Portal, Apr 2026 · <sup>3</sup> 估算（Cursor 1M+ DAU + Claude Code Max + ChatGPT Pro + 多工具叠加）
         </p>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 3: SOLUTION ==================== -->
+  <!-- ==================== SLIDE 3: 真问题 — General vs Personal Answer ==================== -->
   <div class="slide" data-slide="2">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">方案</h3>
-      <h2 class="anim">为这个时代做的产品。</h2>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">真问题</h3>
+      <h2 class="anim">即使你回到电脑前 — <br>AI 还是不认识你。</h2>
 
-      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;">
-        <div class="card" style="padding:28px 32px;">
-          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:12px;">解决路径问题</div>
-          <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;">
-            给用户一个最短的交互 interface。<br>
-            <span class="bold">戒指永远在手上，抬手说一句，3 秒触发。</span>
+      <div class="anim" style="margin-top:28px;padding:18px 24px;background:rgba(0,0,0,0.2);border-radius:10px;border:1px solid var(--border);">
+        <p style="font-size:14px;color:var(--text-muted);margin:0;">
+          <span style="color:var(--accent);font-weight:700;">场景</span>：你刚和一位投资人开完会，跟 Claude 说："帮我写封 follow-up 邮件。"
+        </p>
+      </div>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;">
+        <div class="card" style="padding:22px 26px;">
+          <div style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">❌ 没 Context · General 答案</div>
+          <div style="padding:14px;background:rgba(255,80,80,0.05);border:1px solid rgba(255,80,80,0.15);border-radius:8px;font-size:13px;color:var(--text-secondary);line-height:1.6;">
+            "您好，<br><br>
+            非常感谢您今天抽时间和我交流。今天聊得很有收获，针对您提到的几个问题，我会尽快整理一份补充材料发给您。<br><br>
+            如有任何问题随时联系。<br><br>
+            祝好"
+          </div>
+          <p style="font-size:13px;color:#ff6b6b;margin-top:10px;font-weight:600;">
+            → 你还得花 10 分钟告诉 AI：他是谁、聊了什么、他关心什么
           </p>
         </div>
-        <div class="card" style="padding:28px 32px;">
-          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:12px;">解决 Context 问题</div>
-          <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;">
-            无感、持续地收集你的 Context。<br>
-            <span class="bold">会议录音、灵感口述，不断沉淀。AI 越来越懂你。</span>
+        <div class="card card-accent" style="padding:22px 26px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">✅ 有 Context · Personal 答案</div>
+          <div style="padding:14px;background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.2);border-radius:8px;font-size:13px;color:var(--text-secondary);line-height:1.6;">
+            "X 总，<br><br>
+            今天聊到您关注的 hardware moat 三个点，整理了一份补充材料。Ken 之前在 OPPO 做的双系统架构能直接 map 到我们这边——上次您问的功耗问题在 Page 4。<br><br>
+            另外我答应给您发的 memory 架构图，附件里。<br><br>
+            等您下周从香港回来约个深聊。"
+          </div>
+          <p style="font-size:13px;color:var(--accent);margin-top:10px;font-weight:600;">
+            → 一句话，3 秒，直接能发
           </p>
         </div>
       </div>
 
-      <div class="anim card card-accent" style="margin-top:24px;padding:28px 32px;">
-        <p style="font-size:18px;color:var(--text-secondary);line-height:1.8;">
-          当你想问问题、想要答案的时候——不再需要重新输入背景。你直接说你要什么就行。<br>
-          <span class="accent bold">对一个每天和 AI 交互十几次的人来说，这省了多少时间？</span>
+      <div class="anim card" style="margin-top:24px;padding:20px 28px;">
+        <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;">
+          <span class="bold">两个答案的差距 = Context 的差距。</span><br>
+          AI 的能力没区别 — 都是 Claude。差的是 AI <span class="accent bold">认不认识你、知不知道你今天和谁聊过、记不记得你之前答应过什么</span>。
         </p>
+      </div>
+
+      <div class="anim big-quote" style="margin-top:24px;font-size:21px;">
+        Context 决定了你拿到一个真正懂你的 personal 答案，<br>还是一个全网通用的 general 答案。
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 8: CONTEXT COMPOUNDING — 从10分钟到3秒 ==================== -->
+  <!-- ==================== SLIDE 4: 核心定位 — Anytime / Anywhere / Any Agent ==================== -->
   <div class="slide" data-slide="3">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Context 复利</h3>
-      <h2 class="anim">从 10 分钟到 3 秒。</h2>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">核心定位</h3>
+      <h2 class="anim">Anytime · Anywhere · Any Agent</h2>
 
-      <div class="anim" style="margin-top:12px;margin-bottom:20px;">
-        <p style="font-size:15px;color:var(--text-muted);text-align:center;margin:0;">场景：刚和投资人结束会议，走出会议室，需要写封跟进邮件</p>
-      </div>
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:32px;">
+        <!-- ANYTIME -->
+        <div class="card" style="padding:26px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Anytime · 任何时间</div>
+          <div style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:14px;">连续 12-15 小时</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
+            行业普遍单麦戒指 < 3 小时（Sandbar/Spark/Vocci）。<br>
+            <span class="bold" style="color:var(--text-secondary);">我们做到 12-15h 连续录音 + 4h+ 离线缓存。</span>
+          </p>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;color:var(--text-muted);line-height:1.6;">
+              ✅ 双芯片架构（DSP + BLE 解耦）<br>
+              ✅ 主动触发，不是 always-on<br>
+              ✅ 一天用满，两天半充一次
+            </div>
+          </div>
+        </div>
 
-      <div class="anim" style="overflow-x:auto;">
-        <table class="comp-table" style="font-size:13px;">
-          <thead>
-            <tr>
-              <th style="width:18%;"></th>
-              <th style="width:22%;">传统方式<br><span style="font-weight:400;font-size:11px;">手机 / 电脑打字</span></th>
-              <th style="color:var(--accent);">Monostone Day 1</th>
-              <th style="color:var(--accent);">Day 7</th>
-              <th style="color:var(--accent);">Day 30</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);">你需要说/打</td>
-              <td>打字 2-3 分钟背景<br>+ 多轮对话调教</td>
-              <td class="comp-us">"帮我写封邮件给今天聊的投资人"<br><span style="font-size:11px;">30 秒</span></td>
-              <td class="comp-us">"帮我写封邮件给蔡哥"<br><span style="font-size:11px;">5 秒</span></td>
-              <td class="comp-us">"帮我跟进蔡哥"<br><span style="font-size:11px;">3 秒</span></td>
-            </tr>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);">AI 知道的</td>
-              <td>什么都不知道<br>全靠你输入</td>
-              <td class="comp-us">刚才的会议录音</td>
-              <td class="comp-us">蔡哥是谁<br>上次聊了什么</td>
-              <td class="comp-us">蔡哥关心什么<br>你的邮件风格<br>历史往来 · 未尽事项</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);">单次耗时</td>
-              <td>5-10 分钟</td>
-              <td class="comp-us">30 秒</td>
-              <td class="comp-us">5 秒</td>
-              <td class="comp-us">3 秒</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);">结果质量</td>
-              <td>70-80 分<br><span style="font-size:11px;">多轮调教后</span></td>
-              <td class="comp-us">70 分</td>
-              <td class="comp-us">80 分</td>
-              <td class="comp-us">95 分<br><span style="font-size:11px;">直接能发</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <!-- ANYWHERE -->
+        <div class="card card-accent" style="padding:26px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Anywhere · 任何地点</div>
+          <div style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:14px;">戒指 = 唯一可行的形态</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            走路、洗澡、开车、谈判、跑步、睡前躺床——任何场景手都在身边。<br>
+            <span class="bold">除了戒指，其他所有设备都有操作摩擦 + 社交压力。</span>
+          </p>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,212,255,0.2);">
+            <div style="font-size:12px;color:var(--text-muted);line-height:1.6;">
+              ✅ 1000+ 年人类最高渗透率穿戴<br>
+              ✅ 双麦克风 Beamforming，手不用贴嘴 — 在任何位置都能精准收音<br>
+              ✅ 防水、24h 佩戴、社交完全无感
+            </div>
+          </div>
+        </div>
 
-      <!-- Daily time savings -->
-      <div class="anim" style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;">
-        <div class="card" style="padding:14px 12px;text-align:center;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">传统方式</div>
-          <div style="font-size:11px;color:var(--text-muted);">10 次 × 7 分钟</div>
-          <div style="font-size:26px;font-weight:800;color:var(--text-primary);">70 分钟</div>
-          <div style="font-size:11px;color:var(--text-muted);">每天花在"跟 AI 沟通"上</div>
-        </div>
-        <div class="card" style="padding:14px 12px;text-align:center;border:1px solid var(--accent);">
-          <div style="font-size:11px;color:var(--accent);margin-bottom:4px;">Monostone Day 1</div>
-          <div style="font-size:11px;color:var(--text-muted);">10 次 × 30 秒</div>
-          <div style="font-size:26px;font-weight:800;color:var(--accent);">5 分钟</div>
-          <div style="font-size:11px;color:var(--text-muted);">省 <strong>93%</strong></div>
-        </div>
-        <div class="card" style="padding:14px 12px;text-align:center;border:1px solid var(--accent);">
-          <div style="font-size:11px;color:var(--accent);margin-bottom:4px;">Day 7</div>
-          <div style="font-size:11px;color:var(--text-muted);">10 次 × 5 秒</div>
-          <div style="font-size:26px;font-weight:800;color:var(--accent);">50 秒</div>
-          <div style="font-size:11px;color:var(--text-muted);">省 <strong>99%</strong></div>
-        </div>
-        <div class="card" style="padding:14px 12px;text-align:center;border:1px solid var(--accent);background:linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.02));">
-          <div style="font-size:11px;color:var(--accent);margin-bottom:4px;">Day 30</div>
-          <div style="font-size:11px;color:var(--text-muted);">10 次 × 3 秒</div>
-          <div style="font-size:26px;font-weight:800;color:var(--accent);">30 秒</div>
-          <div style="font-size:11px;color:var(--text-muted);">省 <strong>99.3%</strong></div>
+        <!-- ANY AGENT -->
+        <div class="card" style="padding:26px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Any Agent · 任何 AI</div>
+          <div style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:14px;">MCP 协议接到任何 agent</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
+            一个 portable 的 Memory，<span class="bold" style="color:var(--text-secondary);">在 ChatGPT / Claude / Cursor / VSCode / Manus / OpenClaw / Claude Code / NotebookLM 之间无缝衔接</span>，每个 AI 都立刻懂你。
+          </p>
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;color:var(--text-muted);line-height:1.6;">
+              ✅ 既当 memory 插件给任意 agent<br>
+              ✅ 也当 agent 平台调任意 CLI / MCP<br>
+              ✅ 不锁模型，BYOK 友好
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="anim card card-accent" style="margin-top:14px;padding:16px 24px;">
-        <p style="font-size:14px;color:var(--text-secondary);margin:0;">
-          <strong>随着摩擦指数级减少，人们真正把 AI 用起来了。</strong>
-          每天和 AI 沟通 10 次，传统方式要花 70 分钟输入背景。Monostone Day 30 只要 30 秒——<span class="accent bold">时间缩短了 99.3%</span>，结果质量反而从 70 分涨到 95 分。这就是 Context 复利。
+      <div class="anim card" style="margin-top:28px;padding:24px 32px;">
+        <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;text-align:center;">
+          <span class="bold">现在的 AI</span>：把你绑在屏幕前。<br>
+          <span class="accent bold">我们要做的</span>：把启动任何 agent 的距离，缩短到一次触摸 — 不管你在哪、不管用什么 AI。
         </p>
       </div>
     </div>
   </div>
 
-
-  <!-- ==================== SLIDE 3.5: WHY RING ==================== -->
+  <!-- ==================== SLIDE 5: Why is critical & 软件抓不到 ==================== -->
   <div class="slide" data-slide="4">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">形态</h3>
-      <h2 class="anim">为什么是戒指？</h2>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Context 的核心</h3>
+      <h2 class="anim">决定 AI 答案质量的，<br>是 <span class="accent">Why</span>，不是 What 和 How。</h2>
 
-      <div class="anim" style="margin-top:20px;margin-bottom:20px;">
-        <p style="font-size:16px;color:var(--text-secondary);text-align:center;line-height:1.7;margin:0;">
-          从 10 分钟到 3 秒，需要同时满足两个前提：<br>
-          <span class="accent bold">① 最低摩擦的输入 interface</span> ＋ <span class="accent bold">② 持续高质量的 Context 采集</span>
+      <div class="anim" style="margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+        <div class="card" style="padding:22px 24px;">
+          <div style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">What · 你做了什么</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
+            周二开了会、周三发了邮件、周四 commit 了代码……<br>
+            <span style="color:var(--text-secondary);">日历、邮件、文件、Linear、GitHub 都能查到。</span>
+          </p>
+          <div style="margin-top:14px;padding:8px 12px;background:rgba(0,0,0,0.2);border-radius:6px;font-size:12px;color:var(--accent);">软件能拿到 ✓</div>
+        </div>
+        <div class="card" style="padding:22px 24px;">
+          <div style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">How · 你怎么做的</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
+            邮件用了什么模板、代码用了什么框架、PRD 写了哪些字……<br>
+            <span style="color:var(--text-secondary);">屏幕录像、剪贴板、文件历史能拿到。</span>
+          </p>
+          <div style="margin-top:14px;padding:8px 12px;background:rgba(0,0,0,0.2);border-radius:6px;font-size:12px;color:var(--accent);">软件能拿到 ✓</div>
+        </div>
+        <div class="card card-accent" style="padding:22px 24px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">Why · 你为什么这么决定</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            为什么不选 A 选 B？为什么这个客户优先级高？为什么这版改了又改？<br>
+            <span class="bold">全在你和别人对话的过程里、在你嘴里。</span>
+          </p>
+          <div style="margin-top:14px;padding:8px 12px;background:rgba(255,80,80,0.08);border:1px solid rgba(255,80,80,0.2);border-radius:6px;font-size:12px;color:#ff6b6b;font-weight:600;">软件抓不到 ✗</div>
+        </div>
+      </div>
+
+      <div class="anim card" style="margin-top:28px;padding:22px 28px;">
+        <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:10px;">为什么 Why 决定了答案的 personal 程度</div>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;">
+          AI 知道你周二跟这位投资人开会（What） + 邮件用某个模板（How） → 它能给你一封"格式正确的邮件"。<br>
+          AI 知道你<span class="bold">为什么</span>选了这家而不是另外两家、<span class="bold">为什么</span>三场会议都绕着 hardware moat 这个点、<span class="bold">为什么</span>承诺要发架构图却一直没发 → 它能给你一封"<span class="accent bold">他真正想看到的邮件</span>"。
         </p>
       </div>
 
-      <div class="anim" style="overflow-x:auto;">
-        <table class="comp-table" style="font-size:12px;">
-          <thead>
-            <tr>
-              <th style="width:14%;font-size:11px;"></th>
-              <th style="font-size:11px;">智能手机<br><span style="font-weight:400;font-size:10px;color:var(--text-muted);">Tool</span></th>
-              <th style="font-size:11px;">智能耳机<br><span style="font-weight:400;font-size:10px;color:var(--text-muted);">Media</span></th>
-              <th style="font-size:11px;">吊坠 / 胸针<br><span style="font-weight:400;font-size:10px;color:var(--text-muted);">Vision</span></th>
-              <th style="font-size:11px;">手表 / 手环<br><span style="font-weight:400;font-size:10px;color:var(--text-muted);">Health</span></th>
-              <th style="color:var(--accent);font-size:11px;">Monostone 戒指<br><span style="font-weight:400;font-size:10px;">Agent</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);font-size:11px;">声学采集</td>
-              <td>❌ 远场杂音大</td>
-              <td>△ 风噪/位移影响</td>
-              <td>❌ 衣服摩擦致命</td>
-              <td>❌ 衣物遮挡致命</td>
-              <td class="comp-us">✅ 双麦波束成形<br>手部贴近声源</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);font-size:11px;">社交压力</td>
-              <td>❌ 低头=对话中断</td>
-              <td>❌ 戴耳机=拒绝沟通</td>
-              <td>❌ 录音孔引发顾虑</td>
-              <td>△ 翻腕=在看时间</td>
-              <td class="comp-us">✅ 千年饰品<br>完全隐形</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);font-size:11px;">交互摩擦</td>
-              <td>❌ 解锁→找App→录</td>
-              <td>△ 长按语音唤醒</td>
-              <td>△ 常开或触摸</td>
-              <td>△ 双手抬腕操作</td>
-              <td class="comp-us">✅ IMU手势 + 触觉<br>盲操闭环</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);font-size:11px;">主动触发<br>社交侵入</td>
-              <td>❌ 强：掏手机=中断对话</td>
-              <td>❌ 强：按耳机=示意对方闭嘴</td>
-              <td>❌ 强：触碰胸口=引人注目</td>
-              <td>❌ 强：抬腕=暗示看时间</td>
-              <td class="comp-us">✅ 零侵入<br>对方完全无感知</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);font-size:11px;">24h 佩戴</td>
-              <td>❌</td>
-              <td>❌ 充电时摘下</td>
-              <td>❌</td>
-              <td>△</td>
-              <td class="comp-us">✅ 最轻量·防水·无感</td>
-            </tr>
-            <tr>
-              <td style="font-weight:700;color:var(--text-primary);font-size:11px;">Context 质量</td>
-              <td>❌ OS权限限制<br>数据断档</td>
-              <td>❌ Always-on 致命伤：<br>模型不知道你关注什么</td>
-              <td>❌ Always-on 致命伤：<br>模型不知道你关注什么</td>
-              <td>❌ Always-on 致命伤：<br>模型不知道你关注什么</td>
-              <td class="comp-us">✅ 主动触发 = 告诉AI<br>「这是我关注的」<br>高质量私域数据</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="anim" style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
-        <div class="card" style="padding:14px 16px;text-align:center;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">🎙 商务谈判</div>
-          <div style="font-size:12px;color:var(--text-muted);">手机冒犯 · 耳机无礼 · 吊坠敏感</div>
-          <div style="font-size:12px;color:var(--text-primary);margin-top:4px;">戒指：<span class="accent">拇指双击即录</span></div>
+      <div class="anim" style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+        <div class="card" style="padding:18px 24px;">
+          <div style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">企业为什么搞不定 agent 自动化</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">
+            企业的 Why 散落在 CEO / 销售 / 产品 / 用户脑子里 — 谁也拿不齐，agent 永远拼不出完整决策路径。
+          </p>
         </div>
-        <div class="card" style="padding:14px 16px;text-align:center;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">💡 灵感瞬间</div>
-          <div style="font-size:12px;color:var(--text-muted);">湿手 · 驾驶 · 慢跑 · 无法操作</div>
-          <div style="font-size:12px;color:var(--text-primary);margin-top:4px;">戒指：<span class="accent">开口即录，离线存储</span></div>
-        </div>
-        <div class="card" style="padding:14px 16px;text-align:center;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px;">📋 记忆喂养</div>
-          <div style="font-size:12px;color:var(--text-muted);">其他形态：碎片 · 脏数据 · 合规风险</div>
-          <div style="font-size:12px;color:var(--text-primary);margin-top:4px;">戒指：<span class="accent">高质量私域 Context</span></div>
+        <div class="card card-accent" style="padding:18px 24px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">个人为什么能搞定</div>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">
+            你的 Why / How / What <span class="bold">全在你一个人这里</span>。只要把声音抓下来，就有完整决策路径。
+          </p>
         </div>
       </div>
     </div>
   </div>
 
-
-
-  <!-- ==================== SLIDE 4: SOLUTION — ARCHITECTURE ==================== -->
+  <!-- ==================== SLIDE 6: 解法 — Personal Context Infra ==================== -->
   <div class="slide" data-slide="5">
     <div class="slide-inner">
-      <div class="split">
+      <div class="split-60-40">
         <div>
           <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">方案</h3>
-          <h2 class="anim">录 → 记 → 做。<br>戒指录下来，记忆系统记住，Agent 替你做。</h2>
+          <h2 class="anim" style="font-size:36px;">一枚戒指，<br>一个 portable 的 Memory，<br>接到任何 AI。</h2>
           <div style="margin-top:32px;">
             <div class="anim arch-layer top">
-              <div class="arch-label">感知层</div>
-              <div class="arch-title">智能戒指</div>
-              <div class="arch-desc">零摩擦 · 融入习惯 · 无感采集 → 持续给 Context 层喂数据</div>
+              <div class="arch-label">采集层 · 戒指</div>
+              <div class="arch-title">Anytime / Anywhere</div>
+              <div class="arch-desc">主动触发（不是 always-on）· 双击长录音 / 触摸给指令 / 离线 4h+ / 连续 12-15h</div>
             </div>
-            <div class="anim arch-arrow">↕</div>
+            <div class="anim arch-arrow">↓</div>
             <div class="anim arch-layer mid">
-              <div class="arch-label">★ 理解层 — 核心资产</div>
-              <div class="arch-title">个人 Context 中枢平台</div>
-              <div class="arch-desc">File as Memory · 知识图谱可视化 · 越用越懂你 · 不可迁移 → 你 AI 的灵魂</div>
+              <div class="arch-label">★ 核心 · Memory 中枢</div>
+              <div class="arch-title">Personal Context Infra</div>
+              <div class="arch-desc">树状抽象 + 实体图谱 双结构 · 高保真 fetch · 用户可看可改 · 不锁模型</div>
             </div>
-            <div class="anim arch-arrow">↕</div>
+            <div class="anim arch-arrow">↓</div>
             <div class="anim arch-layer bottom">
-              <div class="arch-label">行动层</div>
-              <div class="arch-title">开放 Agent 生态</div>
-              <div class="arch-desc">Skills 插件 · MCP 协议 · 第三方 Agent → 基于 Context 的个性化执行</div>
+              <div class="arch-label">接口层 · MCP / CLI</div>
+              <div class="arch-title">Any Agent</div>
+              <div class="arch-desc">作为 memory 插件给任意 agent · 也作为 agent 平台调任意 CLI / MCP / API</div>
             </div>
           </div>
         </div>
         <div>
-          <div class="anim card" style="margin-bottom:20px;">
-            <div style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:12px;">🎯 感知层</div>
-            <p style="font-size:16px;color:var(--text-muted);">一枚戒指，双击长录音，按压滑动短口述，把你的世界持续流入系统。解决 AI 记忆的<strong>带宽瓶颈</strong>——捕获你从不会主动输入的 90%。</p>
+          <div class="anim card card-accent" style="padding:24px 28px;">
+            <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">不和模型公司竞争</div>
+            <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
+              我们不做模型，不抢 Claude / GPT 的位置。<br>
+              <span class="bold">我们是上面那一层 — 所有 agent 产品的根基。</span>
+            </p>
           </div>
-          <div class="anim card card-accent" style="margin-bottom:20px;">
-            <div style="font-size:18px;font-weight:700;color:var(--accent);margin-bottom:12px;">⭐ 理解层 — File as Memory</div>
-            <p style="font-size:16px;color:var(--text-secondary);">碎片信息沉淀为结构化的个人记忆——项目脉络、沟通风格、决策偏好、时间节奏。Markdown 原生、用户可查看编辑、知识图谱可视化——<span class="bold">零黑箱，你的记忆你做主。Model-agnostic，不锁定任何模型。</span></p>
+          <div class="anim card" style="margin-top:16px;padding:20px 28px;">
+            <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;">Memory 双结构</div>
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
+              <span class="bold">Tree</span>：从原始 → episode → project → scene → profile，逐层抽象。<br>
+              <span class="bold">Graph</span>：实体关系图谱，解决"人和事的连接"。<br>
+              <span style="color:var(--accent);">Mem0 那种平铺索引 scale 不动，长上下文必崩。</span>
+            </p>
           </div>
-          <div class="anim card" style="margin-bottom:20px;">
-            <div style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:12px;">🚀 行动层 — Agent Commander</div>
-            <p style="font-size:16px;color:var(--text-muted);">开完会说"把重点发给同事 A 和 Marshal"→ 直接发邮件。说"帮我打车去 XX"→ 直接叫车。Day 1 即开放——Skills 插件、MCP 协议、CLI、任何第三方 Agent，能力随生态无限扩展。</p>
-          </div>
-          <div class="anim punch" style="font-size:18px;">
-            三层闭合 = 第一个真正<span class="accent">"认识你且能替你做事"</span>的个人 AI 平台。
+          <div class="anim card" style="margin-top:16px;padding:20px 28px;">
+            <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;">连接层（MCP / CLI）</div>
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
+              MCP 是 agent 时代的协议层，已有 1000+ server 上线。<br>
+              我们既能当任意 agent 的 memory 插件，也能当 agent 平台调外部能力。
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 5.5: MEMORY — 有/无对比 + 终局指标 ==================== -->
+  <!-- ==================== SLIDE 7: DAY-1 三层价值 ==================== -->
   <div class="slide" data-slide="6">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Memory</h3>
-      <h2 class="anim">同一句话。<br>两个 <span class="accent">完全不同</span> 的世界。</h2>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Day-1 价值</h3>
+      <h2 class="anim">你不用相信远期愿景，<br>Day-1 就值这个钱。</h2>
 
-      <!-- 对比区 -->
-      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;">
-        <!-- 左：没有 Memory -->
-        <div style="padding:28px;border-radius:16px;background:var(--bg-light);border:1px solid var(--border);">
-          <div style="font-size:14px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">❌ 普通 AI — 没有 Memory</div>
-          <div style="padding:16px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid var(--border);margin-bottom:16px;">
-            <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">你说：</div>
-            <div style="font-size:16px;color:var(--text-secondary);font-style:italic;">"帮我整理上周和投资人聊的要点，准备 follow-up 邮件。"</div>
-          </div>
-          <div style="padding:16px;border-radius:10px;background:rgba(255,80,80,0.05);border:1px solid rgba(255,80,80,0.15);">
-            <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">AI 回复：</div>
-            <div style="font-size:15px;color:var(--text-secondary);line-height:1.6;">"请问你上周和哪位投资人聊了？请提供会议内容和对方的关注点。"</div>
-            <div style="margin-top:12px;font-size:13px;color:#ff6b6b;">→ 你还得花 10 分钟喂 Context</div>
-          </div>
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:36px;">
+        <div class="card" style="padding:28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">第一层 · Day 1</div>
+          <div style="font-size:24px;font-weight:800;color:var(--text-primary);margin-bottom:12px;">📋 当 Plaud 用</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
+            录音、转写、关键点提取、自动归档。<br>
+            和市面上所有录音戒指的基础功能一致——但我们的麦克风阵列+续航是别人 3 倍。
+          </p>
+          <div style="margin-top:16px;font-size:13px;color:var(--accent);font-weight:600;">$249 硬件就值这个钱</div>
         </div>
-        <!-- 右：有 Memory -->
-        <div style="padding:28px;border-radius:16px;background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(0,212,255,0.02));border:2px solid var(--accent);box-shadow:0 0 30px rgba(0,212,255,0.1);">
-          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">✅ 你的 AI — 有 Memory</div>
-          <div style="padding:16px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(0,212,255,0.15);margin-bottom:16px;">
-            <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">你说：</div>
-            <div style="font-size:16px;color:var(--text-primary);font-style:italic;">"帮我跟进蔡哥。"</div>
-            <div style="font-size:12px;color:var(--accent);margin-top:4px;">— 3 秒</div>
-          </div>
-          <div style="padding:16px;border-radius:10px;background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.2);">
-            <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">AI 回复：</div>
-            <div style="font-size:15px;color:var(--text-secondary);line-height:1.6;">"根据 3/22 你和蔡哥的会议，他关注三个点：① 用户画像 ② Day 1 体验 ③ 岗位泛化性。建议 follow-up 邮件重点回应这三项，附更新后的 Demo 链接。"</div>
-            <div style="margin-top:12px;font-size:13px;color:var(--accent);">→ 一句话，3 秒，直接能发</div>
-          </div>
+        <div class="card" style="padding:28px;border-color:rgba(0,212,255,0.4);">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">第二层 · Week 1</div>
+          <div style="font-size:24px;font-weight:800;color:var(--text-primary);margin-bottom:12px;">📅 Smart Calendar / 报告 / 邮件</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
+            带 context 的执行：戒指帮你写跟进邮件、生成日报、预约会议——基于你之前所有的对话。
+          </p>
+          <div style="margin-top:16px;font-size:13px;color:var(--accent);font-weight:600;">每月省下 10+ 小时</div>
+        </div>
+        <div class="card card-accent" style="padding:28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">第三层 · Month 1+</div>
+          <div style="font-size:24px;font-weight:800;color:var(--text-primary);margin-bottom:12px;">🎯 Anytime / Anywhere / Any Agent</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            戒指 = 鼠标键盘的替代品。任意场景触摸说话，任意 AI 都立刻懂你。<br>
+            <span class="bold">这才是远期愿景，但你不用等到这一天才能用。</span>
+          </p>
+          <div style="margin-top:16px;font-size:13px;color:var(--accent);font-weight:600;">真正改变工作方式</div>
         </div>
       </div>
 
-      <!-- 终局指标 -->
-      <div class="anim" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px;">
-        <div style="text-align:center;padding:20px 16px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
-          <div style="font-size:36px;font-weight:900;color:var(--accent);line-height:1;">95分</div>
-          <div style="font-size:13px;color:var(--text-muted);margin-top:8px;font-weight:500;">Day 30 输出质量</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">vs 裸模型 60-70 分</div>
-        </div>
-        <div style="text-align:center;padding:20px 16px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
-          <div style="font-size:36px;font-weight:900;color:var(--accent);line-height:1;">3秒</div>
-          <div style="font-size:13px;color:var(--text-muted);margin-top:8px;font-weight:500;">用户输入时间</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">vs 传统 5-10 分钟</div>
-        </div>
-        <div style="text-align:center;padding:20px 16px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
-          <div style="font-size:36px;font-weight:900;color:var(--accent);line-height:1;">↓60-80%</div>
-          <div style="font-size:13px;color:var(--text-muted);margin-top:8px;font-weight:500;">Token 成本</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">结构化召回，不重传背景</div>
-        </div>
-        <div style="text-align:center;padding:20px 16px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
-          <div style="font-size:36px;font-weight:900;color:var(--accent);line-height:1;">>90%</div>
-          <div style="font-size:13px;color:var(--text-muted);margin-top:8px;font-weight:500;">Memory 召回准确率</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">图谱推理，非关键词搜索</div>
-        </div>
-      </div>
-
-      <!-- RSI 一句话 -->
-      <div class="anim" style="margin-top:24px;text-align:center;">
-        <p style="font-size:16px;color:var(--text-muted);">你的每一次纠正都会被 Memory 记住——AI 不只记住答案，还会推理出你的偏好模式，<span style="color:var(--accent);font-weight:600;">递归自我改进</span>。</p>
-        <div style="font-size:20px;font-weight:700;color:var(--text-primary);margin-top:8px;">你不是在用工具，是在养一个越来越像你的 <span class="accent">AI 分身</span>。</div>
+      <div class="anim card" style="margin-top:32px;padding:24px 32px;">
+        <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;text-align:center;">
+          <span class="bold">三层价值是渐进的，不是要赌一个未来。</span> 你 Day-1 就能拿到第一层；用 1 周就解锁第二层；用 1 个月以上的人，会发现自己再也回不去了。
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 6: CLI ECOSYSTEM ==================== -->
+  <!-- ==================== SLIDE 8: 场景 1 — 会议前 ==================== -->
+  <div class="slide" data-slide="7">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">场景 1 · 会议前</h3>
+      <h2 class="anim">几天的灵感碎片，<br>自动变成下次会议的 talking points。</h2>
+
+      <div class="anim" style="margin-top:32px;">
+        <div class="scenario-step">
+          <div class="scenario-time">Day -3 · 散步时</div>
+          <div class="scenario-action">"想到怎么讲我们 Memory 架构的差异点。" <span style="color:var(--text-muted);">— 触摸戒指口述 12 秒</span></div>
+        </div>
+        <div class="scenario-step">
+          <div class="scenario-time">Day -2 · 跟联创聊完</div>
+          <div class="scenario-action">"Marshall 提的那个声纹方案值得跟投资人讲。" <span style="color:var(--text-muted);">— 触摸戒指口述 8 秒</span></div>
+        </div>
+        <div class="scenario-step">
+          <div class="scenario-time">Day -1 · 开车回家</div>
+          <div class="scenario-action">"投资人最近在看的项目和我们的差异点……" <span style="color:var(--text-muted);">— 触摸戒指口述 25 秒</span></div>
+        </div>
+        <div class="scenario-step highlight">
+          <div class="scenario-time">Day 0 · 会议前 30 分钟</div>
+          <div class="scenario-action">"帮我准备一下今天和那位投资人的会。"</div>
+          <div class="scenario-detail">
+            → Memory 自动召回过去 3 天 / 12 段录音 / 17 个相关 episode<br>
+            → 生成结构化 talking points：3 个核心差异点、2 个潜在异议、1 个 closing 钩子<br>
+            → 同步到你的备忘录，邮件草稿已准备好
+          </div>
+        </div>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:24px;padding:20px 28px;text-align:center;">
+        <p style="font-size:16px;color:var(--text-secondary);">
+          <span class="bold">传统方式</span>：会前 1 小时翻笔记、整理思路、写大纲。<br>
+          <span class="accent bold">现在</span>：30 秒，agent 已经把你这 3 天所有相关的思考拼好了。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 9: 场景 2 — Smart Calendar / 会议后 ==================== -->
   <div class="slide" data-slide="8">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">生态即壁垒</h3>
-      <h2 class="anim">不自己写百万 App。<br>我们有 <span class="accent">App Store</span>。</h2>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">场景 2 · 会议后</h3>
+      <h2 class="anim">不是日历，<br>是带 <span class="accent">Context</span> 的 Calendar。</h2>
 
-      <!-- Stats -->
-      <div class="anim" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px;">
-        <div style="text-align:center;padding:20px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
-          <div style="font-size:42px;font-weight:900;color:var(--accent);line-height:1;">1,000+</div>
-          <div style="font-size:14px;color:var(--text-muted);margin-top:8px;font-weight:500;">MCP Server 已上线</div>
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
+        <div class="card" style="padding:28px;">
+          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">生活场景 · 女朋友的生日</div>
+          <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;">
+            你说："下个月 18 号给女朋友过生日。"<br><br>
+            Memory 已经知道：<br>
+            • 声纹识别她是谁，过去 30 段对话里她提到喜欢什么<br>
+            • 上次她说"那家日料还想再去一次"<br>
+            • 她下个月 17 号有个 deadline，18 号会很累<br><br>
+            <span class="accent bold">Calendar 自动生成</span>：餐厅订位（她喜欢的那家）、礼物建议（上次提过的）、当天行程留白（她需要休息）。
+          </p>
         </div>
-        <div style="text-align:center;padding:20px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
-          <div style="font-size:42px;font-weight:900;color:var(--accent);line-height:1;">100+</div>
-          <div style="font-size:14px;color:var(--text-muted);margin-top:8px;font-weight:500;">CLI 化桌面软件</div>
-        </div>
-        <div style="text-align:center;padding:20px;background:var(--bg-light);border:1px solid var(--border);border-radius:14px;">
-          <div style="font-size:42px;font-weight:900;color:var(--accent);line-height:1;">30+</div>
-          <div style="font-size:14px;color:var(--text-muted);margin-top:8px;font-weight:500;">原生 CLI 平台</div>
+        <div class="card" style="padding:28px;">
+          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">工作场景 · 出差见投资人</div>
+          <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;">
+            你说："周三去上海见高总。"<br><br>
+            Memory 已经知道：<br>
+            • 你和高总过去聊了 4 次，他关注 hardware moat<br>
+            • 上次会议你答应给他发一份 memory 架构图<br>
+            • 上海当天预报雨，你常住的那家酒店在他公司步行 5 分钟<br><br>
+            <span class="accent bold">Calendar 自动生成</span>：航班、酒店预订、提醒带伞、待办里加上"发架构图给高总"。
+          </p>
         </div>
       </div>
 
-      <!-- Ecosystem Grid -->
-      <div class="anim" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px;">
-        <div class="eco-tile"><div style="font-size:28px;">📧</div><div class="eco-tile-cat">通讯 · 邮件</div><div class="eco-tile-ex">Slack · Gmail · Discord<br>Telegram · Outlook</div></div>
-        <div class="eco-tile"><div style="font-size:28px;">📅</div><div class="eco-tile-cat">日历 · 任务</div><div class="eco-tile-ex">Google Calendar<br>Notion · Linear · Todoist</div></div>
-        <div class="eco-tile"><div style="font-size:28px;">💻</div><div class="eco-tile-cat">开发 · DevOps</div><div class="eco-tile-ex">GitHub · Docker · K8s<br>Vercel · AWS · Jenkins</div></div>
-        <div class="eco-tile"><div style="font-size:28px;">🎨</div><div class="eco-tile-cat">创意 · 媒体</div><div class="eco-tile-ex">Blender · GIMP · OBS<br>Audacity · DaVinci</div></div>
-        <div class="eco-tile"><div style="font-size:28px;">💰</div><div class="eco-tile-cat">支付 · 电商</div><div class="eco-tile-ex">Stripe · Shopify<br>Invoice · CRM</div></div>
-        <div class="eco-tile"><div style="font-size:28px;">🏠</div><div class="eco-tile-cat">智能家居</div><div class="eco-tile-ex">Home Assistant<br>IoT · 灯光 · 温控</div></div>
-        <div class="eco-tile"><div style="font-size:28px;">🎵</div><div class="eco-tile-cat">音乐 · 健康</div><div class="eco-tile-ex">Spotify · Apple Music<br>Apple Health · 睡眠</div></div>
-        <div class="eco-tile"><div style="font-size:28px;">✈️</div><div class="eco-tile-cat">旅行 · 出行</div><div class="eco-tile-ex">Amadeus · 机票<br>酒店 · 行程</div></div>
-      </div>
-
-      <!-- Flow -->
-      <div class="anim" style="display:flex;align-items:center;justify-content:center;gap:0;margin-top:32px;">
-        <div style="padding:16px 28px;border-radius:14px;text-align:center;min-width:150px;background:linear-gradient(135deg,rgba(0,212,255,0.15),rgba(0,212,255,0.05));border:2px solid var(--accent);box-shadow:0 0 24px rgba(0,212,255,0.15);">
-          <div style="font-size:15px;font-weight:700;">🔲 戒指</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">一句话输入</div>
-        </div>
-        <div style="color:var(--accent);font-size:24px;margin:0 12px;opacity:0.6;">→</div>
-        <div style="padding:16px 28px;border-radius:14px;text-align:center;min-width:150px;background:linear-gradient(135deg,rgba(0,212,255,0.3),rgba(0,212,255,0.1));border:2px solid var(--accent);box-shadow:0 0 40px rgba(0,212,255,0.2);">
-          <div style="font-size:15px;font-weight:700;">🧠 Context 引擎</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">理解你 · 知道该做什么</div>
-        </div>
-        <div style="color:var(--accent);font-size:24px;margin:0 12px;opacity:0.6;">→</div>
-        <div style="padding:16px 28px;border-radius:14px;text-align:center;min-width:150px;background:var(--bg-light);border:1px solid var(--border);">
-          <div style="font-size:15px;font-weight:700;">⚡ 1,000+ 插件</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">CLI / MCP / API</div>
-        </div>
-        <div style="color:var(--accent);font-size:24px;margin:0 12px;opacity:0.6;">→</div>
-        <div style="padding:16px 28px;border-radius:14px;text-align:center;min-width:150px;background:var(--bg-light);border:1px solid var(--border);">
-          <div style="font-size:15px;font-weight:700;">✅ 执行完成</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">邮件已发 · 日程已建</div>
-        </div>
-      </div>
-
-      <!-- Punchline -->
       <div class="anim" style="margin-top:24px;text-align:center;">
-        <p style="font-size:18px;color:var(--text-muted);">iPhone 没有自己写百万 App —— 它做了 App Store。</p>
-        <div style="font-size:22px;font-weight:700;color:var(--text-primary);margin-top:8px;">Monostone 不需要集成所有软件。CLI 生态就是我们的 App Store。</div>
+        <p style="font-size:17px;color:var(--text-secondary);">
+          关键不是 Calendar 这个产品 — 是<span class="bold">每一条日程都自动带上你应该带的 context</span>。<br>
+          <span class="accent bold">这件事现在的 Google Calendar / Apple Calendar / Notion 都做不到，因为它们没有你的声音。</span>
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 6: CLI USE CASES ==================== -->
-  <div class="slide" data-slide="8">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">一句话，全部搞定</h3>
-      <h2 class="anim">双击戒指。剩下的交给 <span class="accent">Agent</span>。</h2>
-      <p class="anim" style="font-size:16px;color:var(--text-muted);margin-bottom:0;">🔶 = 今天还没有 CLI，但未来一定会有</p>
-
-      <div class="anim" style="display:flex;gap:40px;margin-top:24px;">
-        <!-- WORK -->
-        <div style="flex:1;">
-          <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--accent);color:var(--accent);">💼 工作场景</div>
-
-          <div class="cli-case">
-            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"会开完了"</em></div>
-            <div class="cli-actions">
-              <div class="cli-act">会议纪要写入 Notion <span class="cli-tag">Notion MCP</span></div>
-              <div class="cli-act">Action items 变成 Linear issues <span class="cli-tag">Linear API</span></div>
-              <div class="cli-act">跟进邮件自动发出 <span class="cli-tag">Gmail MCP</span></div>
-              <div class="cli-act">日程自动更新 <span class="cli-tag">Calendar MCP</span></div>
-            </div>
-          </div>
-
-          <div class="cli-case cli-future">
-            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"把今天聊的竞品分析发个 Twitter thread"</em></div>
-            <div class="cli-actions">
-              <div class="cli-act">从今天 3 段录音提取竞品观点 <span class="cli-tag cli-tag-ctx">Memory</span></div>
-              <div class="cli-act">按你的写作风格生成 thread <span class="cli-tag cli-tag-ctx">Context</span></div>
-              <div class="cli-act">发布到 X + 同步 LinkedIn <span class="cli-tag cli-tag-future">X/LinkedIn CLI</span></div>
-            </div>
-          </div>
-
-          <div class="cli-case cli-future">
-            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"把这周 3 次用户访谈整理成需求文档"</em></div>
-            <div class="cli-actions">
-              <div class="cli-act">3 次录音交叉分析：高频痛点、原话引用 <span class="cli-tag cli-tag-ctx">Memory</span></div>
-              <div class="cli-act">自动生成 PRD 并标注优先级 <span class="cli-tag cli-tag-future">Docs CLI</span></div>
-              <div class="cli-act">拆成 User Stories 写入 Linear <span class="cli-tag">Linear API</span></div>
-            </div>
-          </div>
-
-          <div class="cli-case">
-            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"今天活动认识了 5 个人，备注一下"</em></div>
-            <div class="cli-actions">
-              <div class="cli-act">每人一句语音备注，Agent 自动建档 <span class="cli-tag cli-tag-ctx">Memory</span></div>
-              <div class="cli-act">当晚自动起草个性化跟进邮件 <span class="cli-tag">Gmail MCP</span></div>
-              <div class="cli-act">3 天没回复？自动提醒 follow up <span class="cli-tag">Calendar MCP</span></div>
-              <div class="cli-act">下次遇到，戒指告诉你上次聊了什么 <span class="cli-tag cli-tag-ctx">Context</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- LIFE -->
-        <div style="flex:1;">
-          <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #A78BFA;color:#A78BFA;">🏠 生活场景</div>
-
-          <div class="cli-case">
-            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"我今天累了"</em></div>
-            <div class="cli-actions">
-              <div class="cli-act">客厅灯调暗 <span class="cli-tag">HomeAssistant</span></div>
-              <div class="cli-act">播放你的放松歌单 <span class="cli-tag">Spotify MCP</span></div>
-              <div class="cli-act">设置勿扰模式，静音通知 <span class="cli-tag">系统 API</span></div>
-              <div class="cli-act">因为 Agent 记得你累了就听爵士、调暗灯 <span class="cli-tag cli-tag-ctx">Context</span></div>
-            </div>
-          </div>
-
-          <div class="cli-case cli-future">
-            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"下个月去东京出差三天"</em></div>
-            <div class="cli-actions">
-              <div class="cli-act">查日历空档 <span class="cli-tag">Calendar MCP</span></div>
-              <div class="cli-act">搜航班 + 订酒店（你上次住涩谷觉得不错）<span class="cli-tag cli-tag-future">携程/Booking CLI</span></div>
-              <div class="cli-act">行程写入日历 <span class="cli-tag">Calendar MCP</span></div>
-            </div>
-          </div>
-
-          <div class="cli-case cli-future">
-            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"帮我叫个车去机场"</em></div>
-            <div class="cli-actions">
-              <div class="cli-act">查航班时间，倒推出发时间 <span class="cli-tag cli-tag-ctx">Context</span></div>
-              <div class="cli-act">叫车到你常用的上车点 <span class="cli-tag cli-tag-future">滴滴/Uber CLI</span></div>
-              <div class="cli-act">发消息通知接机人 <span class="cli-tag">消息 MCP</span></div>
-            </div>
-          </div>
-
-          <div class="cli-case cli-future">
-            <div class="cli-trigger"><span class="cli-ring">🎙</span><em>"老妈下周生日，帮我安排一下"</em></div>
-            <div class="cli-actions">
-              <div class="cli-act">记得她上次说想要个按摩仪 <span class="cli-tag cli-tag-ctx">Context</span></div>
-              <div class="cli-act">搜索下单，送到她家地址 <span class="cli-tag cli-tag-future">电商 CLI</span></div>
-              <div class="cli-act">生日当天自动发祝福消息 <span class="cli-tag">消息 MCP</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom punch -->
-      <div class="anim" style="margin-top:20px;text-align:center;">
-        <div style="font-size:20px;font-weight:700;color:var(--text-primary);">同一句话，<span class="accent">有 Context</span> 和没 Context 是两个世界。</div>
-        <div style="font-size:15px;color:var(--text-muted);margin-top:6px;">"帮我叫车" → 没有 Context：去哪？几点？在哪上车？ · 有 Context：你 3 点的航班，2 点从公司出发，已叫到楼下。</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 7: PRODUCT ==================== -->
+  <!-- ==================== SLIDE 10: 场景 3 — Computer Use ==================== -->
   <div class="slide" data-slide="9">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">产品</h3>
-      <h2 class="anim">一枚戒指，持续喂养你的 AI 人格。</h2>
-      <div class="split" style="margin-top:40px;">
-        <div>
-          <div class="anim card" style="margin-bottom:24px;">
-            <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:16px;">硬件规格</div>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
-              <li style="font-size:16px;color:var(--text-secondary);">⬡ 钛合金机身，食指佩戴，全天无感</li>
-              <li style="font-size:16px;color:var(--text-secondary);">🎙 双麦克风自适应 Beamforming，自动锁定说话人方向，信噪比提升 <span style="color:var(--accent);font-weight:600;">10 dB+</span></li>
-              <li style="font-size:16px;color:var(--text-secondary);">📡 远场拾音 <span style="color:var(--accent);font-weight:600;">5 米</span>，BLE 5.0 实时传输</li>
-              <li style="font-size:16px;color:var(--text-secondary);">⚡ 连续录音 <span style="color:var(--accent);font-weight:600;">12-15h</span>（行业方案商最高 4h，我们 3 倍）｜离线录音 <span style="color:var(--accent);font-weight:600;">4h+</span></li>
-              <li style="font-size:16px;color:var(--text-secondary);">🧭 内置三轴 IMU，支持手势识别</li>
-              <li style="font-size:16px;color:var(--text-secondary);">📳 触觉反馈确认</li>
-            </ul>
-          </div>
-          <div class="anim card">
-            <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:16px;">交互方式</div>
-            <div style="display:flex;gap:16px;">
-              <div style="flex:1;background:var(--accent-dim);border-radius:12px;padding:16px;text-align:center;">
-                <div style="font-size:28px;margin-bottom:8px;">👆👆</div>
-                <div style="font-size:15px;font-weight:700;color:var(--accent);">双击</div>
-                <div style="font-size:13px;color:var(--text-muted);">长录音</div>
-              </div>
-              <div style="flex:1;background:var(--accent-dim);border-radius:12px;padding:16px;text-align:center;">
-                <div style="font-size:28px;margin-bottom:8px;">👉</div>
-                <div style="font-size:15px;font-weight:700;color:var(--accent);">按压滑动</div>
-                <div style="font-size:13px;color:var(--text-muted);">短口述（自动转写）</div>
-              </div>
-            </div>
-          </div>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">场景 3 · Computer Use</h3>
+      <h2 class="anim">手不用碰键盘。<br>戒指 = <span class="accent">鼠标键盘的替代品</span>。</h2>
+
+      <div class="anim" style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div class="card" style="padding:28px;">
+          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">坐着写代码</div>
+          <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:14px;">
+            触摸戒指："把刚才那个 Claude Code session 打开，跟它说我们要把 auth flow 改成 OAuth 2.0，然后让它先跑一遍 test。"
+          </p>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">
+            → 戒指通过 Computer Use 操控屏幕<br>
+            → 切到正确 session、输入 prompt、回车、监控 output<br>
+            → 你的手没碰键盘，眼睛甚至没看屏幕
+          </p>
         </div>
-        <div class="anim">
-          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:20px;">Context 积累 — 越用越深</div>
-          <table>
-            <thead>
-              <tr><th>时间</th><th>工作场景</th><th>生活场景</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="font-weight:700;color:var(--accent);">Day 1</td>
-                <td>格式化的会议记录，识别发言人</td>
-                <td>录下和医生的对话，整理诊疗要点</td>
-              </tr>
-              <tr>
-                <td style="font-weight:700;color:var(--accent);">Week 1</td>
-                <td>知道团队谁负责什么，自动关联人名</td>
-                <td>记住孩子兴趣班时间、家人饮食偏好</td>
-              </tr>
-              <tr>
-                <td style="font-weight:700;color:var(--accent);">Month 1</td>
-                <td>知道你的沟通风格，邮件草稿不用改</td>
-                <td>"带孩子去个地方"→ 推荐你聊过的农场</td>
-              </tr>
-              <tr>
-                <td style="font-weight:700;color:var(--accent);">Quarter 1</td>
-                <td>AI 比实习生更了解你的工作方式</td>
-                <td>AI 比你更清楚你读了什么、见了谁</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="card" style="margin-top:20px;padding:16px 24px;">
-            <p style="font-size:15px;color:var(--text-secondary);">💡 <strong>Memory Pulse + 知识图谱</strong>：App 内实时显示记忆成长（"287 memories · +12 today"），点击进入全屏知识图谱——可截图分享，天然社交传播素材。</p>
-          </div>
+        <div class="card card-accent" style="padding:28px;">
+          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">不在电脑前</div>
+          <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:14px;">
+            走路时触摸戒指："把今天和小明聊到的 3 个 idea 整理成 PRD，发到 Linear，标 P1。"
+          </p>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">
+            → 戒指调 Memory 召回今天对话<br>
+            → 调 Linear MCP 创建 issue<br>
+            → 你回到电脑前，PRD 已经在 Linear 里
+          </p>
         </div>
+      </div>
+
+      <div class="anim card" style="margin-top:28px;padding:20px 28px;">
+        <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;">为什么戒指是 Computer Use 最合适的触发器</div>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
+          IMU 手势 + 触摸 + 双麦阵列 → 可以分辨"双击长录音"、"触摸给指令"、"长按"、"画圈"、"滑动"等多种交互方式 + 高保真语音。每一种都能映射到一个 agent action。手势 + 语音 = AI 时代的新鼠标键盘。
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 9: FLYWHEEL ==================== -->
+  <!-- ==================== SLIDE 11: 场景 4 — 戒指输入法 ==================== -->
   <div class="slide" data-slide="10">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">飞轮</h3>
-      <h2 class="anim">用得越久，越离不开。</h2>
-      <style>
-        /* Flywheel cycling highlight */
-        @keyframes fw-glow {
-          0%, 100% { background: var(--accent-dim); color: var(--accent); box-shadow: none; }
-          50% { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); }
-        }
-        .fw-step { padding: 14px 20px; border-radius: 12px; background: var(--accent-dim); font-size: 16px; font-weight: 600; color: var(--accent); text-align: center; position: relative; transition: all 0.3s; }
-        .fw-arrow { text-align: center; color: var(--accent); font-size: 18px; opacity: 0.5; padding: 2px 0; }
-        .fw-arrow-loop { text-align: center; color: var(--accent); font-size: 14px; opacity: 0.7; padding: 4px 0; font-weight: 600; }
-        /* Stagger the glow animation across steps */
-        .fw-cycle .fw-step:nth-child(1) { animation: fw-glow 4.8s ease-in-out infinite 0s; }
-        .fw-cycle .fw-step:nth-child(3) { animation: fw-glow 4.8s ease-in-out infinite 0.8s; }
-        .fw-cycle .fw-step:nth-child(5) { animation: fw-glow 4.8s ease-in-out infinite 1.6s; }
-        .fw-cycle .fw-step:nth-child(7) { animation: fw-glow 4.8s ease-in-out infinite 2.4s; }
-        .fw-cycle .fw-step:nth-child(9) { animation: fw-glow 4.8s ease-in-out infinite 3.2s; }
-        .fw-cycle .fw-step:nth-child(11) { animation: fw-glow 4.8s ease-in-out infinite 4.0s; }
-      </style>
-      <div class="flywheel-container anim" style="margin-top:40px;">
-        <div>
-          <div style="font-size:18px;font-weight:700;color:var(--accent);text-align:center;margin-bottom:20px;">数据飞轮（单用户）</div>
-          <div class="card fw-cycle" style="padding:24px;">
-            <div class="fw-step">🎙️ 戒指采集</div>
-            <div class="fw-arrow">↓</div>
-            <div class="fw-step">Context 增厚</div>
-            <div class="fw-arrow">↓</div>
-            <div class="fw-step">AI 输出更精准</div>
-            <div class="fw-arrow">↓</div>
-            <div class="fw-step">Digest 更个性化</div>
-            <div class="fw-arrow">↓</div>
-            <div class="fw-step">用户每天打开</div>
-            <div class="fw-arrow">↓</div>
-            <div class="fw-step">更多录音</div>
-            <div class="fw-arrow-loop">↩ 回到顶部，循环加速</div>
-          </div>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">场景 4 · 戒指输入法</h3>
+      <h2 class="anim">不只是戒指自己的 App。<br><span class="accent">任意场景下，戒指就是你的输入法。</span></h2>
+
+      <div class="anim" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px;">
+        <div class="card" style="padding:20px;text-align:center;">
+          <div style="font-size:28px;margin-bottom:8px;">💬</div>
+          <div style="font-size:15px;font-weight:700;color:var(--text-primary);">微信打字</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">戒指语音 → 直接输入到任何输入框</div>
         </div>
-        <div>
-          <div style="font-size:18px;font-weight:700;color:var(--accent);text-align:center;margin-bottom:20px;">生态飞轮（平台）</div>
-          <div class="card fw-cycle" style="padding:24px;">
-            <div class="fw-step">Context 越深</div>
-            <div class="fw-arrow">↓</div>
-            <div class="fw-step">Agent 越精准</div>
-            <div class="fw-arrow">↓</div>
-            <div class="fw-step">吸引更多开发者</div>
-            <div class="fw-arrow">↓</div>
-            <div class="fw-step">吸引更多用户</div>
-            <div class="fw-arrow">↓</div>
-            <div class="fw-step">更多能力涌现</div>
-            <div class="fw-arrow">↓</div>
-            <div class="fw-step">更深的 Context</div>
-            <div class="fw-arrow-loop">↩ 回到顶部，循环加速</div>
+        <div class="card" style="padding:20px;text-align:center;">
+          <div style="font-size:28px;margin-bottom:8px;">📝</div>
+          <div style="font-size:15px;font-weight:700;color:var(--text-primary);">Notion 写笔记</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">说一段话 → 自动结构化成笔记</div>
+        </div>
+        <div class="card" style="padding:20px;text-align:center;">
+          <div style="font-size:28px;margin-bottom:8px;">🐙</div>
+          <div style="font-size:15px;font-weight:700;color:var(--text-primary);">GitHub Issue</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">口述 bug → 自动 format markdown</div>
+        </div>
+        <div class="card" style="padding:20px;text-align:center;">
+          <div style="font-size:28px;margin-bottom:8px;">📧</div>
+          <div style="font-size:15px;font-weight:700;color:var(--text-primary);">Gmail 写邮件</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">说意图 → 用你的风格生成全文</div>
+        </div>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:28px;padding:24px 32px;">
+        <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">和系统语音输入法的关键区别</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+          <div>
+            <div style="font-size:14px;font-weight:700;color:var(--text-muted);margin-bottom:6px;">系统语音输入</div>
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.6;">
+              纯转写。你说什么打什么。<br>语义理解为零，没有任何上下文。
+            </p>
+          </div>
+          <div>
+            <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:6px;">戒指输入法</div>
+            <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">
+              带 Memory。你说"回他一下我同意"，<br>它知道"他"是谁、"什么"是什么、用什么风格。
+            </p>
           </div>
         </div>
       </div>
-      <div class="anim card card-accent" style="margin-top:36px;padding:28px 36px;">
-        <p style="font-size:17px;color:var(--text-secondary);margin-bottom:12px;">
-          <strong>壁垒本质：</strong>换一个 Agent 是一分钟的事。换掉三个月积累的个人 Context？不可能。这不是网络效应，而是<span class="accent bold">深度效应</span>——单个用户越用越深，迁移成本随时间指数增长。
+
+      <div class="anim" style="margin-top:20px;text-align:center;">
+        <p style="font-size:17px;color:var(--text-muted);">
+          不是另一个工具，是<span class="accent bold">你和数字世界沟通的新接口</span>。
         </p>
-        <div class="big-quote" style="margin:16px 0 0;font-size:16px;">
-          创业者融资周，第 1 天 AI 只给标准会议记录。第 5 天，AI 主动提醒："David 可能问市场规模，Sarah 周一问过同样问题，你引用 IDC 报告她认可了。"<br><strong>第 5 天的 AI 和第 1 天是两个物种。</strong>
-        </div>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 10: MARKET ==================== -->
+  <!-- ==================== SLIDE 12: 三件必做的事 ==================== -->
   <div class="slide" data-slide="11">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">市场规模</h3>
-      <h2 class="anim">$470B AI 生产力市场的基础设施层。</h2>
-      <div style="margin-top:48px;">
-        <div>
-          <div class="anim">
-            <table style="max-width:800px;">
-              <thead>
-                <tr><th>层级</th><th>规模</th><th>定义</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="font-weight:700;">TAM</td>
-                  <td style="color:var(--accent);font-weight:700;">$470B</td>
-                  <td>全球 AI 生产力工具市场（IDC 2027）</td>
-                </tr>
-                <tr>
-                  <td style="font-weight:700;">SAM</td>
-                  <td style="color:var(--accent);font-weight:700;">~$50B</td>
-                  <td>全球高频会议知识工作者</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="anim card" style="margin-top:32px;">
-            <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:16px;">为什么用平台估值逻辑</div>
-            <div class="bar-chart">
-              <div class="bar-item">
-                <div class="bar-label">Otter.ai<br><span style="font-size:12px;color:var(--text-muted);">仅感知层</span></div>
-                <div class="bar-track"><div class="bar-fill" style="width:30%;"></div></div>
-                <div class="bar-value">$1B+</div>
-              </div>
-              <div class="bar-item">
-                <div class="bar-label">Notion<br><span style="font-size:12px;color:var(--text-muted);">仅行动层</span></div>
-                <div class="bar-track"><div class="bar-fill" style="width:80%;"></div></div>
-                <div class="bar-value">$10B</div>
-              </div>
-              <div class="bar-item">
-                <div class="bar-label" style="color:var(--accent);">Monostone<br><span style="font-size:12px;">Context 层</span></div>
-                <div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,var(--accent),#00ffcc);"></div></div>
-                <div class="bar-value" style="font-size:16px;">???</div>
-              </div>
-            </div>
-          </div>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">为什么是我们</h3>
+      <h2 class="anim">三件事缺一不可，<br>每一件都很硬。</h2>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:36px;">
+        <div class="card" style="padding:28px;">
+          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">① 硬件</div>
+          <div style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:14px;">戒指足够强</div>
+          <ul style="list-style:none;font-size:14px;color:var(--text-secondary);line-height:1.8;">
+            <li>✅ 双麦克风波束成形（不是单麦——单麦做不了长录音）</li>
+            <li>✅ 双芯片架构（DSP + BLE，专门为功耗解耦）</li>
+            <li>✅ 12-15h 连续录音（行业普遍 < 3h）</li>
+            <li>✅ 主动触发，不是 always-on</li>
+            <li>✅ IMU 手势 + 线性马达 + 触摸 + LED</li>
+          </ul>
         </div>
+        <div class="card card-accent" style="padding:28px;">
+          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">② Memory ★ 核心</div>
+          <div style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:14px;">架构稳定且高效</div>
+          <ul style="list-style:none;font-size:14px;color:var(--text-secondary);line-height:1.8;">
+            <li>✅ Tree（分层抽象）+ Graph（实体关系）双结构</li>
+            <li>✅ 高保真 fetch，token 消耗极少</li>
+            <li>✅ 多人对话场景声纹识别准确</li>
+            <li>❌ <span style="color:var(--text-muted);">Mem0 / 平铺索引那套 — scale 不动，长上下文必崩</span></li>
+          </ul>
+        </div>
+        <div class="card" style="padding:28px;">
+          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">③ Agent 执行</div>
+          <div style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:14px;">完全开放</div>
+          <ul style="list-style:none;font-size:14px;color:var(--text-secondary);line-height:1.8;">
+            <li>✅ 当 memory 插件给任意 agent（双向）</li>
+            <li>✅ 当 agent 平台调任意 CLI / MCP / API</li>
+            <li>✅ Day 1 接入主流 agent harness</li>
+            <li>✅ 不锁定任何模型，BYOK 友好</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:28px;padding:24px 32px;">
+        <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;text-align:center;">
+          <span class="bold">"讲故事的人很多。能把这三件事都做下来的人很少。"</span><br>
+          <span style="color:var(--text-muted);font-size:15px;">— 上周和投资人聊到的原话。</span>
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 11: COMPETITION ==================== -->
+  <!-- ==================== SLIDE 13: 为什么是戒指（形态学） ==================== -->
   <div class="slide" data-slide="12">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">竞争格局</h3>
-      <h2 class="anim">他们的终点，是我们的起点。</h2>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">形态选择</h3>
+      <h2 class="anim">戒指 = 1000 多年来<br>人类穿戴渗透率第一名。</h2>
 
-      <!-- Compact pipeline + table -->
-      <div class="anim" style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:20px 24px;">
-          <div style="font-size:13px;font-weight:600;color:var(--text-muted);margin-bottom:10px;">Stream / Spark / Vocci</div>
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px;color:var(--text-secondary);">
-            🎙️ Capture <span style="color:var(--text-muted);">→</span> 📝 Transcribe <span style="color:var(--text-muted);">→</span> 📋 Summary <span style="color:var(--text-muted);">→</span> 📤 Deliver
-          </div>
-          <div style="text-align:center;font-size:12px;color:var(--text-muted);margin-top:8px;border-top:1px dashed var(--border);padding-top:8px;">—— 到这里结束 ——</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--accent);border-radius:12px;padding:20px 24px;">
-          <div style="font-size:13px;font-weight:600;color:var(--accent);margin-bottom:10px;">Monostone</div>
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px;color:var(--text-secondary);">
-            🎙️ Capture <span style="color:var(--text-muted);">→</span> 📝 → 📋 → 📤
-          </div>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;padding-left:14px;border-left:2px solid var(--accent);font-size:13px;">
-            <div style="color:var(--text-primary);">↓ 🧠 <strong>Memory 中枢</strong> <span style="color:var(--text-muted);">越用越懂你</span></div>
-            <div style="color:var(--text-primary);">↓ ⚡ <strong>Agent 执行</strong> <span style="color:var(--text-muted);">一句话多个动作</span></div>
-            <div style="color:var(--text-primary);">↓ 🔌 <strong>开放生态</strong> <span style="color:var(--text-muted);">1000+ 插件</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="anim" style="margin-top:20px;">
+      <div class="anim" style="overflow-x:auto;margin-top:32px;">
         <table class="comp-table" style="font-size:14px;">
           <thead>
-            <tr><th></th><th>录音戒指<br><span style="font-weight:400;font-size:11px;text-transform:none;">Stream / Spark / Vocci</span></th><th>大厂<br><span style="font-weight:400;font-size:11px;text-transform:none;">字节 / Apple / 模型公司</span></th><th style="color:var(--accent);">Monostone</th></tr>
+            <tr>
+              <th style="width:14%;"></th>
+              <th>📿 项链 / 吊坠</th>
+              <th>⌚ 手环 / 手表</th>
+              <th>🎧 耳机</th>
+              <th>📱 手机</th>
+              <th style="color:var(--accent);">💍 戒指</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td style="font-weight:700;color:var(--text-primary);">链条</td><td>Capture → Deliver 结束</td><td>通用 AI 助手</td><td class="comp-us">全栈：Memory → Agent → 生态</td></tr>
-            <tr><td style="font-weight:700;color:var(--text-primary);">Context</td><td>无记忆系统</td><td>聊天碎片</td><td class="comp-us">全量结构化记忆</td></tr>
-            <tr><td style="font-weight:700;color:var(--text-primary);">Day 90</td><td>= Day 1</td><td>略有改善</td><td class="comp-us">AI 比实习生更懂你</td></tr>
-            <tr><td style="font-weight:700;color:var(--text-primary);">数据</td><td>平台持有</td><td>平台持有</td><td class="comp-us">用户自有 · 本地优先</td></tr>
-            <tr><td style="font-weight:700;color:var(--text-primary);">模型</td><td>单一模型</td><td>绑自家模型</td><td class="comp-us">Model-agnostic · BYOK</td></tr>
+            <tr>
+              <td>渗透率</td>
+              <td>极低<br><span style="font-size:11px;color:var(--text-muted);">不戴的人永远不戴</span></td>
+              <td>中</td>
+              <td>中（但戴上=拒绝沟通）</td>
+              <td>极高</td>
+              <td class="comp-us">极高<br><span style="font-size:11px;">结婚戒+饰品</span></td>
+            </tr>
+            <tr>
+              <td>离嘴距离</td>
+              <td>近</td>
+              <td>远（手会乱动）</td>
+              <td>近</td>
+              <td>远</td>
+              <td class="comp-us">近（手贴脸）</td>
+            </tr>
+            <tr>
+              <td>社交侵入</td>
+              <td>胸前录音→敏感</td>
+              <td>抬腕=暗示看时间</td>
+              <td>戴上=拒绝沟通</td>
+              <td>掏手机=中断对话</td>
+              <td class="comp-us">完全无感知</td>
+            </tr>
+            <tr>
+              <td>24h 佩戴</td>
+              <td>❌</td>
+              <td>充电时摘</td>
+              <td>充电时摘</td>
+              <td>❌</td>
+              <td class="comp-us">✅ 防水 · 无感</td>
+            </tr>
           </tbody>
         </table>
       </div>
-      <div class="anim card card-accent" style="margin-top:32px;padding:24px 32px;">
-        <p style="font-size:17px;color:var(--text-secondary);">
-          <strong>为什么大厂做不了我们做的事？</strong><br>
-          三件事大厂的 DNA 决定了他们不会做：① <span class="accent bold">数据不上云给用户</span>（他们要数据）· ② <span class="accent bold">完全开放插件生态</span>（他们要控制）· ③ <span class="accent bold">不绑定模型</span>（他们要推自家模型）。<br>
-          我们天然站在大厂的对立面——隐私、开放、Model-agnostic。这不是策略选择，是创业公司的结构性优势。
+
+      <div class="anim card card-accent" style="margin-top:28px;padding:24px 32px;">
+        <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;">
+          <span class="bold">投吊坠的人回答不了一个问题：人类历史上吊坠形态的渗透率有多少？</span><br>
+          答案是极低。戴的人不会换，不戴的人永远不会戴。这就是为什么吊坠形态的硬件永远做不大。<br>
+          <span class="accent bold">戒指是人类历史上渗透率最高的穿戴形态</span> — 全球结婚戒+饰品戒指穿戴率远超任何其他形态。
         </p>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 12: BUSINESS MODEL ==================== -->
+  <!-- ==================== SLIDE 14: 为什么市面上没人做对 ==================== -->
   <div class="slide" data-slide="13">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">商业模式</h3>
-      <h2 class="anim">硬件获客，Context 留存，生态变现。</h2>
-      <div class="split" style="margin-top:40px;">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">竞争格局</h3>
+      <h2 class="anim">戒指都说要做。<br><span class="accent">没人做对。</span></h2>
+
+      <div class="anim" style="margin-top:28px;overflow-x:auto;">
+        <table class="comp-table" style="font-size:14px;">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Stream Ring (Sandbar)</th>
+              <th>Spark / Vocci</th>
+              <th style="color:var(--accent);">Monostone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>麦克风</td>
+              <td>1 个</td>
+              <td>1 个</td>
+              <td class="comp-us">2 个 + 波束成形</td>
+            </tr>
+            <tr>
+              <td>连续录音</td>
+              <td>< 4 小时</td>
+              <td>< 8 小时</td>
+              <td class="comp-us">12-15 小时</td>
+            </tr>
+            <tr>
+              <td>原打的故事</td>
+              <td>灵感记录</td>
+              <td>灵感记录</td>
+              <td class="comp-us">Personal Context Infra</td>
+            </tr>
+            <tr>
+              <td>Memory 系统</td>
+              <td>无</td>
+              <td>无</td>
+              <td class="comp-us">Tree + Graph</td>
+            </tr>
+            <tr>
+              <td>Agent 接入</td>
+              <td>无</td>
+              <td>无</td>
+              <td class="comp-us">CLI / MCP 双向</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="anim card" style="margin-top:28px;padding:24px 32px;">
+        <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">为什么他们做不到长录音？</div>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
+          单麦克风做不了 beamforming → 信噪比差 → 距离一变就转写不准。<br>
+          做双麦克风 → 功耗翻倍 → 续航做不到 12h。<br>
+          所以他们一开始打"灵感记录"（短录音 OK），后来想改口"长录音"，但<span class="bold">硬件 spec 跟不上故事</span>。
+        </p>
+        <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
+          我们 Day-1 就盯着量产 + 长录音，不是事后补硬件。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 15: 团队 — 为什么偏偏是这几个人 ==================== -->
+  <div class="slide" data-slide="14">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Team</h3>
+      <h2 class="anim">为什么 <span class="accent">偏偏是这几个人</span> 来做这件事</h2>
+
+      <style>
+        .tm-card { background: var(--bg-light); border: 1px solid var(--border); border-radius: 16px; padding: 24px 26px; position: relative; }
+        .tm-card::before { content: ''; position: absolute; top: 0; left: 16px; right: 16px; height: 2px; border-radius: 0 0 2px 2px; }
+        .tm-card.c-cyan::before   { background: #00D4FF; }
+        .tm-card.c-orange::before { background: #FB923C; }
+        .tm-card.c-green::before  { background: #4ADE80; }
+        .tm-card.c-purple::before { background: #A78BFA; }
+        .tm-name { font-size: 26px; font-weight: 800; color: var(--text-primary); display: inline-block; margin-right: 10px; }
+        .tm-role { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; vertical-align: middle; }
+        .tm-role.c-cyan   { color: #00D4FF; }
+        .tm-role.c-orange { color: #FB923C; }
+        .tm-role.c-green  { color: #4ADE80; }
+        .tm-role.c-purple { color: #A78BFA; }
+        .tm-body { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-top: 14px; }
+        .tm-key {
+          margin-top: 16px;
+          padding: 10px 14px;
+          border-radius: 8px;
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 1.5;
+        }
+        .tm-key.c-cyan   { background: rgba(0,212,255,0.08);  border: 1px solid rgba(0,212,255,0.25);  color: #00D4FF; }
+        .tm-key.c-orange { background: rgba(251,146,60,0.08); border: 1px solid rgba(251,146,60,0.25); color: #FB923C; }
+        .tm-key.c-green  { background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.25); color: #4ADE80; }
+        .tm-key.c-purple { background: rgba(167,139,250,0.08);border: 1px solid rgba(167,139,250,0.25);color: #A78BFA; }
+      </style>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px;">
+        <!-- 明明 -->
+        <div class="tm-card c-cyan">
+          <div>
+            <span class="tm-name">明明 / Liam</span>
+            <span class="tm-role c-cyan">CEO · 产品定义</span>
+          </div>
+          <p class="tm-body">
+            前 VC，去年看过 20+ 与 memory / context / AI 硬件相关的项目；同时是 Claude Code、Hermes Agent 等工具的 daily 用户——<span class="bold">既有投资人视角，也在目标用户里</span>。Monostone app 前端也亲自写。
+          </p>
+          <div class="tm-key c-cyan">→ 自己就是用户，能把真实 friction 直接转成产品定义</div>
+        </div>
+
+        <!-- Marshal -->
+        <div class="tm-card c-orange">
+          <div>
+            <span class="tm-name">Marshal</span>
+            <span class="tm-role c-orange">联创 · 硬件</span>
+          </div>
+          <p class="tm-body">
+            高通芯片 → 哈曼卡顿中国研究院创始人 → OPPO 音频 → 传音配件。<span class="bold">数千万台音频设备量产经验。</span>
+          </p>
+          <div class="tm-key c-orange">→ 让"双麦 + 高质量收音 + 低功耗 + 可量产"在戒指形态里同时成立</div>
+        </div>
+
+        <!-- 林啸（redacted） -->
+        <div class="tm-card c-green">
+          <div>
+            <span class="tm-name"><span class="redacted">██████</span></span>
+            <span class="tm-role c-green">联创 · 软硬全栈</span>
+          </div>
+          <p class="tm-body">
+            98 年连续创业者，全栈工程师。做过硬件相关产品，也做过数据 / 软件系统——<span class="bold">能把 capture → memory → agent execution 接成闭环。</span>
+          </p>
+          <div class="tm-key c-green">→ 团队里最关键的软硬全栈拼图</div>
+        </div>
+
+        <!-- 石慧 -->
+        <div class="tm-card c-purple">
+          <div>
+            <span class="tm-name">石慧</span>
+            <span class="tm-role c-purple">CMO · 品牌出海</span>
+          </div>
+          <p class="tm-body">
+            全球 Top 1 智能硬件品牌前 CMO · DTC <span class="bold">$3M → $10M</span> · CES 创新奖 · BBC 发言人。
+          </p>
+          <div class="tm-key c-purple">→ 让新品类被市场看懂、卖出去、做成品牌</div>
+        </div>
+      </div>
+
+      <div class="anim" style="margin-top:24px;padding:24px 32px;border-radius:14px;background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(0,212,255,0.02));border:1px solid rgba(0,212,255,0.2);text-align:center;">
+        <p style="font-size:18px;font-weight:700;color:var(--accent);line-height:1.5;">
+          明明定义产品 · Marshal 让形态成立 · <span class="redacted">██████</span> 把软硬接通 · 石慧让市场看懂
+        </p>
+        <p style="font-size:14px;color:var(--text-muted);margin-top:6px;">
+          不是单点很强——是组合稀缺。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 16: WHY NOW + 市场 ==================== -->
+  <div class="slide" data-slide="15">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Why Now</h3>
+      <h2 class="anim">四个时间窗口，<br>都在 2025-2026 同时打开。</h2>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px;">
+        <div class="card" style="padding:24px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">① 注意力转向</div>
+          <div style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">Claude Code 把全行业推到了 Context</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;">
+            "Harness 就是一个很复杂的 context"——这个共识从 25 年下半年开始形成。我们已经在做的事，正好是这一波认知的核心。
+          </p>
+        </div>
+        <div class="card" style="padding:24px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">② 协议成熟</div>
+          <div style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">MCP 已有 1000+ Server</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;">
+            我们当 memory 插件 / agent 平台都不用自己写连接器。生态是现成的，我们补的是中间那一层。
+          </p>
+        </div>
+        <div class="card" style="padding:24px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">③ 硬件供应链</div>
+          <div style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">12-15h 戒指终于做得了</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;">
+            过去三年低功耗芯片 + BLE 5.x + 双芯片架构能效叠加。再往前一年，这个 spec 做不到；再往后两年，所有人都会涌进来。
+          </p>
+        </div>
+        <div class="card" style="padding:24px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">④ ICP 爆发</div>
+          <div style="font-size:18px;font-weight:700;color:var(--text-primary);margin-bottom:8px;">AI-Native 用户从几十万→几千万</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.6;">
+            每月烧 100+ 美金 token 的人，2024 是几十万；2025 几百万；2026-2027 会到几千万。这群人是 Day-1 就懂我们的人。
+          </p>
+        </div>
+      </div>
+
+      <div class="anim" style="margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;">
+        <div class="market-circles">
+          <div class="market-circle tam">
+            <div class="market-label" style="position:absolute;top:12px;">TAM</div>
+            <div style="position:absolute;top:30px;left:50%;transform:translateX(-50%);font-size:14px;color:var(--accent);font-weight:700;">$470B</div>
+            <div style="position:absolute;top:50px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--text-muted);">AI 生产力</div>
+          </div>
+          <div class="market-circle sam">
+            <div class="market-label" style="position:absolute;top:12px;">SAM</div>
+            <div style="position:absolute;top:30px;left:50%;transform:translateX(-50%);font-size:13px;color:var(--accent);font-weight:700;">~$50B</div>
+            <div style="position:absolute;top:50px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--text-muted);">AI-native 用户</div>
+          </div>
+          <div class="market-circle som">
+            <div class="market-label">SOM</div>
+            <div class="market-value">10K → 100K</div>
+          </div>
+        </div>
         <div>
-          <div class="anim card" style="margin-bottom:20px;padding:20px 28px;">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">① 硬件（获客入口）</div>
+          <p style="font-size:16px;color:var(--text-secondary);line-height:1.8;">
+            <span class="bold">SOM 路径</span>：12 个月 10K，24 个月 100K。<br>
+            目标 ICP 共约 ~500 万——每月烧 100+ 美金 token 的全球 AI-native 用户。<br>
+            <span class="accent bold">不需要打全民市场，拿下这部分人就足够 Series A。</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 17: 商业模式 ==================== -->
+  <div class="slide" data-slide="16">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">商业模式</h3>
+      <h2 class="anim">硬件获客 · 订阅留存 · Memory Infra 变现。</h2>
+
+      <div class="anim" style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div>
+          <div class="card" style="padding:24px 28px;margin-bottom:16px;">
+            <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">① 硬件 — 获客入口</div>
             <div style="display:flex;justify-content:space-between;gap:16px;">
               <div style="flex:1;text-align:center;">
-                <div style="font-size:14px;color:var(--text-muted);">零售价</div>
-                <div style="font-size:28px;font-weight:800;color:var(--text-primary);">$249</div>
+                <div style="font-size:13px;color:var(--text-muted);">零售</div>
+                <div style="font-size:32px;font-weight:800;color:var(--text-primary);">$249</div>
               </div>
               <div style="width:1px;background:var(--border);"></div>
               <div style="flex:1;text-align:center;">
-                <div style="font-size:14px;color:var(--text-muted);">早鸟价</div>
-                <div style="font-size:28px;font-weight:800;color:var(--accent);">$149-199</div>
+                <div style="font-size:13px;color:var(--text-muted);">BOM</div>
+                <div style="font-size:32px;font-weight:800;color:var(--accent);">~$30</div>
+              </div>
+              <div style="width:1px;background:var(--border);"></div>
+              <div style="flex:1;text-align:center;">
+                <div style="font-size:13px;color:var(--text-muted);">毛利</div>
+                <div style="font-size:32px;font-weight:800;color:var(--accent);">~80%</div>
               </div>
             </div>
-            <div style="font-size:13px;color:var(--text-muted);text-align:center;margin-top:8px;">BOM ~$20 · 硬件毛利 >90%</div>
           </div>
-          <div class="anim pricing-grid" style="grid-template-columns:1fr 1fr 1fr;">
+          <div class="pricing-grid">
             <div class="pricing-card">
-              <div class="pricing-plan">Free</div>
-              <div class="pricing-price" style="font-size:28px;">$0 <span style="font-size:13px;color:var(--text-muted);">（待定）</span></div>
+              <div class="pricing-plan">Starter</div>
+              <div class="pricing-price" style="font-size:30px;">$20<span>/月</span></div>
               <ul class="pricing-features">
                 <li>基础录音额度</li>
-                <li>基础总结</li>
-                <li>L1 记忆</li>
-                <li>Daily Digest</li>
+                <li>L1-L2 Memory</li>
+                <li>核心投递</li>
               </ul>
             </div>
             <div class="pricing-card featured">
               <div class="pricing-plan">Pro</div>
-              <div class="pricing-price" style="font-size:28px;">待定 <span style="font-size:13px;">/月</span></div>
+              <div class="pricing-price" style="font-size:30px;">$50-100<span>/月</span></div>
               <ul class="pricing-features">
-                <li>无限录音</li>
-                <li>无限总结</li>
-                <li>完整记忆 L1→L3</li>
-                <li>Daily Digest</li>
-                <li>全部投递</li>
+                <li>大量 Agent 额度</li>
+                <li>完整 Memory L1-L3</li>
+                <li>所有 MCP 集成</li>
               </ul>
             </div>
             <div class="pricing-card">
               <div class="pricing-plan">Max</div>
-              <div class="pricing-price" style="font-size:28px;">待定 <span style="font-size:13px;">/月</span></div>
+              <div class="pricing-price" style="font-size:30px;">$200<span>/月</span></div>
               <ul class="pricing-features">
-                <li>Pro 全部功能</li>
-                <li>大量 Agent 额度</li>
+                <li>无限额度</li>
+                <li>BYOK 选项</li>
                 <li>高级推理</li>
-                <li>自定义指令</li>
               </ul>
             </div>
           </div>
         </div>
         <div>
-          <div class="anim card card-accent" style="margin-bottom:20px;padding:24px 28px;">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">BYOK（Max 用户附加）</div>
-            <p style="font-size:16px;color:var(--text-secondary);">Max 用户自带 API Key，Agent 额度不受限，AI 推理成本用户承担，Monostone 只收 $29.9 平台费。</p>
-            <div style="font-size:36px;font-weight:900;color:var(--accent);margin-top:12px;">毛利率 >85%</div>
-          </div>
-          <div class="anim card" style="margin-bottom:20px;padding:24px 28px;">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px;">③ 生态抽成 — Second Me 市场（V1.5+）</div>
-            <p style="font-size:16px;color:var(--text-secondary);">用户把自己的专业知识 + AI 工作流打包上传为 "Second Me"，其他人按月订阅。<br>例：硬件专家的供应链 know-how → 软件团队付费使用。<br>第三方插件 / Second Me 市场，平台抽成 <span class="bold">30%</span>。</p>
-          </div>
-          <div class="anim card" style="padding:24px 28px;">
-            <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">估值跃迁路径</div>
-            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-              <span style="background:var(--accent-dim);padding:6px 14px;border-radius:8px;font-size:14px;color:var(--accent);font-weight:600;">硬件收入</span>
-              <span style="color:var(--accent);">→</span>
-              <span style="background:var(--accent-dim);padding:6px 14px;border-radius:8px;font-size:14px;color:var(--accent);font-weight:600;">软件订阅</span>
-              <span style="color:var(--accent);">→</span>
-              <span style="background:var(--accent);color:#000;padding:6px 14px;border-radius:8px;font-size:14px;font-weight:700;">平台生态</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 13: TEAM ==================== -->
-  <div class="slide" data-slide="14">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">团队</h3>
-      <h2 class="anim">硬件量产 × AI 产品 × 商业判断。</h2>
-      <div class="anim team-grid" style="margin-top:40px;grid-template-columns:1fr 1fr 1fr;">
-        <div class="team-card">
-          <div class="team-role">CEO / 产品</div>
-          <div class="team-name">明明（Liam）</div>
-          <div class="team-bio">前 VC（AI/机器人投资）→ M&A → 产品全栈。投资人视角定义产品，创业者心态执行。</div>
-        </div>
-        <div class="team-card">
-          <div class="team-role">联合创始人 / 硬件</div>
-          <div class="team-name">Marshal</div>
-          <div class="team-bio">高通（音频芯片）→ OPPO 音频负责人 → 哈曼卡顿中国研究院创始人 → 传音配件负责人。近 20 年消费电子，量产过数百万台音频设备。</div>
-        </div>
-        <div class="team-card">
-          <div class="team-role">联合创始人 / 软件</div>
-          <div class="team-name"><span class="redacted">██████</span></div>
-          <div class="team-bio">98 年，连续创业者（3D 打印机 / 数据公司），全栈工程师。高密度工程直觉，端到端交付。</div>
-        </div>
-        <div class="team-card">
-          <div class="team-role">嵌入式</div>
-          <div class="team-name">Ken</div>
-          <div class="team-bio">前 OPPO OS → 前蔚来手机 OS。系统级开发经验。</div>
-        </div>
-        <div class="team-card">
-          <div class="team-role">结构工程</div>
-          <div class="team-name">Jim</div>
-          <div class="team-bio">前 Sony 中国首席结构工程师。精密消费电子结构设计与量产经验。</div>
-        </div>
-        <div class="team-card">
-          <div class="team-role">UX / UI 设计</div>
-          <div class="team-name">Sean</div>
-          <div class="team-bio">OPPO → 哈曼卡顿 Design Lead → 创业联创（成功退出）→ 在美国创立独立 UX 设计工作室。</div>
-        </div>
-        <div class="team-card">
-          <div class="team-role">Agent 工程师</div>
-          <div class="team-name"><span class="redacted">██████</span></div>
-          <div class="team-bio">某大厂 Agent 工程师 → DeerFlow 联合创始人。深度 Agent 系统架构与工程化经验。</div>
-        </div>
-      </div>
-      <div class="anim card card-accent" style="margin-top:32px;padding:24px 32px;text-align:center;">
-        <p style="font-size:18px;color:var(--text-secondary);">
-          不是纯技术团队做硬件，也不是硬件团队学 AI。七个人分别覆盖<span class="accent bold">音频硬件量产、全栈软件、Agent 系统、嵌入式系统、精密结构、UX 设计、产品与商业</span>——同时具备"做出来"和"卖出去"的能力。
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 14: TRACTION & ROADMAP ==================== -->
-  <div class="slide" data-slide="15">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Traction & 路线图</h3>
-      <h2 class="anim">已经在跑了。</h2>
-      <div class="split" style="margin-top:40px;">
-        <div>
-          <div class="anim" style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:16px;">已完成</div>
-          <ul class="anim traction-list">
-            <li>iOS App（Timeline / Library+Memory / Agent / Profile 四 Tab）</li>
-            <li>AI Pipeline（录音 → 转写 → 结构化 → 记忆沉淀）</li>
-            <li>File as Memory 记忆系统（Markdown 原生、用户可编辑、知识图谱可视化）</li>
-            <li>MCP 协议 + Skills 插件 + 第三方 Agent 接入（Day 1 开放）</li>
-            <li>5 个核心 Destination（Notion / Calendar / Email / Obsidian / Markdown）</li>
-          </ul>
-        </div>
-        <div class="anim">
-          <div style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:16px;">路线图</div>
-          <div class="timeline" style="flex-direction:column;gap:0;">
-            <div style="display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-left:2px solid var(--accent);margin-left:8px;padding-left:28px;position:relative;">
-              <div style="position:absolute;left:-7px;top:24px;width:12px;height:12px;background:var(--accent);border-radius:50%;box-shadow:0 0 12px var(--accent-glow);"></div>
-              <div>
-                <div style="font-size:14px;font-weight:700;color:var(--accent);">Phase 1 — 现在 → 4 月</div>
-                <div style="font-size:16px;color:var(--text-secondary);margin-top:4px;">MVP 打磨 + 量产样机出炉，iOS + 云端完整闭环，可向投资人演示</div>
-              </div>
-            </div>
-            <div style="display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-left:2px solid rgba(0,212,255,0.3);margin-left:8px;padding-left:28px;position:relative;">
-              <div style="position:absolute;left:-7px;top:24px;width:12px;height:12px;background:var(--bg-dark);border:2px solid var(--accent);border-radius:50%;"></div>
-              <div>
-                <div style="font-size:14px;font-weight:700;color:var(--accent);">Phase 2 — 独立站上线 + 社群启动（5-8 月）</div>
-                <div style="font-size:16px;color:var(--text-secondary);margin-top:4px;">独立站发售 + Content 驱动 + KOC / 社群运营，首批 1,000-5,000 用户</div>
-              </div>
-            </div>
-            <div style="display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-left:2px solid rgba(0,212,255,0.15);margin-left:8px;padding-left:28px;position:relative;">
-              <div style="position:absolute;left:-7px;top:24px;width:12px;height:12px;background:var(--bg-dark);border:2px solid rgba(0,212,255,0.4);border-radius:50%;"></div>
-              <div>
-                <div style="font-size:14px;font-weight:700;color:var(--accent);">Phase 3 — 规模化（8-12 月）</div>
-                <div style="font-size:16px;color:var(--text-secondary);margin-top:4px;">开发者生态 + Second Me 市场 + 用数据证明飞轮 → Seed 轮</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="anim card" style="margin-top:28px;padding:20px 28px;text-align:center;">
-        <p style="font-size:17px;color:var(--text-secondary);">
-          <strong>这笔钱让我们走到：</strong>独立站 + 社群运营 → 5,000-10,000 付费用户 → Context 壁垒初步建立 → 用数据证明飞轮 → <span class="accent bold">Seed 轮</span>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 15: ASK ==================== -->
-  <div class="slide" data-slide="16">
-    <div class="slide-inner center-text">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Ask</h3>
-      <h2 class="anim" style="font-size:48px;">$2-4M Pre-Seed，建 AI 的灵魂层。</h2>
-      <div class="ask-grid anim" style="margin-top:48px;text-align:left;">
-        <div style="text-align:center;">
-          <div class="ask-big">$2-4M</div>
-          <div class="ask-label">融资金额</div>
-          <div style="font-size:32px;font-weight:800;color:var(--text-secondary);margin-top:16px;">$20M</div>
-          <div style="font-size:16px;color:var(--text-muted);">Pre-money 估值</div>
-          <div style="margin-top:40px;">
-            <div class="pie-chart"></div>
-            <div class="pie-legend" style="max-width:280px;margin:24px auto 0;">
-              <div class="pie-legend-item"><div class="pie-dot" style="background:var(--accent);"></div>硬件量产 40%</div>
-              <div class="pie-legend-item"><div class="pie-dot" style="background:#0088aa;"></div>软件开发 30%</div>
-              <div class="pie-legend-item"><div class="pie-dot" style="background:#005577;"></div>市场推广 20%</div>
-              <div class="pie-legend-item"><div class="pie-dot" style="background:#003344;"></div>运营预留 10%</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:18px;font-weight:700;color:var(--accent);margin-bottom:24px;">里程碑承诺</div>
-          <div style="display:flex;flex-direction:column;gap:16px;">
-            <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:12px;">
-              <span style="font-size:24px;">🏭</span>
-              <span style="font-size:16px;color:var(--text-secondary);">戒指量产并发货给首批用户</span>
-            </div>
-            <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:12px;">
-              <span style="font-size:24px;">🔗</span>
-              <span style="font-size:16px;color:var(--text-secondary);">Context 平台跑通完整链路</span>
-            </div>
-            <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:12px;">
-              <span style="font-size:24px;">👥</span>
-              <span style="font-size:16px;color:var(--text-secondary);">获取 5,000-10,000 付费用户</span>
-            </div>
-            <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:12px;">
-              <span style="font-size:24px;">📊</span>
-              <span style="font-size:16px;color:var(--text-secondary);">用真实数据验证 Context 飞轮</span>
-            </div>
-            <div class="card" style="padding:16px 20px;display:flex;align-items:center;gap:12px;">
-              <span style="font-size:24px;">🚀</span>
-              <span style="font-size:16px;color:var(--text-secondary);">为 Seed 轮建立谈判筹码</span>
-            </div>
-          </div>
-          <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
-            <p style="font-size:20px;font-weight:600;color:var(--text-secondary);line-height:1.7;">
-              下一代 AI 的竞争不在模型，在 Context。<br>
-              <span class="accent bold">我们从第一天就在建这一层。</span>
+          <div class="card card-accent" style="padding:24px 28px;margin-bottom:16px;">
+            <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">② BYOK — Max 用户</div>
+            <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
+              用户自带 OpenAI / Anthropic / Gemini API key，AI 推理成本由用户承担，Monostone 只收平台费。<br>
+              <span class="accent bold">毛利 >85%，对烧 token 多的人极有吸引力。</span>
             </p>
-            <p style="font-size:36px;font-weight:800;color:var(--accent);margin-top:24px;">Let's talk.</p>
+          </div>
+          <div class="card" style="padding:24px 28px;margin-bottom:16px;">
+            <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">③ Memory Infra — 远期变现</div>
+            <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
+              第三方 agent 调用我们的 Memory 层 → <span class="bold">按调用抽 30%</span>。<br>
+              成为下一代 agent 的 default memory layer，类似 Stripe 之于支付。
+            </p>
+          </div>
+          <div class="card" style="padding:20px 28px;">
+            <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;">估值跃迁路径</div>
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+              <span style="background:var(--accent-dim);padding:6px 14px;border-radius:8px;font-size:13px;color:var(--accent);font-weight:600;">硬件</span>
+              <span style="color:var(--accent);">→</span>
+              <span style="background:var(--accent-dim);padding:6px 14px;border-radius:8px;font-size:13px;color:var(--accent);font-weight:600;">订阅</span>
+              <span style="color:var(--accent);">→</span>
+              <span style="background:var(--accent);color:#000;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:700;">Memory Infra</span>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 18: TRACTION + ASK ==================== -->
+  <div class="slide" data-slide="17">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Traction & Ask</h3>
+      <h2 class="anim">已经在跑了。<br><span class="accent">$4M Pre-Seed @ $20M pre-money。</span></h2>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px;">
+        <div>
+          <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:14px;">已完成</div>
+          <ul class="traction-list">
+            <li>硬件功能件已测完，新板贴片中（4 月）</li>
+            <li>iOS App + 云端完整闭环可演示</li>
+            <li>Memory Tree + Entity Graph 双结构跑通</li>
+            <li>MCP 协议接入 + 5 个核心 destination</li>
+            <li>预测试用户：100+ 刀/月烧 token 的人立即懂</li>
+            <li>Marshall + 林啸 + 石慧 + Ken 全职 onboard</li>
+          </ul>
+
+          <div style="font-size:15px;font-weight:700;color:var(--accent);margin:28px 0 14px;">硬件量产路线</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="background:var(--accent-dim);padding:8px 14px;border-radius:8px;font-size:13px;color:var(--accent);font-weight:700;">EVT · 5 月</span>
+            <span style="color:var(--accent);align-self:center;">→</span>
+            <span style="background:var(--accent-dim);padding:8px 14px;border-radius:8px;font-size:13px;color:var(--accent);font-weight:700;">DVT · 6 月</span>
+            <span style="color:var(--accent);align-self:center;">→</span>
+            <span style="background:var(--accent);color:#000;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:700;">MP · 7-8 月</span>
+          </div>
+        </div>
+        <div>
+          <div style="text-align:center;margin-bottom:20px;">
+            <div class="ask-big" style="font-size:56px;">$4M</div>
+            <div class="ask-label">Pre-Seed @ $20M pre-money</div>
+          </div>
+
+          <div class="pie-chart" style="width:180px;height:180px;"></div>
+          <div class="pie-legend" style="max-width:300px;margin:20px auto 0;">
+            <div class="pie-legend-item"><div class="pie-dot" style="background:var(--accent);"></div>硬件量产 40%</div>
+            <div class="pie-legend-item"><div class="pie-dot" style="background:#0088aa;"></div>软件 / Memory 30%</div>
+            <div class="pie-legend-item"><div class="pie-dot" style="background:#005577;"></div>市场 / GTM 20%</div>
+            <div class="pie-legend-item"><div class="pie-dot" style="background:#003344;"></div>运营预留 10%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:28px;padding:20px 28px;">
+        <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;">这笔钱让我们走到</div>
+        <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;">
+          首批 5,000-10,000 付费用户 → Memory Infra 跑通 → 用真实数据验证飞轮 → <span class="accent bold">Seed 轮谈判筹码</span>
+        </p>
+      </div>
+
+      <div class="anim" style="text-align:center;margin-top:28px;">
+        <p style="font-size:18px;color:var(--text-muted);">下一代 AI 的竞争不在模型，在 Context。</p>
+        <p style="font-size:32px;font-weight:800;color:var(--accent);margin-top:8px;">Let's talk.</p>
       </div>
     </div>
   </div>
@@ -1989,7 +1347,7 @@ table tr:last-child td { border-bottom: none; }
 
 <script>
 (function() {
-  const TOTAL = 17;
+  const TOTAL = 18;
   let current = 0;
   let animating = false;
   const slides = document.querySelectorAll('.slide');
@@ -1997,7 +1355,6 @@ table tr:last-child td { border-bottom: none; }
   const progressBar = document.getElementById('progressBar');
   const counter = document.getElementById('slideCounter');
 
-  // Build nav dots
   for (let i = 0; i < TOTAL; i++) {
     const dot = document.createElement('button');
     dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
@@ -2022,11 +1379,10 @@ table tr:last-child td { border-bottom: none; }
   function goTo(n) {
     if (animating || n === current || n < 0 || n >= TOTAL) return;
     animating = true;
-    // Reset animations on target slide
     const target = slides[n];
     target.querySelectorAll('.anim').forEach(el => {
       el.style.animation = 'none';
-      el.offsetHeight; // reflow
+      el.offsetHeight;
       el.style.animation = '';
     });
     current = n;
@@ -2037,7 +1393,6 @@ table tr:last-child td { border-bottom: none; }
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
 
-  // Keyboard
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); next(); }
     if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prev(); }
@@ -2045,7 +1400,6 @@ table tr:last-child td { border-bottom: none; }
     if (e.key === 'End') { e.preventDefault(); goTo(TOTAL - 1); }
   });
 
-  // Mouse wheel
   let wheelTimeout = null;
   document.addEventListener('wheel', e => {
     if (wheelTimeout) return;
@@ -2054,7 +1408,6 @@ table tr:last-child td { border-bottom: none; }
     wheelTimeout = setTimeout(() => { wheelTimeout = null; }, 800);
   }, { passive: true });
 
-  // Touch swipe
   let touchStartY = 0;
   document.addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
   document.addEventListener('touchend', e => {
