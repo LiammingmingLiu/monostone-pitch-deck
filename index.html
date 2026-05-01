@@ -1334,6 +1334,75 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
+  <!-- ==================== SLIDE 19: VISION — 我们对 AI 未来的理解 ==================== -->
+  <div class="slide" data-slide="18">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Vision</h3>
+      <h2 class="anim">为什么是戒指 + Memory + MCP — <br>我们对 AI 未来的理解。</h2>
+
+      <!-- The Equation -->
+      <div class="anim" style="margin-top:36px;padding:32px 40px;border-radius:16px;background:linear-gradient(135deg,rgba(0,212,255,0.12),rgba(0,212,255,0.02));border:1px solid rgba(0,212,255,0.3);text-align:center;">
+        <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">AI 时代的杠杆公式</div>
+        <div style="font-size:30px;font-weight:800;color:var(--text-primary);line-height:1.4;letter-spacing:-0.5px;">
+          AI 杠杆 = <span style="color:var(--text-muted);">Token Leverage</span>
+          <span style="color:var(--text-muted);font-weight:400;"> × </span>
+          <span class="accent">介入频率</span>
+          <span style="color:var(--text-muted);font-weight:400;"> × </span>
+          <span class="accent">介入质量</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-muted);margin-top:16px;line-height:1.6;">
+          模型变强 → token leverage 变长（这块由模型公司在做，已 commoditized）<br>
+          <span style="color:var(--text-secondary);">真正还没解决的瓶颈在后两项 —— 我们专门做这两件事。</span>
+        </p>
+      </div>
+
+      <!-- Three Columns: Why Hardware + Memory + MCP -->
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px;">
+        <div class="card" style="padding:22px 24px;">
+          <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">① 戒指硬件</div>
+          <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:10px;">最大化"介入频率"</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;">
+            把启动一个 agent 的距离 → 缩短到一次触摸。<br>
+            走路、洗澡、谈判、跑步、躺床 —— 任何场景都能介入。<br>
+            <span style="color:var(--text-secondary);">每天本来会被丢弃的 5-10 个高价值想法，全部接住。</span>
+          </p>
+        </div>
+        <div class="card" style="padding:22px 24px;">
+          <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">② Memory</div>
+          <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:10px;">最大化"介入质量"</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;">
+            每次介入都自带你的全量 context，不需要重新喂。<br>
+            Tree + Graph 双结构，跨工具持久。<br>
+            <span style="color:var(--text-secondary);">30 秒指令的杠杆，等于过去 30 分钟手动喂 context 的杠杆。</span>
+          </p>
+        </div>
+        <div class="card" style="padding:22px 24px;">
+          <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">③ MCP</div>
+          <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:10px;">放大到任何 Agent</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;">
+            前两项的价值 × N 个 agent。<br>
+            ChatGPT / Claude / Cursor / Manus / OpenClaw / NotebookLM 都立刻受益。<br>
+            <span style="color:var(--text-secondary);">未来出现什么新 agent，戒指都能 day-1 接入，不需要换。</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Closing Punchline -->
+      <div class="anim" style="margin-top:24px;padding:24px 32px;border-radius:14px;background:rgba(0,0,0,0.3);border:1px solid var(--border);text-align:center;">
+        <p style="font-size:18px;color:var(--text-secondary);line-height:1.7;">
+          未来每个人都是 <span class="accent bold">5-10 个 Agent 的老板</span>。<br>
+          但今天，老板们还在用 <span class="bold">1995 年的输入设备</span>，被绑在桌子前。
+        </p>
+        <p style="font-size:22px;font-weight:800;color:var(--accent);margin-top:14px;letter-spacing:-0.3px;">
+          戒指就是那个"近"。
+        </p>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">
+          模型公司让 AI 能做的事变多。我们让你能用上的次数变多、每次都用得对。
+        </p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- NAV DOTS -->
@@ -1347,7 +1416,7 @@ table tr:last-child td { border-bottom: none; }
 
 <script>
 (function() {
-  const TOTAL = 18;
+  const TOTAL = 19;
   let current = 0;
   let animating = false;
   const slides = document.querySelectorAll('.slide');
