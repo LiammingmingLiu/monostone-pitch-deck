@@ -338,72 +338,501 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 2: 痛点 — 想法在哪 vs Agent 在哪 ==================== -->
+  <!-- ==================== SLIDE 2: VISION — AI 时代的杠杆公式 ==================== -->
   <div class="slide" data-slide="1">
     <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">问题</h3>
-      <h2 class="anim">想法发生在线下。<br><span class="accent">Agent 却在电脑里。</span></h2>
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Vision</h3>
+      <h2 class="anim">为什么是戒指 + Memory + MCP — <br>我们对 AI 未来的理解。</h2>
 
-      <div class="anim" style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-        <div class="card" style="padding:20px 24px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">🚶 散步时</div>
-          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">
-            "诶这个文档处理流程完全可以让 Claude 跑。"<br>
-            <span style="color:var(--text-muted);">→ 必须等回到电脑前才能启动。等到了电脑前，已经忘了一半。</span>
+      <!-- The Equation -->
+      <div class="anim" style="margin-top:36px;padding:32px 40px;border-radius:16px;background:linear-gradient(135deg,rgba(0,212,255,0.12),rgba(0,212,255,0.02));border:1px solid rgba(0,212,255,0.3);text-align:center;">
+        <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">AI 时代的杠杆公式</div>
+        <div style="font-size:30px;font-weight:800;color:var(--text-primary);line-height:1.4;letter-spacing:-0.5px;">
+          AI 杠杆 = <span style="color:var(--text-muted);">Token Leverage</span>
+          <span style="color:var(--text-muted);font-weight:400;"> × </span>
+          <span class="accent">介入频率</span>
+          <span style="color:var(--text-muted);font-weight:400;"> × </span>
+          <span class="accent">介入质量</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-muted);margin-top:16px;line-height:1.6;">
+          模型变强 → token leverage 变长（这块由模型公司在做，已 commoditized）<br>
+          <span style="color:var(--text-secondary);">真正还没解决的瓶颈在后两项 —— 我们专门做这两件事。</span>
+        </p>
+      </div>
+
+      <!-- Three Columns: Why Hardware + Memory + MCP -->
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px;">
+        <div class="card" style="padding:22px 24px;">
+          <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">① 戒指硬件</div>
+          <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:10px;">最大化"介入频率"</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;">
+            把启动一个 agent 的距离 → 缩短到一次触摸。<br>
+            走路、洗澡、谈判、跑步、躺床 —— 任何场景都能介入。<br>
+            <span style="color:var(--text-secondary);">每天本来会被丢弃的 5-10 个高价值想法，全部接住。</span>
           </p>
         </div>
-        <div class="card" style="padding:20px 24px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">🚿 洗澡时</div>
-          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">
-            "刚才那个 bug 应该改 schema 不是改 query。"<br>
-            <span style="color:var(--text-muted);">→ 想 vibe coding 的灵感，必须坐回电脑前才能继续。</span>
+        <div class="card" style="padding:22px 24px;">
+          <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">② Memory</div>
+          <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:10px;">最大化"介入质量"</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;">
+            每次介入都自带你的全量 context，不需要重新喂。<br>
+            Tree + Graph 双结构，跨工具持久。<br>
+            <span style="color:var(--text-secondary);">30 秒指令的杠杆，等于过去 30 分钟手动喂 context 的杠杆。</span>
           </p>
         </div>
-        <div class="card" style="padding:20px 24px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">🤝 管理层访谈后</div>
-          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">
-            "刚才那几个点特别重要，得在 memo 里加上。"<br>
-            <span style="color:var(--text-muted);">→ 必须回到电脑前回忆细节、组织语言重写。回到电脑时，最有感的那句话已经记不清原话。</span>
-          </p>
-        </div>
-        <div class="card" style="padding:20px 24px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">💡 跟同事聊出一个 idea</div>
-          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">
-            "这个 idea 太好了，今晚就做出来 demo。"<br>
-            <span style="color:var(--text-muted);">→ 趁热打铁的窗口只有几小时。但等回到电脑前、配好环境、想清楚 prompt — 那股劲已经过去了。</span>
+        <div class="card" style="padding:22px 24px;">
+          <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">③ MCP</div>
+          <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:10px;">放大到任何 Agent</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;">
+            前两项的价值 × N 个 agent。<br>
+            ChatGPT / Claude / Cursor / Manus / OpenClaw / NotebookLM 都立刻受益。<br>
+            <span style="color:var(--text-secondary);">未来出现什么新 agent，戒指都能 day-1 接入，不需要换。</span>
           </p>
         </div>
       </div>
 
-      <div class="anim card card-accent" style="margin-top:24px;padding:24px 32px;">
-        <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">谁每天都在经历这件事？</div>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
-          每月在 AI 上烧 <span class="bold">$100+</span> token 的 power user — 开发者、PM、投资人、独立顾问、创作者。<br>
-          这群人的特征：<span class="bold">大量高价值思考发生在线下、在路上、在和人聊天的过程中</span>。
+      <!-- Closing Punchline -->
+      <div class="anim" style="margin-top:24px;padding:24px 32px;border-radius:14px;background:rgba(0,0,0,0.3);border:1px solid var(--border);text-align:center;">
+        <p style="font-size:18px;color:var(--text-secondary);line-height:1.7;">
+          未来每个人都是 <span class="accent bold">5-10 个 Agent 的老板</span>。<br>
+          但今天，老板们还在用 <span class="bold">1995 年的输入设备</span>，被绑在桌子前。
         </p>
-        <div style="margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
-          <div style="padding:14px;background:rgba(0,0,0,0.2);border-radius:8px;">
-            <div style="font-size:24px;font-weight:900;color:var(--accent);">$100-400</div>
-            <div style="font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.4;">Knowledge worker 平均 AI 月支出（含订阅+API）<sup style="color:var(--accent);">¹</sup></div>
-          </div>
-          <div style="padding:14px;background:rgba(0,0,0,0.2);border-radius:8px;">
-            <div style="font-size:24px;font-weight:900;color:var(--accent);">47M → 122M</div>
-            <div style="font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.4;">ChatGPT 全球付费用户<br>（2025 → 2026 预测）<sup style="color:var(--accent);">²</sup></div>
-          </div>
-          <div style="padding:14px;background:rgba(0,0,0,0.2);border-radius:8px;border:1px solid rgba(0,212,255,0.25);">
-            <div style="font-size:24px;font-weight:900;color:var(--accent);">~10M+</div>
-            <div style="font-size:12px;color:var(--text-muted);margin-top:4px;line-height:1.4;">全球月 AI 消费 $100+ 的 power users<br>（2027 预计 30M+）<sup style="color:var(--accent);">³</sup></div>
-          </div>
-        </div>
-        <p style="font-size:11px;color:var(--text-muted);margin-top:12px;line-height:1.5;">
-          <sup>1</sup> Meaningful Tech, "The Token Economy", 2026 · <sup>2</sup> The Information / Tech Portal, Apr 2026 · <sup>3</sup> 估算（Cursor 1M+ DAU + Claude Code Max + ChatGPT Pro + 多工具叠加）
+        <p style="font-size:22px;font-weight:800;color:var(--accent);margin-top:14px;letter-spacing:-0.3px;">
+          戒指就是那个"近"。
+        </p>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">
+          模型公司让 AI 能做的事变多。我们让你能用上的次数变多、每次都用得对。
         </p>
       </div>
     </div>
   </div>
 
-  <!-- ==================== SLIDE 3: 真问题 — General vs Personal Answer ==================== -->
+  <!-- ==================== SLIDE 3: Day-1 痛点 — 介入频率受限 ==================== -->
   <div class="slide" data-slide="2">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Day-1 痛点 · 介入频率</h3>
+      <h2 class="anim">想用 AI 的场景里，<br>大多数都<span class="accent">没有合适的 Context 收集设备</span>。</h2>
+
+      <div class="anim card" style="margin-top:24px;padding:20px 28px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.15);">
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin:0;">
+          回到第 2 页公式：<span class="bold">介入频率 = AI 能从多少场景里听到你的 Context</span>。<br>
+          但人最高价值的 context 大多发生在线下、在嘴里、在对话里 —— <span class="accent bold">今天没有任何设备能无感、高频、全场景地把它捕捉下来</span>。
+        </p>
+      </div>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;">
+        <div class="card" style="padding:18px 22px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;">🚶 散步 / 通勤</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0;">
+            一个 idea / 一段思考冒出来 → 掏手机太慢、开声音不礼貌 → 那段话没被记下来，idea 死在路上。
+          </p>
+        </div>
+        <div class="card" style="padding:18px 22px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;">🤝 多人会议</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0;">
+            桌面录音设备 → 距离一变就转写不准；耳机录音 → 戴上别人不愿对你说话；多人发言交叉 → 谁说的什么搞不清。
+          </p>
+        </div>
+        <div class="card" style="padding:18px 22px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;">💬 跟同事聊出 idea</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0;">
+            非正式聊天 → 不能掏录音设备（社交压力）→ 那段对话最有信息含量，但全部漏掉。
+          </p>
+        </div>
+        <div class="card" style="padding:18px 22px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;">💡 独自灵感时（洗澡 / 开车 / 睡前）</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0;">
+            一段完整的思路在脑子里跑了 5 分钟 → 等坐回桌前已经忘了一半 → 最高质量的独立思考从未被沉淀过。
+          </p>
+        </div>
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:20px;padding:22px 32px;">
+        <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;margin:0;">
+          <span class="bold">每一段没被捕捉的对话和思考，都是一次 context 漏掉。</span><br>
+          没有"无感、高频、全场景"的 capture 设备 → AI 永远只能从你打字告诉它的那一小部分中理解你。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 4: 戒指 — 唯一全场景适配的形态 ==================== -->
+  <div class="slide" data-slide="3">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">形态选择</h3>
+      <h2 class="anim">戒指是唯一<span class="accent">全场景适配</span>的设备。<br>其他形态都只在某个场景成立。</h2>
+
+      <div class="anim card" style="margin-top:20px;padding:18px 28px;">
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin:0;">
+          每一类场景在<span class="bold">声音工程</span>上的挑战都不同 —— 距离、抖动、噪声、社交压力、续航 ——<span class="accent bold">同时满足这 5 类，才算"全场景 capture"</span>。
+        </p>
+      </div>
+
+      <style>
+        .scn-row { display: grid; grid-template-columns: 130px 1fr 1fr; gap: 18px; align-items: start; padding: 14px 18px; background: var(--bg-light); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 8px; }
+        .scn-head { display: flex; flex-direction: column; align-items: flex-start; }
+        .scn-icon { font-size: 22px; margin-bottom: 4px; }
+        .scn-name { font-size: 13px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+        .scn-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+        .scn-label.challenge { color: var(--text-muted); }
+        .scn-label.ring { color: var(--accent); }
+        .scn-list { list-style: none; font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; }
+        .scn-list li { padding: 1px 0; }
+        .scn-list .dim { color: var(--text-muted); }
+      </style>
+
+      <div class="anim" style="margin-top:14px;">
+
+        <div class="scn-row">
+          <div class="scn-head">
+            <div class="scn-icon">🤝</div>
+            <div class="scn-name">会议场景</div>
+          </div>
+          <div>
+            <div class="scn-label challenge">声音工程挑战</div>
+            <ul class="scn-list">
+              <li>多人交叉发言，距离不固定（2–5m）</li>
+              <li>远端发言衰减 6–12dB → 转写丢字</li>
+              <li>不知道谁说的什么 → context 错位</li>
+              <li>合规：录音前必须让对方知情</li>
+            </ul>
+          </div>
+          <div>
+            <div class="scn-label ring">戒指能力</div>
+            <ul class="scn-list">
+              <li>✅ 双麦 Beamforming，动态指向发声方向</li>
+              <li>✅ 5m 远场拾音 + 多说话人声纹分离</li>
+              <li>✅ 主动触发 + 线性马达 + LED 提示对方</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scn-row">
+          <div class="scn-head">
+            <div class="scn-icon">🚶</div>
+            <div class="scn-name">移动场景<br>（散步 / 通勤）</div>
+          </div>
+          <div>
+            <div class="scn-label challenge">声音工程挑战</div>
+            <ul class="scn-list">
+              <li>手在动 → 距离嘴的角度 / 位置持续变化</li>
+              <li>抖动让单麦信噪比剧烈波动</li>
+              <li>风噪、街道噪声混入</li>
+              <li>必须单手快速触发</li>
+            </ul>
+          </div>
+          <div>
+            <div class="scn-label ring">戒指能力</div>
+            <ul class="scn-list">
+              <li>✅ IMU + 双麦数据融合 → 抗抖动算法</li>
+              <li>✅ 主动 Noise Cancellation</li>
+              <li>✅ 触摸 / 双击单手触发 + 离线缓存</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scn-row">
+          <div class="scn-head">
+            <div class="scn-icon">💬</div>
+            <div class="scn-name">非正式聊天<br>（社交场合）</div>
+          </div>
+          <div>
+            <div class="scn-label challenge">声音工程挑战</div>
+            <ul class="scn-list">
+              <li>不能让对方警觉 → 设备必须视觉无感</li>
+              <li>站着 / 坐着 / 走着 → 距离持续变化</li>
+              <li>多人时声纹混杂</li>
+              <li>对话最有信息含量但最难记录</li>
+            </ul>
+          </div>
+          <div>
+            <div class="scn-label ring">戒指能力</div>
+            <ul class="scn-list">
+              <li>✅ 戒指本身就是饰品 → 视觉零侵入</li>
+              <li>✅ 双麦动态聚焦 → 不固定距离也准确</li>
+              <li>✅ 声纹分离 + 时间片重组</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scn-row">
+          <div class="scn-head">
+            <div class="scn-icon">💡</div>
+            <div class="scn-name">独自灵感<br>（洗澡 / 开车 / 睡前）</div>
+          </div>
+          <div>
+            <div class="scn-label challenge">声音工程挑战</div>
+            <ul class="scn-list">
+              <li>洗澡场景需防水</li>
+              <li>5–10 分钟连续口述思考</li>
+              <li>可能离线（飞机 / 信号差）</li>
+              <li>近场低声自言自语</li>
+            </ul>
+          </div>
+          <div>
+            <div class="scn-label ring">戒指能力</div>
+            <ul class="scn-list">
+              <li>✅ IPX 防水</li>
+              <li>✅ 12–15h 连续录音 + 4h+ 离线缓存</li>
+              <li>✅ 近场高灵敏度麦克风调校</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scn-row" style="border-color:rgba(0,212,255,0.25);background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(0,212,255,0.02));">
+          <div class="scn-head">
+            <div class="scn-icon">🌙</div>
+            <div class="scn-name">24h 不离身<br>（理想状态）</div>
+          </div>
+          <div>
+            <div class="scn-label challenge">声音工程挑战</div>
+            <ul class="scn-list">
+              <li>洗澡、洗手、游泳、出汗都不需摘</li>
+              <li>长待机 + 偶发触发，不能频繁充电</li>
+              <li>戴一整天也不能累、不能勒</li>
+              <li>用户应该可以"忘记自己戴着它"</li>
+            </ul>
+          </div>
+          <div>
+            <div class="scn-label ring">戒指能力</div>
+            <ul class="scn-list">
+              <li>✅ IPX 防水 + 钛合金机身</li>
+              <li>✅ 双芯片架构 → 12-15h 录音 + 极低待机</li>
+              <li>✅ 1000+ 年人类佩戴形态 → 戴上去无感</li>
+              <li>✅ 用户可以选择 24h 不摘，没有任何摩擦</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:14px;padding:18px 28px;">
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin:0;">
+          其他形态在 1-2 类场景成立，<span class="bold">没有一个能同时满足这 5 类</span>。<br>
+          戒指是唯一在<span class="accent bold">每一类场景的声音工程挑战</span>上都做对的形态 —— 这才是"全场景 capture"的真实前提。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 5: 硬件能力 — 我们解决的工程难题 ==================== -->
+  <div class="slide" data-slide="4">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">硬件 · 我们做了什么</h3>
+      <h2 class="anim">让戒指在<span class="accent">任何场景下</span>都能稳定收音 + 长时间在线。</h2>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px;">
+        <!-- 双麦 + IMU 融合 -->
+        <div class="card" style="padding:24px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">① 双麦克风 + IMU 抖动算法</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            戴在手上的设备最大的难题是<span class="bold">手在动</span> —— 距离嘴变、角度变、风噪变。<br>
+            放了 <span class="bold">2 个麦克风 + 1 个手势识别传感器</span>，AI 实时融合"声音处理 + 动作数据"，跟踪发声方向，动态去噪。
+          </p>
+          <div style="margin-top:14px;padding:10px 14px;background:rgba(0,212,255,0.08);border-radius:8px;font-size:13px;color:var(--accent);">
+            实验室 5 米 · 正常对话 2-3 米 · 多人场景准确率 <span class="bold">>95%</span>
+          </div>
+        </div>
+
+        <!-- 双芯片架构 -->
+        <div class="card card-accent" style="padding:24px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">② 双芯片架构（核心创新）</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            戒指电池极小，普通单芯片戒指连续录音撑不到 4h。<br>
+            我们做了<span class="bold">双芯片解耦</span>：DSP 极低功耗专做录音 + 信号处理；BLE 极低功耗专做传输。
+          </p>
+          <div style="margin-top:14px;padding:10px 14px;background:rgba(0,212,255,0.12);border-radius:8px;font-size:13px;color:var(--accent);">
+            20mAh 电池 → <span class="bold">连续在线录音 12-15h</span> · 离线缓存 4h+
+          </div>
+        </div>
+
+        <!-- 主动触发 + 多模态交互 -->
+        <div class="card" style="padding:24px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">③ 主动触发 · 不是 always-on</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            美国 30+ 州法律明确要求录音对方知情。always-on 形态没法上市。<br>
+            <span class="bold">触摸 · 双击 · 滑动 · 手势</span> 多种交互 + 线性马达震动反馈 + LED 指示灯 → 用户每次知情，合规 + 不打扰。
+          </p>
+        </div>
+
+        <!-- 集成度 -->
+        <div class="card" style="padding:24px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">④ 集成度 · 没有方案商能做</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            戒指要"像戒指" —— 不能太厚太怪。要在这个体积里塞 2 麦克风 + 双芯片 + IMU + 触摸 + 马达 + LED + 电池。<br>
+            <span class="bold">ID + 结构 + 堆叠 + 嵌入式 全部自研</span> —— 因为没有方案商做过。
+          </p>
+          <div style="margin-top:14px;padding:10px 14px;background:rgba(0,0,0,0.2);border-radius:8px;font-size:13px;color:var(--text-muted);">
+            找了 13 家板厂，<span style="color:var(--accent);font-weight:700;">11 家直接拒绝</span>，只有 2 家能做。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 6: 软件能力 — 让录音变成可用 Context ==================== -->
+  <div class="slide" data-slide="5">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">软件 · 我们做了什么</h3>
+      <h2 class="anim">让录音 → <span class="accent">可执行的 Context</span>。<br>不是简单的"语音转文字"。</h2>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px;">
+        <!-- 文字识别 vs 语义识别 -->
+        <div class="card" style="padding:24px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">① 文字识别 ≠ 语义识别</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            目前主流 ASR 方案的问题：<span class="bold">要么慢，要么没语义</span>。直接送大模型则又慢又贵。<br>
+            我们在 ASR 之上做了针对性处理 —— 转文字时<span class="bold">同时保留语义</span>，意图理解准确率显著高于通用方案。
+          </p>
+        </div>
+
+        <!-- 多人对话声纹 + 时间片重组 -->
+        <div class="card" style="padding:24px 28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">② 多人对话 · 声纹分离 + 时间片重组</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            真实对话场景：你说话、我说话、并行送模型 —— 谁说的什么、顺序如何，<span class="bold">很容易乱套</span>。<br>
+            做了声纹识别 + 数据流并发处理 + 时间片重组 → 保证每个人的话连贯、归属准确。
+          </p>
+        </div>
+
+        <!-- 个人 Memory 系统 (核心差异化) -->
+        <div class="card card-accent" style="padding:24px 28px;grid-column:1 / -1;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">③ 个人 Memory 系统（核心差异化）★</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:6px;">
+            <div>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+                市面上的录音转写产品，做到 summary + todo 就停了。<br>
+                我们在中间做的事：<span class="bold">把大量个人信息沉淀成结构化记忆</span>。
+              </p>
+              <ul style="list-style:none;font-size:13px;color:var(--text-muted);line-height:1.9;margin-top:10px;">
+                <li>✓ 自研 Memory 模型（Tree + Graph 双结构）</li>
+                <li>✓ 不是直接调大模型，针对个人场景训练</li>
+                <li>✓ 越用越懂你 —— 意图理解 + 偏好学习</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+                <span class="bold">效果：</span>
+              </p>
+              <ul style="list-style:none;font-size:13px;color:var(--text-muted);line-height:1.9;margin-top:10px;">
+                <li>📈 意图理解准确率持续提升</li>
+                <li>📉 Token 消耗大幅下降（不重复喂 context）</li>
+                <li>🔌 通过 MCP 喂给任意 agent / 大模型</li>
+              </ul>
+              <p style="font-size:13px;color:var(--accent);margin-top:10px;font-weight:600;">
+                这是后面所有 AI 时代愿景的根基。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 7: Smart Calendar — Memory 驱动的主动准备 ==================== -->
+  <div class="slide" data-slide="6">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Day-1 软件价值</h3>
+      <h2 class="anim">Smart Calendar — <br>不是日历，是 <span class="accent">"AI 知道你下一步要准备什么"</span>。</h2>
+
+      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px;">
+        <div class="card" style="padding:22px 26px;">
+          <div style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">普通日历 / 录音 Summary</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            把"什么时间做什么事"列出来。<br>
+            把会议要点提取出来。<br>
+            <span style="color:var(--text-muted);">→ 信息整理工具，但 <span class="bold">没有 context</span>。</span>
+          </p>
+        </div>
+        <div class="card card-accent" style="padding:22px 26px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">Smart Calendar（Memory 驱动）</div>
+          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+            从你的对话里<span class="bold">主动提取</span>事件 + 提醒。<br>
+            带着 Memory 告诉你"应该提前做什么准备"。<br>
+            <span class="accent" style="font-weight:600;">→ 不是工具，是一个真正懂你下一步的助理。</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="anim" style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+        <div class="card" style="padding:20px 22px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">朋友生日</div>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.65;">
+            朋友说："我下个月 18 号生日。"<br>
+            → 自动加 Calendar<br>
+            → Memory 调出他之前说过的偏好<br>
+            → 提前一周提醒 + 礼物建议
+          </p>
+        </div>
+        <div class="card" style="padding:20px 22px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">下周上会</div>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.65;">
+            日历有个 IC 会议<br>
+            → Memory 召回过去几天 12 段录音<br>
+            → 自动整理 talking points<br>
+            → 会议前 30 分钟推送给你
+          </p>
+        </div>
+        <div class="card" style="padding:20px 22px;">
+          <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">出差见客户</div>
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.65;">
+            日历有个出差行程<br>
+            → 自动调出和客户上次的对话要点<br>
+            → 提醒上次承诺要发的资料<br>
+            → 推送当地天气 + 酒店建议
+          </p>
+        </div>
+      </div>
+
+      <div class="anim card" style="margin-top:20px;padding:18px 28px;">
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.65;margin:0;">
+          <span class="bold" style="color:var(--accent);">底层架构</span>：戒指收集对话 → Memory 沉淀 + 提取事件 → 同步 Apple / Google Calendar（不重新发明日历，把 Memory 接进现有日历）。<br>
+          <span style="color:var(--text-muted);">这就是 Day-1 用户能立刻感受到价值的产品 —— 投资人现在就可以演 demo。</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 8: 过渡 — Day-1 vs 远期 ==================== -->
+  <div class="slide" data-slide="7">
+    <div class="slide-inner">
+      <div style="text-align:center;">
+        <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;margin-bottom:24px;">从 Day-1 到 AI 时代</h3>
+
+        <div class="anim" style="margin:48px auto;max-width:880px;">
+          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:32px;align-items:center;">
+            <div style="padding:32px 28px;border-radius:16px;background:var(--bg-light);border:1px solid var(--border);text-align:left;">
+              <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">Day 1 · 已经成立</div>
+              <div style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:14px;">介入频率最大化</div>
+              <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
+                戒指 + 硬件 + 软件 + Smart Calendar<br>
+                <span style="color:var(--text-secondary);">用户买的那一天就感受到价值，<br>愿意带、愿意付订阅、愿意推荐。</span>
+              </p>
+            </div>
+
+            <div style="font-size:48px;color:var(--accent);font-weight:300;opacity:0.6;">→</div>
+
+            <div style="padding:32px 28px;border-radius:16px;background:linear-gradient(135deg,rgba(0,212,255,0.12),rgba(0,212,255,0.02));border:1px solid var(--accent);text-align:left;box-shadow:0 0 32px rgba(0,212,255,0.1);">
+              <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">远期 · 真正的位置</div>
+              <div style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:14px;">介入质量最大化</div>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
+                Memory + MCP + Plugin<br>
+                <span class="accent" style="font-weight:600;">戒指成为 AI 时代的入口。<br>跨任意 agent 的 Personal Context Infra。</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <p class="anim" style="font-size:18px;color:var(--text-muted);margin-top:24px;line-height:1.7;">
+          Day-1 的硬件 + 软件能力，是为远期愿景<span class="bold" style="color:var(--text-secondary);">埋下的入口</span>。<br>
+          <span class="accent bold">现在用户买的是录音戒指，未来他们离不开的是 Personal Context Infra。</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 9: 真问题 — General vs Personal Answer ==================== -->
+  <div class="slide" data-slide="8">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">真问题</h3>
       <h2 class="anim">即使你回到电脑前 — <br>AI 还是不认识你。</h2>
@@ -454,8 +883,68 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 4: 核心定位 — Anytime / Anywhere / Any Agent ==================== -->
-  <div class="slide" data-slide="3">
+  <!-- ==================== SLIDE 10: Memory + MCP — Personal Context Infra ==================== -->
+  <div class="slide" data-slide="9">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">远期愿景</h3>
+      <h2 class="anim">Memory + MCP — <br>把 Context 变成 <span class="accent">跨 Agent 的资产</span>。</h2>
+
+      <div class="anim" style="margin-top:28px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start;">
+        <div>
+          <div class="arch-layer top" style="margin-bottom:8px;">
+            <div class="arch-label">采集层 · 戒指</div>
+            <div class="arch-title">全场景 Context 收集</div>
+            <div class="arch-desc">主动触发，双击长录音 / 触摸短指令 · 12-15h 连续 + 4h+ 离线缓存</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-layer mid" style="margin:8px 0;">
+            <div class="arch-label">★ 核心 · Memory</div>
+            <div class="arch-title">Tree + Graph 双结构</div>
+            <div class="arch-desc">高保真召回 · 跨工具持久 · 用户可看可改 · 不锁模型</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-layer bottom" style="margin-top:8px;">
+            <div class="arch-label">接口层 · MCP / CLI</div>
+            <div class="arch-title">接到任何 Agent</div>
+            <div class="arch-desc">既当 memory 插件给 ChatGPT / Claude / Cursor / Manus，也当 agent 平台调任意 CLI / MCP</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="anim card card-accent" style="padding:22px 26px;margin-bottom:14px;">
+            <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">场景 · 跨工具协作</div>
+            <p style="font-size:13px;color:var(--text-secondary);line-height:1.65;margin:0;">
+              "明天上会前，把上周和 X 的 follow-up 整理成 memo。"<br>
+              → Memory 召回过去 3 天 12 段录音 · Manus 跑行业数据 · Claude 写 memo · Notion 已就绪。
+            </p>
+          </div>
+          <div class="anim card" style="padding:22px 26px;margin-bottom:14px;">
+            <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">场景 · Smart Calendar</div>
+            <p style="font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;">
+              对话里提到"下周三见 X"→ 日程自动加。朋友说"我下个月生日"→ 礼物建议 + 提前提醒。<br>
+              <span style="color:var(--text-secondary);">关键：从对话主动提取，不是用户主动输入。</span>
+            </p>
+          </div>
+          <div class="anim card" style="padding:22px 26px;">
+            <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">场景 · Computer Use</div>
+            <p style="font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;">
+              走路时触摸："把刚才聊的 3 个 idea 整理成 PRD，发到 Linear，标 P1"→ 回到工位 PRD 已就绪。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="anim" style="margin-top:24px;text-align:center;">
+        <p style="font-size:16px;color:var(--text-muted);">
+          <span class="bold" style="color:var(--text-secondary);">Memory 是 Context 的资产化。MCP 是它的分发管道。</span><br>
+          这是戒指真正的位置 —— 不是更好的录音器，是 AI 时代的入口。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 11: 核心定位 — Anytime / Anywhere / Any Agent ==================== -->
+  <div class="slide" data-slide="10">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">核心定位</h3>
       <h2 class="anim">Anytime · Anywhere · Any Agent</h2>
@@ -466,8 +955,7 @@ table tr:last-child td { border-bottom: none; }
           <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Anytime · 任何时间</div>
           <div style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:14px;">连续 12-15 小时</div>
           <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
-            行业普遍单麦戒指 < 3 小时（Sandbar/Spark/Vocci）。<br>
-            <span class="bold" style="color:var(--text-secondary);">我们做到 12-15h 连续录音 + 4h+ 离线缓存。</span>
+            <span class="bold" style="color:var(--text-secondary);">12-15h 连续录音 + 4h+ 离线缓存。</span>
           </p>
           <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
             <div style="font-size:12px;color:var(--text-muted);line-height:1.6;">
@@ -483,8 +971,7 @@ table tr:last-child td { border-bottom: none; }
           <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Anywhere · 任何地点</div>
           <div style="font-size:22px;font-weight:800;color:var(--text-primary);margin-bottom:14px;">戒指 = 唯一可行的形态</div>
           <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
-            走路、洗澡、开车、谈判、跑步、睡前躺床——任何场景手都在身边。<br>
-            <span class="bold">除了戒指，其他所有设备都有操作摩擦 + 社交压力。</span>
+            走路、洗澡、开车、谈判、跑步、睡前躺床 —— 任何场景手都在身边。
           </p>
           <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,212,255,0.2);">
             <div style="font-size:12px;color:var(--text-muted);line-height:1.6;">
@@ -521,338 +1008,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 5: Why is critical & 软件抓不到 ==================== -->
-  <div class="slide" data-slide="4">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Context 的核心</h3>
-      <h2 class="anim">决定 AI 答案质量的，<br>是 <span class="accent">Why</span>，不是 What 和 How。</h2>
-
-      <div class="anim" style="margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
-        <div class="card" style="padding:22px 24px;">
-          <div style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">What · 你做了什么</div>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
-            周二开了会、周三发了邮件、周四 commit 了代码……<br>
-            <span style="color:var(--text-secondary);">日历、邮件、文件、Linear、GitHub 都能查到。</span>
-          </p>
-          <div style="margin-top:14px;padding:8px 12px;background:rgba(0,0,0,0.2);border-radius:6px;font-size:12px;color:var(--accent);">软件能拿到 ✓</div>
-        </div>
-        <div class="card" style="padding:22px 24px;">
-          <div style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">How · 你怎么做的</div>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
-            邮件用了什么模板、代码用了什么框架、PRD 写了哪些字……<br>
-            <span style="color:var(--text-secondary);">屏幕录像、剪贴板、文件历史能拿到。</span>
-          </p>
-          <div style="margin-top:14px;padding:8px 12px;background:rgba(0,0,0,0.2);border-radius:6px;font-size:12px;color:var(--accent);">软件能拿到 ✓</div>
-        </div>
-        <div class="card card-accent" style="padding:22px 24px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">Why · 你为什么这么决定</div>
-          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
-            为什么不选 A 选 B？为什么这个客户优先级高？为什么这版改了又改？<br>
-            <span class="bold">全在你和别人对话的过程里、在你嘴里。</span>
-          </p>
-          <div style="margin-top:14px;padding:8px 12px;background:rgba(255,80,80,0.08);border:1px solid rgba(255,80,80,0.2);border-radius:6px;font-size:12px;color:#ff6b6b;font-weight:600;">软件抓不到 ✗</div>
-        </div>
-      </div>
-
-      <div class="anim card" style="margin-top:28px;padding:22px 28px;">
-        <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:10px;">为什么 Why 决定了答案的 personal 程度</div>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;">
-          AI 知道你周二跟这位投资人开会（What） + 邮件用某个模板（How） → 它能给你一封"格式正确的邮件"。<br>
-          AI 知道你<span class="bold">为什么</span>选了这家而不是另外两家、<span class="bold">为什么</span>三场会议都绕着 hardware moat 这个点、<span class="bold">为什么</span>承诺要发架构图却一直没发 → 它能给你一封"<span class="accent bold">他真正想看到的邮件</span>"。
-        </p>
-      </div>
-
-      <div class="anim" style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:18px;">
-        <div class="card" style="padding:18px 24px;">
-          <div style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">企业为什么搞不定 agent 自动化</div>
-          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">
-            企业的 Why 散落在 CEO / 销售 / 产品 / 用户脑子里 — 谁也拿不齐，agent 永远拼不出完整决策路径。
-          </p>
-        </div>
-        <div class="card card-accent" style="padding:18px 24px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">个人为什么能搞定</div>
-          <p style="font-size:13px;color:var(--text-secondary);line-height:1.6;">
-            你的 Why / How / What <span class="bold">全在你一个人这里</span>。只要把声音抓下来，就有完整决策路径。
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 6: 解法 — Personal Context Infra ==================== -->
-  <div class="slide" data-slide="5">
-    <div class="slide-inner">
-      <div class="split-60-40">
-        <div>
-          <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">方案</h3>
-          <h2 class="anim" style="font-size:36px;">一枚戒指，<br>一个 portable 的 Memory，<br>接到任何 AI。</h2>
-          <div style="margin-top:32px;">
-            <div class="anim arch-layer top">
-              <div class="arch-label">采集层 · 戒指</div>
-              <div class="arch-title">Anytime / Anywhere</div>
-              <div class="arch-desc">主动触发（不是 always-on）· 双击长录音 / 触摸给指令 / 离线 4h+ / 连续 12-15h</div>
-            </div>
-            <div class="anim arch-arrow">↓</div>
-            <div class="anim arch-layer mid">
-              <div class="arch-label">★ 核心 · Memory 中枢</div>
-              <div class="arch-title">Personal Context Infra</div>
-              <div class="arch-desc">树状抽象 + 实体图谱 双结构 · 高保真 fetch · 用户可看可改 · 不锁模型</div>
-            </div>
-            <div class="anim arch-arrow">↓</div>
-            <div class="anim arch-layer bottom">
-              <div class="arch-label">接口层 · MCP / CLI</div>
-              <div class="arch-title">Any Agent</div>
-              <div class="arch-desc">作为 memory 插件给任意 agent · 也作为 agent 平台调任意 CLI / MCP / API</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="anim card card-accent" style="padding:24px 28px;">
-            <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">不和模型公司竞争</div>
-            <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
-              我们不做模型，不抢 Claude / GPT 的位置。<br>
-              <span class="bold">我们是上面那一层 — 所有 agent 产品的根基。</span>
-            </p>
-          </div>
-          <div class="anim card" style="margin-top:16px;padding:20px 28px;">
-            <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;">Memory 双结构</div>
-            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
-              <span class="bold">Tree</span>：从原始 → episode → project → scene → profile，逐层抽象。<br>
-              <span class="bold">Graph</span>：实体关系图谱，解决"人和事的连接"。<br>
-              <span style="color:var(--accent);">Mem0 那种平铺索引 scale 不动，长上下文必崩。</span>
-            </p>
-          </div>
-          <div class="anim card" style="margin-top:16px;padding:20px 28px;">
-            <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;">连接层（MCP / CLI）</div>
-            <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
-              MCP 是 agent 时代的协议层，已有 1000+ server 上线。<br>
-              我们既能当任意 agent 的 memory 插件，也能当 agent 平台调外部能力。
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 7: DAY-1 三层价值 ==================== -->
-  <div class="slide" data-slide="6">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Day-1 价值</h3>
-      <h2 class="anim">你不用相信远期愿景，<br>Day-1 就值这个钱。</h2>
-
-      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:36px;">
-        <div class="card" style="padding:28px;">
-          <div style="font-size:13px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">第一层 · Day 1</div>
-          <div style="font-size:24px;font-weight:800;color:var(--text-primary);margin-bottom:12px;">📋 当 Plaud 用</div>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
-            录音、转写、关键点提取、自动归档。<br>
-            和市面上所有录音戒指的基础功能一致——但我们的麦克风阵列+续航是别人 3 倍。
-          </p>
-          <div style="margin-top:16px;font-size:13px;color:var(--accent);font-weight:600;">$249 硬件就值这个钱</div>
-        </div>
-        <div class="card" style="padding:28px;border-color:rgba(0,212,255,0.4);">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">第二层 · Week 1</div>
-          <div style="font-size:24px;font-weight:800;color:var(--text-primary);margin-bottom:12px;">📅 Smart Calendar / 报告 / 邮件</div>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;">
-            带 context 的执行：戒指帮你写跟进邮件、生成日报、预约会议——基于你之前所有的对话。
-          </p>
-          <div style="margin-top:16px;font-size:13px;color:var(--accent);font-weight:600;">每月省下 10+ 小时</div>
-        </div>
-        <div class="card card-accent" style="padding:28px;">
-          <div style="font-size:13px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">第三层 · Month 1+</div>
-          <div style="font-size:24px;font-weight:800;color:var(--text-primary);margin-bottom:12px;">🎯 Anytime / Anywhere / Any Agent</div>
-          <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">
-            戒指 = 鼠标键盘的替代品。任意场景触摸说话，任意 AI 都立刻懂你。<br>
-            <span class="bold">这才是远期愿景，但你不用等到这一天才能用。</span>
-          </p>
-          <div style="margin-top:16px;font-size:13px;color:var(--accent);font-weight:600;">真正改变工作方式</div>
-        </div>
-      </div>
-
-      <div class="anim card" style="margin-top:32px;padding:24px 32px;">
-        <p style="font-size:17px;color:var(--text-secondary);line-height:1.7;text-align:center;">
-          <span class="bold">三层价值是渐进的，不是要赌一个未来。</span> 你 Day-1 就能拿到第一层；用 1 周就解锁第二层；用 1 个月以上的人，会发现自己再也回不去了。
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 8: 场景 1 — 会议前 ==================== -->
-  <div class="slide" data-slide="7">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">场景 1 · 会议前</h3>
-      <h2 class="anim">几天的灵感碎片，<br>自动变成下次会议的 talking points。</h2>
-
-      <div class="anim" style="margin-top:32px;">
-        <div class="scenario-step">
-          <div class="scenario-time">Day -3 · 散步时</div>
-          <div class="scenario-action">"想到怎么讲我们 Memory 架构的差异点。" <span style="color:var(--text-muted);">— 触摸戒指口述 12 秒</span></div>
-        </div>
-        <div class="scenario-step">
-          <div class="scenario-time">Day -2 · 跟联创聊完</div>
-          <div class="scenario-action">"Marshall 提的那个声纹方案值得跟投资人讲。" <span style="color:var(--text-muted);">— 触摸戒指口述 8 秒</span></div>
-        </div>
-        <div class="scenario-step">
-          <div class="scenario-time">Day -1 · 开车回家</div>
-          <div class="scenario-action">"投资人最近在看的项目和我们的差异点……" <span style="color:var(--text-muted);">— 触摸戒指口述 25 秒</span></div>
-        </div>
-        <div class="scenario-step highlight">
-          <div class="scenario-time">Day 0 · 会议前 30 分钟</div>
-          <div class="scenario-action">"帮我准备一下今天和那位投资人的会。"</div>
-          <div class="scenario-detail">
-            → Memory 自动召回过去 3 天 / 12 段录音 / 17 个相关 episode<br>
-            → 生成结构化 talking points：3 个核心差异点、2 个潜在异议、1 个 closing 钩子<br>
-            → 同步到你的备忘录，邮件草稿已准备好
-          </div>
-        </div>
-      </div>
-
-      <div class="anim card card-accent" style="margin-top:24px;padding:20px 28px;text-align:center;">
-        <p style="font-size:16px;color:var(--text-secondary);">
-          <span class="bold">传统方式</span>：会前 1 小时翻笔记、整理思路、写大纲。<br>
-          <span class="accent bold">现在</span>：30 秒，agent 已经把你这 3 天所有相关的思考拼好了。
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 9: 场景 2 — Smart Calendar / 会议后 ==================== -->
-  <div class="slide" data-slide="8">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">场景 2 · 会议后</h3>
-      <h2 class="anim">不是日历，<br>是带 <span class="accent">Context</span> 的 Calendar。</h2>
-
-      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
-        <div class="card" style="padding:28px;">
-          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">生活场景 · 女朋友的生日</div>
-          <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;">
-            你说："下个月 18 号给女朋友过生日。"<br><br>
-            Memory 已经知道：<br>
-            • 声纹识别她是谁，过去 30 段对话里她提到喜欢什么<br>
-            • 上次她说"那家日料还想再去一次"<br>
-            • 她下个月 17 号有个 deadline，18 号会很累<br><br>
-            <span class="accent bold">Calendar 自动生成</span>：餐厅订位（她喜欢的那家）、礼物建议（上次提过的）、当天行程留白（她需要休息）。
-          </p>
-        </div>
-        <div class="card" style="padding:28px;">
-          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">工作场景 · 出差见投资人</div>
-          <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;">
-            你说："周三去上海见高总。"<br><br>
-            Memory 已经知道：<br>
-            • 你和高总过去聊了 4 次，他关注 hardware moat<br>
-            • 上次会议你答应给他发一份 memory 架构图<br>
-            • 上海当天预报雨，你常住的那家酒店在他公司步行 5 分钟<br><br>
-            <span class="accent bold">Calendar 自动生成</span>：航班、酒店预订、提醒带伞、待办里加上"发架构图给高总"。
-          </p>
-        </div>
-      </div>
-
-      <div class="anim" style="margin-top:24px;text-align:center;">
-        <p style="font-size:17px;color:var(--text-secondary);">
-          关键不是 Calendar 这个产品 — 是<span class="bold">每一条日程都自动带上你应该带的 context</span>。<br>
-          <span class="accent bold">这件事现在的 Google Calendar / Apple Calendar / Notion 都做不到，因为它们没有你的声音。</span>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 10: 场景 3 — Computer Use ==================== -->
-  <div class="slide" data-slide="9">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">场景 3 · Computer Use</h3>
-      <h2 class="anim">手不用碰键盘。<br>戒指 = <span class="accent">鼠标键盘的替代品</span>。</h2>
-
-      <div class="anim" style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-        <div class="card" style="padding:28px;">
-          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">坐着写代码</div>
-          <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:14px;">
-            触摸戒指："把刚才那个 Claude Code session 打开，跟它说我们要把 auth flow 改成 OAuth 2.0，然后让它先跑一遍 test。"
-          </p>
-          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">
-            → 戒指通过 Computer Use 操控屏幕<br>
-            → 切到正确 session、输入 prompt、回车、监控 output<br>
-            → 你的手没碰键盘，眼睛甚至没看屏幕
-          </p>
-        </div>
-        <div class="card card-accent" style="padding:28px;">
-          <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">不在电脑前</div>
-          <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:14px;">
-            走路时触摸戒指："把今天和小明聊到的 3 个 idea 整理成 PRD，发到 Linear，标 P1。"
-          </p>
-          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">
-            → 戒指调 Memory 召回今天对话<br>
-            → 调 Linear MCP 创建 issue<br>
-            → 你回到电脑前，PRD 已经在 Linear 里
-          </p>
-        </div>
-      </div>
-
-      <div class="anim card" style="margin-top:28px;padding:20px 28px;">
-        <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;">为什么戒指是 Computer Use 最合适的触发器</div>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
-          IMU 手势 + 触摸 + 双麦阵列 → 可以分辨"双击长录音"、"触摸给指令"、"长按"、"画圈"、"滑动"等多种交互方式 + 高保真语音。每一种都能映射到一个 agent action。手势 + 语音 = AI 时代的新鼠标键盘。
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 11: 场景 4 — 戒指输入法 ==================== -->
-  <div class="slide" data-slide="10">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">场景 4 · 戒指输入法</h3>
-      <h2 class="anim">不只是戒指自己的 App。<br><span class="accent">任意场景下，戒指就是你的输入法。</span></h2>
-
-      <div class="anim" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px;">
-        <div class="card" style="padding:20px;text-align:center;">
-          <div style="font-size:28px;margin-bottom:8px;">💬</div>
-          <div style="font-size:15px;font-weight:700;color:var(--text-primary);">微信打字</div>
-          <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">戒指语音 → 直接输入到任何输入框</div>
-        </div>
-        <div class="card" style="padding:20px;text-align:center;">
-          <div style="font-size:28px;margin-bottom:8px;">📝</div>
-          <div style="font-size:15px;font-weight:700;color:var(--text-primary);">Notion 写笔记</div>
-          <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">说一段话 → 自动结构化成笔记</div>
-        </div>
-        <div class="card" style="padding:20px;text-align:center;">
-          <div style="font-size:28px;margin-bottom:8px;">🐙</div>
-          <div style="font-size:15px;font-weight:700;color:var(--text-primary);">GitHub Issue</div>
-          <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">口述 bug → 自动 format markdown</div>
-        </div>
-        <div class="card" style="padding:20px;text-align:center;">
-          <div style="font-size:28px;margin-bottom:8px;">📧</div>
-          <div style="font-size:15px;font-weight:700;color:var(--text-primary);">Gmail 写邮件</div>
-          <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">说意图 → 用你的风格生成全文</div>
-        </div>
-      </div>
-
-      <div class="anim card card-accent" style="margin-top:28px;padding:24px 32px;">
-        <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">和系统语音输入法的关键区别</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-          <div>
-            <div style="font-size:14px;font-weight:700;color:var(--text-muted);margin-bottom:6px;">系统语音输入</div>
-            <p style="font-size:14px;color:var(--text-muted);line-height:1.6;">
-              纯转写。你说什么打什么。<br>语义理解为零，没有任何上下文。
-            </p>
-          </div>
-          <div>
-            <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:6px;">戒指输入法</div>
-            <p style="font-size:14px;color:var(--text-secondary);line-height:1.6;">
-              带 Memory。你说"回他一下我同意"，<br>它知道"他"是谁、"什么"是什么、用什么风格。
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="anim" style="margin-top:20px;text-align:center;">
-        <p style="font-size:17px;color:var(--text-muted);">
-          不是另一个工具，是<span class="accent bold">你和数字世界沟通的新接口</span>。
-        </p>
-      </div>
-    </div>
-  </div>
-
   <!-- ==================== SLIDE 12: 三件必做的事 ==================== -->
-  <div class="slide" data-slide="11">
+  <div class="slide" data-slide="10">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">为什么是我们</h3>
       <h2 class="anim">三件事缺一不可，<br>每一件都很硬。</h2>
@@ -876,7 +1033,7 @@ table tr:last-child td { border-bottom: none; }
             <li>✅ Tree（分层抽象）+ Graph（实体关系）双结构</li>
             <li>✅ 高保真 fetch，token 消耗极少</li>
             <li>✅ 多人对话场景声纹识别准确</li>
-            <li>❌ <span style="color:var(--text-muted);">Mem0 / 平铺索引那套 — scale 不动，长上下文必崩</span></li>
+            <li>✅ <span style="color:var(--text-secondary);">长上下文场景下高保真召回，token 消耗持续下降</span></li>
           </ul>
         </div>
         <div class="card" style="padding:28px;">
@@ -900,138 +1057,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 13: 为什么是戒指（形态学） ==================== -->
-  <div class="slide" data-slide="12">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">形态选择</h3>
-      <h2 class="anim">戒指 = 1000 多年来<br>人类穿戴渗透率第一名。</h2>
-
-      <div class="anim" style="overflow-x:auto;margin-top:32px;">
-        <table class="comp-table" style="font-size:14px;">
-          <thead>
-            <tr>
-              <th style="width:14%;"></th>
-              <th>📿 项链 / 吊坠</th>
-              <th>⌚ 手环 / 手表</th>
-              <th>🎧 耳机</th>
-              <th>📱 手机</th>
-              <th style="color:var(--accent);">💍 戒指</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>渗透率</td>
-              <td>极低<br><span style="font-size:11px;color:var(--text-muted);">不戴的人永远不戴</span></td>
-              <td>中</td>
-              <td>中（但戴上=拒绝沟通）</td>
-              <td>极高</td>
-              <td class="comp-us">极高<br><span style="font-size:11px;">结婚戒+饰品</span></td>
-            </tr>
-            <tr>
-              <td>离嘴距离</td>
-              <td>近</td>
-              <td>远（手会乱动）</td>
-              <td>近</td>
-              <td>远</td>
-              <td class="comp-us">近（手贴脸）</td>
-            </tr>
-            <tr>
-              <td>社交侵入</td>
-              <td>胸前录音→敏感</td>
-              <td>抬腕=暗示看时间</td>
-              <td>戴上=拒绝沟通</td>
-              <td>掏手机=中断对话</td>
-              <td class="comp-us">完全无感知</td>
-            </tr>
-            <tr>
-              <td>24h 佩戴</td>
-              <td>❌</td>
-              <td>充电时摘</td>
-              <td>充电时摘</td>
-              <td>❌</td>
-              <td class="comp-us">✅ 防水 · 无感</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="anim card card-accent" style="margin-top:28px;padding:24px 32px;">
-        <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;">
-          <span class="bold">投吊坠的人回答不了一个问题：人类历史上吊坠形态的渗透率有多少？</span><br>
-          答案是极低。戴的人不会换，不戴的人永远不会戴。这就是为什么吊坠形态的硬件永远做不大。<br>
-          <span class="accent bold">戒指是人类历史上渗透率最高的穿戴形态</span> — 全球结婚戒+饰品戒指穿戴率远超任何其他形态。
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 14: 为什么市面上没人做对 ==================== -->
-  <div class="slide" data-slide="13">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">竞争格局</h3>
-      <h2 class="anim">戒指都说要做。<br><span class="accent">没人做对。</span></h2>
-
-      <div class="anim" style="margin-top:28px;overflow-x:auto;">
-        <table class="comp-table" style="font-size:14px;">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Stream Ring (Sandbar)</th>
-              <th>Spark / Vocci</th>
-              <th style="color:var(--accent);">Monostone</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>麦克风</td>
-              <td>1 个</td>
-              <td>1 个</td>
-              <td class="comp-us">2 个 + 波束成形</td>
-            </tr>
-            <tr>
-              <td>连续录音</td>
-              <td>< 4 小时</td>
-              <td>< 8 小时</td>
-              <td class="comp-us">12-15 小时</td>
-            </tr>
-            <tr>
-              <td>原打的故事</td>
-              <td>灵感记录</td>
-              <td>灵感记录</td>
-              <td class="comp-us">Personal Context Infra</td>
-            </tr>
-            <tr>
-              <td>Memory 系统</td>
-              <td>无</td>
-              <td>无</td>
-              <td class="comp-us">Tree + Graph</td>
-            </tr>
-            <tr>
-              <td>Agent 接入</td>
-              <td>无</td>
-              <td>无</td>
-              <td class="comp-us">CLI / MCP 双向</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="anim card" style="margin-top:28px;padding:24px 32px;">
-        <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">为什么他们做不到长录音？</div>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
-          单麦克风做不了 beamforming → 信噪比差 → 距离一变就转写不准。<br>
-          做双麦克风 → 功耗翻倍 → 续航做不到 12h。<br>
-          所以他们一开始打"灵感记录"（短录音 OK），后来想改口"长录音"，但<span class="bold">硬件 spec 跟不上故事</span>。
-        </p>
-        <p style="font-size:15px;color:var(--accent);font-weight:600;margin-top:12px;">
-          我们 Day-1 就盯着量产 + 长录音，不是事后补硬件。
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 15: 团队 — 为什么偏偏是这几个人 ==================== -->
-  <div class="slide" data-slide="14">
+  <!-- ==================== SLIDE 13: 团队 — 为什么偏偏是这几个人 ==================== -->
+  <div class="slide" data-slide="11">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Team</h3>
       <h2 class="anim">为什么 <span class="accent">偏偏是这几个人</span> 来做这件事</h2>
@@ -1125,8 +1152,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 16: WHY NOW + 市场 ==================== -->
-  <div class="slide" data-slide="15">
+  <!-- ==================== SLIDE 14: WHY NOW + 市场 ==================== -->
+  <div class="slide" data-slide="12">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Why Now</h3>
       <h2 class="anim">四个时间窗口，<br>都在 2025-2026 同时打开。</h2>
@@ -1190,95 +1217,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 17: 商业模式 ==================== -->
-  <div class="slide" data-slide="16">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">商业模式</h3>
-      <h2 class="anim">硬件获客 · 订阅留存 · Memory Infra 变现。</h2>
-
-      <div class="anim" style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-        <div>
-          <div class="card" style="padding:24px 28px;margin-bottom:16px;">
-            <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">① 硬件 — 获客入口</div>
-            <div style="display:flex;justify-content:space-between;gap:16px;">
-              <div style="flex:1;text-align:center;">
-                <div style="font-size:13px;color:var(--text-muted);">零售</div>
-                <div style="font-size:32px;font-weight:800;color:var(--text-primary);">$249</div>
-              </div>
-              <div style="width:1px;background:var(--border);"></div>
-              <div style="flex:1;text-align:center;">
-                <div style="font-size:13px;color:var(--text-muted);">BOM</div>
-                <div style="font-size:32px;font-weight:800;color:var(--accent);">~$30</div>
-              </div>
-              <div style="width:1px;background:var(--border);"></div>
-              <div style="flex:1;text-align:center;">
-                <div style="font-size:13px;color:var(--text-muted);">毛利</div>
-                <div style="font-size:32px;font-weight:800;color:var(--accent);">~80%</div>
-              </div>
-            </div>
-          </div>
-          <div class="pricing-grid">
-            <div class="pricing-card">
-              <div class="pricing-plan">Starter</div>
-              <div class="pricing-price" style="font-size:30px;">$20<span>/月</span></div>
-              <ul class="pricing-features">
-                <li>基础录音额度</li>
-                <li>L1-L2 Memory</li>
-                <li>核心投递</li>
-              </ul>
-            </div>
-            <div class="pricing-card featured">
-              <div class="pricing-plan">Pro</div>
-              <div class="pricing-price" style="font-size:30px;">$50-100<span>/月</span></div>
-              <ul class="pricing-features">
-                <li>大量 Agent 额度</li>
-                <li>完整 Memory L1-L3</li>
-                <li>所有 MCP 集成</li>
-              </ul>
-            </div>
-            <div class="pricing-card">
-              <div class="pricing-plan">Max</div>
-              <div class="pricing-price" style="font-size:30px;">$200<span>/月</span></div>
-              <ul class="pricing-features">
-                <li>无限额度</li>
-                <li>BYOK 选项</li>
-                <li>高级推理</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="card card-accent" style="padding:24px 28px;margin-bottom:16px;">
-            <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">② BYOK — Max 用户</div>
-            <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
-              用户自带 OpenAI / Anthropic / Gemini API key，AI 推理成本由用户承担，Monostone 只收平台费。<br>
-              <span class="accent bold">毛利 >85%，对烧 token 多的人极有吸引力。</span>
-            </p>
-          </div>
-          <div class="card" style="padding:24px 28px;margin-bottom:16px;">
-            <div style="font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">③ Memory Infra — 远期变现</div>
-            <p style="font-size:15px;color:var(--text-secondary);line-height:1.7;">
-              第三方 agent 调用我们的 Memory 层 → <span class="bold">按调用抽 30%</span>。<br>
-              成为下一代 agent 的 default memory layer，类似 Stripe 之于支付。
-            </p>
-          </div>
-          <div class="card" style="padding:20px 28px;">
-            <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;">估值跃迁路径</div>
-            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-              <span style="background:var(--accent-dim);padding:6px 14px;border-radius:8px;font-size:13px;color:var(--accent);font-weight:600;">硬件</span>
-              <span style="color:var(--accent);">→</span>
-              <span style="background:var(--accent-dim);padding:6px 14px;border-radius:8px;font-size:13px;color:var(--accent);font-weight:600;">订阅</span>
-              <span style="color:var(--accent);">→</span>
-              <span style="background:var(--accent);color:#000;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:700;">Memory Infra</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== SLIDE 18: TRACTION + ASK ==================== -->
-  <div class="slide" data-slide="17">
+  <!-- ==================== SLIDE 15: TRACTION + ASK ==================== -->
+  <div class="slide" data-slide="14">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Traction & Ask</h3>
       <h2 class="anim">已经在跑了。<br><span class="accent">$4M Pre-Seed @ $20M pre-money。</span></h2>
@@ -1334,75 +1274,6 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 19: VISION — 我们对 AI 未来的理解 ==================== -->
-  <div class="slide" data-slide="18">
-    <div class="slide-inner">
-      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Vision</h3>
-      <h2 class="anim">为什么是戒指 + Memory + MCP — <br>我们对 AI 未来的理解。</h2>
-
-      <!-- The Equation -->
-      <div class="anim" style="margin-top:36px;padding:32px 40px;border-radius:16px;background:linear-gradient(135deg,rgba(0,212,255,0.12),rgba(0,212,255,0.02));border:1px solid rgba(0,212,255,0.3);text-align:center;">
-        <div style="font-size:13px;font-weight:700;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;">AI 时代的杠杆公式</div>
-        <div style="font-size:30px;font-weight:800;color:var(--text-primary);line-height:1.4;letter-spacing:-0.5px;">
-          AI 杠杆 = <span style="color:var(--text-muted);">Token Leverage</span>
-          <span style="color:var(--text-muted);font-weight:400;"> × </span>
-          <span class="accent">介入频率</span>
-          <span style="color:var(--text-muted);font-weight:400;"> × </span>
-          <span class="accent">介入质量</span>
-        </div>
-        <p style="font-size:14px;color:var(--text-muted);margin-top:16px;line-height:1.6;">
-          模型变强 → token leverage 变长（这块由模型公司在做，已 commoditized）<br>
-          <span style="color:var(--text-secondary);">真正还没解决的瓶颈在后两项 —— 我们专门做这两件事。</span>
-        </p>
-      </div>
-
-      <!-- Three Columns: Why Hardware + Memory + MCP -->
-      <div class="anim" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px;">
-        <div class="card" style="padding:22px 24px;">
-          <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">① 戒指硬件</div>
-          <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:10px;">最大化"介入频率"</div>
-          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;">
-            把启动一个 agent 的距离 → 缩短到一次触摸。<br>
-            走路、洗澡、谈判、跑步、躺床 —— 任何场景都能介入。<br>
-            <span style="color:var(--text-secondary);">每天本来会被丢弃的 5-10 个高价值想法，全部接住。</span>
-          </p>
-        </div>
-        <div class="card" style="padding:22px 24px;">
-          <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">② Memory</div>
-          <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:10px;">最大化"介入质量"</div>
-          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;">
-            每次介入都自带你的全量 context，不需要重新喂。<br>
-            Tree + Graph 双结构，跨工具持久。<br>
-            <span style="color:var(--text-secondary);">30 秒指令的杠杆，等于过去 30 分钟手动喂 context 的杠杆。</span>
-          </p>
-        </div>
-        <div class="card" style="padding:22px 24px;">
-          <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">③ MCP</div>
-          <div style="font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:10px;">放大到任何 Agent</div>
-          <p style="font-size:13px;color:var(--text-muted);line-height:1.65;">
-            前两项的价值 × N 个 agent。<br>
-            ChatGPT / Claude / Cursor / Manus / OpenClaw / NotebookLM 都立刻受益。<br>
-            <span style="color:var(--text-secondary);">未来出现什么新 agent，戒指都能 day-1 接入，不需要换。</span>
-          </p>
-        </div>
-      </div>
-
-      <!-- Closing Punchline -->
-      <div class="anim" style="margin-top:24px;padding:24px 32px;border-radius:14px;background:rgba(0,0,0,0.3);border:1px solid var(--border);text-align:center;">
-        <p style="font-size:18px;color:var(--text-secondary);line-height:1.7;">
-          未来每个人都是 <span class="accent bold">5-10 个 Agent 的老板</span>。<br>
-          但今天，老板们还在用 <span class="bold">1995 年的输入设备</span>，被绑在桌子前。
-        </p>
-        <p style="font-size:22px;font-weight:800;color:var(--accent);margin-top:14px;letter-spacing:-0.3px;">
-          戒指就是那个"近"。
-        </p>
-        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">
-          模型公司让 AI 能做的事变多。我们让你能用上的次数变多、每次都用得对。
-        </p>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <!-- NAV DOTS -->
@@ -1416,7 +1287,7 @@ table tr:last-child td { border-bottom: none; }
 
 <script>
 (function() {
-  const TOTAL = 19;
+  const TOTAL = 15;
   let current = 0;
   let animating = false;
   const slides = document.querySelectorAll('.slide');
