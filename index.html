@@ -407,8 +407,219 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 3: Day-1 痛点 — 介入频率受限 ==================== -->
+  <!-- ==================== SLIDE 3: 一个 PM 的一天 — Day-1 集成场景 ==================== -->
   <div class="slide" data-slide="2">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Day-1 集成场景</h3>
+      <h2 class="anim">李涛的一天 · 戒指如何<span class="accent">无感融入 PM 的工作和生活</span>。</h2>
+
+      <!-- Persona Strip -->
+      <div class="anim" style="margin-top:20px;padding:14px 22px;border-radius:10px;background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.15);display:grid;grid-template-columns:auto 1fr 1fr;gap:24px;align-items:center;font-size:13px;">
+        <div>
+          <span style="color:var(--accent);font-weight:700;">李涛 · 31</span>
+          <span style="color:var(--text-muted);margin-left:6px;">成长期 SaaS · PM</span>
+        </div>
+        <div style="color:var(--text-secondary);">
+          <span style="color:var(--text-muted);">工具栈:</span> Linear · Google Calendar / Gmail / Docs · Notion · Cursor / Claude Code · Perplexity
+        </div>
+        <div style="color:var(--text-secondary);text-align:right;">
+          <span style="color:var(--text-muted);">习惯:</span> 4-6 会/天 · 重度 AI 用户 · 业余炒股 · 妻子 + 6 岁儿子
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <style>
+        .pm-row { display: grid; grid-template-columns: 90px 1.2fr 1.5fr; gap: 18px; align-items: center; padding: 11px 18px; background: var(--bg-light); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 6px; font-size: 13px; }
+        .pm-time { font-size: 14px; font-weight: 800; color: var(--accent); letter-spacing: 0.5px; }
+        .pm-scn { color: var(--text-secondary); line-height: 1.5; }
+        .pm-scn-name { font-weight: 700; color: var(--text-primary); }
+        .pm-out { color: var(--text-muted); line-height: 1.55; }
+        .pm-out .out-key { color: var(--accent); font-weight: 600; }
+        .pm-row.cron { background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(0,212,255,0.02)); border: 1px solid rgba(0,212,255,0.3); }
+        .pm-row.cron .pm-time { color: var(--accent); }
+      </style>
+
+      <div class="anim" style="margin-top:14px;">
+
+        <div class="pm-row">
+          <div class="pm-time">07:30</div>
+          <div class="pm-scn">
+            <div class="pm-scn-name">🚶 通勤路上灵感</div>
+            <div>支付流程优化的关键洞察 → 触摸戒指口述 90 秒</div>
+          </div>
+          <div class="pm-out">
+            → Memory 归类到 <span class="out-key">"支付重构"</span> project<br>
+            → 走到工位时 <span class="out-key">Notion PRD 草稿已就绪</span>
+          </div>
+        </div>
+
+        <div class="pm-row">
+          <div class="pm-time">09:30</div>
+          <div class="pm-scn">
+            <div class="pm-scn-name">🤝 团队晨会（6 人）</div>
+            <div>触摸戒指开会议模式，全程录</div>
+          </div>
+          <div class="pm-out">
+            → 声纹自动分离每个发言人<br>
+            → 一句话："整理我项目相关的 action items" → <span class="out-key">Linear 自动建 issue 分配到人</span>
+          </div>
+        </div>
+
+        <div class="pm-row">
+          <div class="pm-time">12:30</div>
+          <div class="pm-scn">
+            <div class="pm-scn-name">📈 跟投资朋友 Mark 午餐</div>
+            <div>录对话（Mark 同意，戒指 LED 提示）</div>
+          </div>
+          <div class="pm-out">
+            → Memory 区分 <span class="out-key">工作 vs 投资 context</span><br>
+            → 下午一句话 → <span class="out-key">Perplexity 跑芯片股金融分析</span>，晚上邮件就绪
+          </div>
+        </div>
+
+        <div class="pm-row">
+          <div class="pm-time">14:30</div>
+          <div class="pm-scn">
+            <div class="pm-scn-name">🎙️ 客户访谈（60 分钟）</div>
+            <div>戒指完整录音，李涛专注倾听不需记笔记</div>
+          </div>
+          <div class="pm-out">
+            → 访谈结束 5 分钟："整理成 user stories 标好优先级"<br>
+            → <span class="out-key">Linear 自动 + 原话引用 + 时间戳</span>，47 分钟那句反馈不会漏
+          </div>
+        </div>
+
+        <div class="pm-row">
+          <div class="pm-time">16:30</div>
+          <div class="pm-scn">
+            <div class="pm-scn-name">💬 茶水间跟小王聊出 idea</div>
+            <div>录对话，走回工位路上触摸戒指下指令</div>
+          </div>
+          <div class="pm-out">
+            → Claude Code 拿到<span class="out-key">完整对话 + 李涛过往 PRD 风格 + 项目代码库</span><br>
+            → 入座时 <span class="out-key">prototype 已跑完</span>，进入 review 模式
+          </div>
+        </div>
+
+        <div class="pm-row">
+          <div class="pm-time">19:00</div>
+          <div class="pm-scn">
+            <div class="pm-scn-name">🍽️ 家庭晚餐</div>
+            <div>妻子提到下月回北京 + 周六儿子比赛 → 手动触发录音</div>
+          </div>
+          <div class="pm-out">
+            → Memory 提取家庭事件 → <span class="out-key">Smart Calendar 同步</span><br>
+            → 当晚主动提醒："周六比赛要请假吗？北京机票推荐 5/15-17"
+          </div>
+        </div>
+
+        <div class="pm-row cron">
+          <div class="pm-time">FRI<br>17:00</div>
+          <div class="pm-scn">
+            <div class="pm-scn-name">🗓️ 周度复盘（Cron Job · 用户自定义）</div>
+            <div>每周五 17:00 自动跑这一周收集的所有 context</div>
+          </div>
+          <div class="pm-out">
+            → 自动生成：本周完成 / <span class="out-key">下周待办 / 要 catch up 的人 / 重点项目状态</span><br>
+            → 周一一打开 App 就清晰，<span class="out-key">不需要花 1 小时复盘</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="anim" style="margin-top:16px;text-align:center;">
+        <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;margin:0;">
+          戒指不是又一个工具 —— 是李涛<span class="accent bold">大脑的延伸</span>，<br>
+          也是他工作 + 生活的 <span class="accent bold">AI 时代 Personal Operating System</span>。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 4: 一天下来的累积价值 — Before vs After ==================== -->
+  <div class="slide" data-slide="3">
+    <div class="slide-inner">
+      <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">累积价值</h3>
+      <h2 class="anim">李涛的一天 · <span style="color:var(--text-muted);font-weight:500;">Before</span> vs <span class="accent">After 戴上戒指</span></h2>
+
+      <style>
+        .vt-row { display: grid; grid-template-columns: 1.2fr 1.4fr 1.4fr; gap: 18px; align-items: center; padding: 14px 22px; border-bottom: 1px solid var(--border); }
+        .vt-row.header { background: rgba(0,212,255,0.04); border-radius: 12px 12px 0 0; border-bottom: 2px solid var(--accent); padding: 12px 22px; }
+        .vt-row.header .col { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+        .vt-row.header .dim-h { color: var(--accent); }
+        .vt-row.header .before-h { color: var(--text-muted); }
+        .vt-row.header .after-h { color: var(--accent); }
+        .vt-dim { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+        .vt-dim .sub { display: block; font-size: 11px; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+        .vt-before { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+        .vt-after { font-size: 14px; color: var(--accent); font-weight: 600; line-height: 1.55; }
+        .vt-container { background: var(--bg-light); border: 1px solid var(--border); border-radius: 12px; }
+        .vt-row:last-child { border-bottom: none; border-radius: 0 0 12px 12px; }
+      </style>
+
+      <div class="anim vt-container" style="margin-top:24px;">
+
+        <div class="vt-row header">
+          <div class="col dim-h">维度</div>
+          <div class="col before-h">❌ Before · 没戴戒指</div>
+          <div class="col after-h">✅ After · 戴上戒指</div>
+        </div>
+
+        <div class="vt-row">
+          <div class="vt-dim">🧠 漏掉的关键 context<span class="sub">灵感 / 会议要点 / 客户原话 / 家庭事件</span></div>
+          <div class="vt-before">5-8 次 / 天</div>
+          <div class="vt-after">≈ 0</div>
+        </div>
+
+        <div class="vt-row">
+          <div class="vt-dim">⏱️ 重新喂 context 给 AI<span class="sub">每个 agent / 每个 session 都得从头讲</span></div>
+          <div class="vt-before">累计 ~60 min / 天</div>
+          <div class="vt-after">几乎 0（Memory 自带）</div>
+        </div>
+
+        <div class="vt-row">
+          <div class="vt-dim">🔄 跨工具手动搬运<span class="sub">Linear / Notion / Calendar / Gmail</span></div>
+          <div class="vt-before">30+ 次切换 + 复制粘贴</div>
+          <div class="vt-after">一句话自动跨工具</div>
+        </div>
+
+        <div class="vt-row">
+          <div class="vt-dim">🎙️ 客户访谈整理<span class="sub">60 min 访谈后写 user stories</span></div>
+          <div class="vt-before">~60 min / 次</div>
+          <div class="vt-after">5 min（一句话指令）</div>
+        </div>
+
+        <div class="vt-row">
+          <div class="vt-dim">🏠 家庭重要事件被记住<span class="sub">妻子 / 儿子 / 父母提到的事</span></div>
+          <div class="vt-before">看运气 · 经常忘</div>
+          <div class="vt-after">100%（Smart Calendar 自动同步）</div>
+        </div>
+
+        <div class="vt-row">
+          <div class="vt-dim">📊 周度复盘<span class="sub">本周做了什么 + 下周要做什么</span></div>
+          <div class="vt-before">周日花 1-2h</div>
+          <div class="vt-after">0（Cron 自动跑，App 内就绪）</div>
+        </div>
+
+        <div class="vt-row">
+          <div class="vt-dim">😩 下班后还在想<br>"今天有什么没做完"<span class="sub">心理负担</span></div>
+          <div class="vt-before">每天</div>
+          <div class="vt-after">几乎没有</div>
+        </div>
+
+      </div>
+
+      <div class="anim card card-accent" style="margin-top:20px;padding:22px 32px;">
+        <p style="font-size:16px;color:var(--text-secondary);line-height:1.7;text-align:center;margin:0;">
+          省下来的不是几分钟 —— 是每天 <span class="accent bold">2-3 小时</span>被 reclaim 的<span class="bold">高价值思考时间 + 家人时间</span>。<br>
+          这就是 <span class="accent">介入频率 × 介入质量</span> 的复合结果。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 5: Day-1 痛点 — 介入频率受限 ==================== -->
+  <div class="slide" data-slide="4">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Day-1 痛点 · 介入频率</h3>
       <h2 class="anim">想用 AI 的场景里，<br>大多数都<span class="accent">没有合适的 Context 收集设备</span>。</h2>
@@ -456,8 +667,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 4: 戒指 — 唯一全场景适配的形态 ==================== -->
-  <div class="slide" data-slide="3">
+  <!-- ==================== SLIDE 6: 戒指 — 唯一全场景适配的形态 ==================== -->
+  <div class="slide" data-slide="4">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">形态选择</h3>
       <h2 class="anim">戒指是唯一<span class="accent">全场景适配</span>的设备。<br>其他形态都只在某个场景成立。</h2>
@@ -615,8 +826,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 5: 硬件能力 — 我们解决的工程难题 ==================== -->
-  <div class="slide" data-slide="4">
+  <!-- ==================== SLIDE 7: 硬件能力 — 我们解决的工程难题 ==================== -->
+  <div class="slide" data-slide="5">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">硬件 · 我们做了什么</h3>
       <h2 class="anim">让戒指在<span class="accent">任何场景下</span>都能稳定收音 + 长时间在线。</h2>
@@ -670,8 +881,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 6: 软件能力 — 让录音变成可用 Context ==================== -->
-  <div class="slide" data-slide="5">
+  <!-- ==================== SLIDE 8: 软件能力 — 让录音变成可用 Context ==================== -->
+  <div class="slide" data-slide="6">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">软件 · 我们做了什么</h3>
       <h2 class="anim">让录音 → <span class="accent">可执行的 Context</span>。<br>不是简单的"语音转文字"。</h2>
@@ -729,8 +940,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 7: Smart Calendar — Memory 驱动的主动准备 ==================== -->
-  <div class="slide" data-slide="6">
+  <!-- ==================== SLIDE 9: Smart Calendar — Memory 驱动的主动准备 ==================== -->
+  <div class="slide" data-slide="7">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Day-1 软件价值</h3>
       <h2 class="anim">Smart Calendar — <br>不是日历，是 <span class="accent">"AI 知道你下一步要准备什么"</span>。</h2>
@@ -793,8 +1004,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 8: 过渡 — Day-1 vs 远期 ==================== -->
-  <div class="slide" data-slide="7">
+  <!-- ==================== SLIDE 10: 过渡 — Day-1 vs 远期 ==================== -->
+  <div class="slide" data-slide="8">
     <div class="slide-inner">
       <div style="text-align:center;">
         <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;margin-bottom:24px;">从 Day-1 到 AI 时代</h3>
@@ -831,8 +1042,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 9: 真问题 — General vs Personal Answer ==================== -->
-  <div class="slide" data-slide="8">
+  <!-- ==================== SLIDE 11: 真问题 — General vs Personal Answer ==================== -->
+  <div class="slide" data-slide="9">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">真问题</h3>
       <h2 class="anim">即使你回到电脑前 — <br>AI 还是不认识你。</h2>
@@ -883,8 +1094,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 10: Memory + MCP — Personal Context Infra ==================== -->
-  <div class="slide" data-slide="9">
+  <!-- ==================== SLIDE 12: Memory + MCP — Personal Context Infra ==================== -->
+  <div class="slide" data-slide="10">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">远期愿景</h3>
       <h2 class="anim">Memory + MCP — <br>把 Context 变成 <span class="accent">跨 Agent 的资产</span>。</h2>
@@ -943,8 +1154,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 11: 核心定位 — Anytime / Anywhere / Any Agent ==================== -->
-  <div class="slide" data-slide="10">
+  <!-- ==================== SLIDE 13: 核心定位 — Anytime / Anywhere / Any Agent ==================== -->
+  <div class="slide" data-slide="11">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">核心定位</h3>
       <h2 class="anim">Anytime · Anywhere · Any Agent</h2>
@@ -1008,8 +1219,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 12: 三件必做的事 ==================== -->
-  <div class="slide" data-slide="10">
+  <!-- ==================== SLIDE 14: 三件必做的事 ==================== -->
+  <div class="slide" data-slide="12">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">为什么是我们</h3>
       <h2 class="anim">三件事缺一不可，<br>每一件都很硬。</h2>
@@ -1057,8 +1268,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 13: 团队 — 为什么偏偏是这几个人 ==================== -->
-  <div class="slide" data-slide="11">
+  <!-- ==================== SLIDE 15: 团队 — 为什么偏偏是这几个人 ==================== -->
+  <div class="slide" data-slide="13">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Team</h3>
       <h2 class="anim">为什么 <span class="accent">偏偏是这几个人</span> 来做这件事</h2>
@@ -1152,8 +1363,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 14: WHY NOW + 市场 ==================== -->
-  <div class="slide" data-slide="12">
+  <!-- ==================== SLIDE 16: WHY NOW + 市场 ==================== -->
+  <div class="slide" data-slide="14">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Why Now</h3>
       <h2 class="anim">四个时间窗口，<br>都在 2025-2026 同时打开。</h2>
@@ -1217,8 +1428,8 @@ table tr:last-child td { border-bottom: none; }
     </div>
   </div>
 
-  <!-- ==================== SLIDE 15: TRACTION + ASK ==================== -->
-  <div class="slide" data-slide="14">
+  <!-- ==================== SLIDE 17: TRACTION + ASK ==================== -->
+  <div class="slide" data-slide="15">
     <div class="slide-inner">
       <h3 class="anim" style="color:var(--accent);font-size:16px;text-transform:uppercase;letter-spacing:2px;">Traction & Ask</h3>
       <h2 class="anim">已经在跑了。<br><span class="accent">$4M Pre-Seed @ $20M pre-money。</span></h2>
@@ -1287,7 +1498,7 @@ table tr:last-child td { border-bottom: none; }
 
 <script>
 (function() {
-  const TOTAL = 15;
+  const TOTAL = 17;
   let current = 0;
   let animating = false;
   const slides = document.querySelectorAll('.slide');
